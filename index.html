@@ -9,13 +9,12 @@
 <body>
 
 <!--
-THESIS: продукт — не отчёт, а подрядчик: одна очередь работ, агент их выполняет, акт доказывает эффект.
-OWN-WORLD: унаследован от дашборда трекера позиций (positions/template/frontend/dist/index.html) —
-белый лист, мятно-серые волосяные границы, карточки радиусом 18 с двойной тенью
-(0 1px 2px + 0 14px 30px -22px), синь #2480C8 как единственный акцент действия,
-шкала позиций четырьмя пилюлями E2F1E8/ECF5EE/FBF1DD/FBE8E4, Schibsted Grotesk одной гарнитурой,
-сетка через gap:1px на фоне #DCE8E3 вместо рамок. Система задана клиентом, не выбиралась.
-STORY: владелец видит состояние, видит очередь работ, нажимает «Применить» и получает акт.
+THESIS: продукт — не отчёт, а подрядчик. Одна очередь фиксов, агент их выполняет, акт доказывает эффект.
+OWN-WORLD: дизайн-система дашборда трекера позиций (positions/template/frontend/dist/index.html):
+белый лист, мятно-серые волосяные границы, карточки радиусом 18 с двойной тенью, синь #2480C8
+единственным цветом действия, шкала позиций четырьмя пилюлями, Schibsted Grotesk. Задана клиентом.
+STRUCTURE (правки с доски Miro, 11.08): меню слева и сворачивается; четыре экрана вместо шести вкладок;
+«ошибка» переименована в «фикс» и слита с очередью работ; квота по тарифу — в меню; комплаенс — кросс-продажа.
 FINISH: unreviewed and undocumented is unfinished.
 -->
 
@@ -36,22 +35,24 @@ FINISH: unreviewed and undocumented is unfinished.
     <symbol id="i-lab" viewBox="0 0 24 24"><path d="M9.5 3.5h5"/><path d="M10.5 3.5v6.2L5.8 18a2 2 0 0 0 1.7 3h9a2 2 0 0 0 1.7-3l-4.7-8.3V3.5"/><path d="M7.6 14.6h8.8"/></symbol>
     <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.4"/><path d="m15.8 15.8 4 4"/></symbol>
     <symbol id="i-link" viewBox="0 0 24 24"><path d="M10.5 13.5a4 4 0 0 0 5.7 0l2.6-2.6a4 4 0 0 0-5.7-5.7l-1.3 1.3"/><path d="M13.5 10.5a4 4 0 0 0-5.7 0l-2.6 2.6a4 4 0 1 0 5.7 5.7l1.3-1.3"/></symbol>
-    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M20.5 12.2c0 4-3.8 7.2-8.5 7.2-1 0-2-.15-2.9-.42L4 20.5l1.6-3.7C4.2 15.5 3.5 13.9 3.5 12.2c0-4 3.8-7.2 8.5-7.2s8.5 3.2 8.5 7.2Z"/><path d="M8.6 11.9h.02M12 11.9h.02M15.4 11.9h.02"/></symbol>
     <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3.2 5 6v6.2c0 4 2.9 7.4 7 8.6 4.1-1.2 7-4.6 7-8.6V6l-7-2.8Z"/><path d="m9 12 2.2 2.2L15.2 10"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M20.5 12.2c0 4-3.8 7.2-8.5 7.2-1 0-2-.15-2.9-.42L4 20.5l1.6-3.7C4.2 15.5 3.5 13.9 3.5 12.2c0-4 3.8-7.2 8.5-7.2s8.5 3.2 8.5 7.2Z"/><path d="M8.6 11.9h.02M12 11.9h.02M15.4 11.9h.02"/></symbol>
+    <symbol id="i-auto" viewBox="0 0 24 24"><rect x="4" y="7.5" width="16" height="12" rx="3"/><path d="M12 7.5V4M9.5 13v1.6M14.5 13v1.6"/><path d="M2.5 12v3M21.5 12v3"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20V4"/><path d="M4 20h16"/><path d="M8 16.5v-4M12.5 16.5V8M17 16.5v-6.5"/></symbol>
+    <symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="2.9"/><path d="M19.2 14.6a1.6 1.6 0 0 0 .32 1.76l.06.06a1.9 1.9 0 1 1-2.7 2.7l-.05-.06a1.6 1.6 0 0 0-1.77-.32 1.6 1.6 0 0 0-.97 1.46v.17a1.9 1.9 0 0 1-3.8 0v-.09a1.6 1.6 0 0 0-1.05-1.46 1.6 1.6 0 0 0-1.76.32l-.06.06a1.9 1.9 0 1 1-2.7-2.7l.06-.06a1.6 1.6 0 0 0 .32-1.76 1.6 1.6 0 0 0-1.46-.97H3.4a1.9 1.9 0 1 1 0-3.8h.09a1.6 1.6 0 0 0 1.46-1.05 1.6 1.6 0 0 0-.32-1.76l-.06-.06a1.9 1.9 0 1 1 2.7-2.7l.06.06a1.6 1.6 0 0 0 1.76.32h.08A1.6 1.6 0 0 0 10.13 3.5V3.4a1.9 1.9 0 0 1 3.8 0v.09a1.6 1.6 0 0 0 .97 1.46 1.6 1.6 0 0 0 1.76-.32l.06-.06a1.9 1.9 0 1 1 2.7 2.7l-.06.06a1.6 1.6 0 0 0-.32 1.76v.08a1.6 1.6 0 0 0 1.46.97h.17a1.9 1.9 0 0 1 0 3.8h-.09a1.6 1.6 0 0 0-1.46.97Z"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-panel" viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="15" rx="2.5"/><path d="M9.5 4.5v15"/></symbol>
   </defs>
 </svg>
 
-<!-- ═════ НАПРАВЛЕНИЕ ═════ -->
+<!-- ═════ ВХОД ═════ -->
 <section class="view is-active" id="v-intake">
   <div class="gate">
     <div class="gate-card">
-      <div class="brand brand-lg">
-        <span class="mark">Д</span>
-        <span class="brand-txt">Дозор <b>диагностика сайтов</b></span>
-      </div>
+      <div class="brand brand-lg"><span class="mark">Д</span><span class="brand-txt">Дозор <b>сторож вашего сайта</b></span></div>
 
       <h1 class="gate-title">Покажем, что мешает сайту, и починим это за вас</h1>
-      <p class="gate-lead">Введите адрес — через две-три минуты увидите технические ошибки и оценку страниц. Без регистрации и без доступов.</p>
+      <p class="gate-lead">Введите адрес — через две-три минуты увидите, что сломано и во что это обходится. Без регистрации и без доступов.</p>
 
       <form class="gate-form" id="intake-form" autocomplete="off">
         <input class="inp inp-lg" id="site-input" type="text" value="prof-instrument.ru" spellcheck="false" aria-label="Адрес сайта">
@@ -59,8 +60,8 @@ FINISH: unreviewed and undocumented is unfinished.
       </form>
 
       <ol class="hiw">
-        <li><b>1</b><div><span>Проверяем бесплатно</span>Ошибки и оценка страниц — за две-три минуты.</div></li>
-        <li><b>2</b><div><span>Агент чинит</span>Каждая правка — «было → станет», снимок и откат.</div></li>
+        <li><b>1</b><div><span>Проверяем бесплатно</span>Что сломано и сколько трафика это стоит.</div></li>
+        <li><b>2</b><div><span>Агент чинит</span>Каждый фикс — «было → станет», снимок и откат.</div></li>
         <li><b>3</b><div><span>Акт раз в месяц</span>Что сделали и что изменилось — цифрами.</div></li>
       </ol>
 
@@ -68,7 +69,7 @@ FINISH: unreviewed and undocumented is unfinished.
         <div class="gs-col">
           <div class="gs-head"><span class="dot dot-grn"></span>Сразу, бесплатно</div>
           <ul class="gs-list">
-            <li>Технические ошибки с ценой в трафике</li>
+            <li>Список фиксов с ценой в трафике</li>
             <li>Оценка текста и разметки страниц</li>
             <li>Скорость на телефоне</li>
           </ul>
@@ -78,7 +79,7 @@ FINISH: unreviewed and undocumented is unfinished.
           <ul class="gs-list">
             <li>Позиции по вашим запросам и динамика</li>
             <li>Какие страницы выпали из индекса и почему</li>
-            <li>Связка «страница — запросы — поломки»</li>
+            <li>Связка «страница — запросы — фиксы»</li>
           </ul>
         </div>
       </div>
@@ -87,27 +88,23 @@ FINISH: unreviewed and undocumented is unfinished.
   </div>
 </section>
 
-<!-- ═════ СКАНИРОВАНИЕ ═════ -->
+<!-- ═════ СКАН ═════ -->
 <section class="view" id="v-scan">
   <div class="gate">
     <div class="gate-card">
-      <div class="brand brand-lg">
-        <span class="mark">Д</span>
-        <span class="brand-txt">Дозор <b>диагностика сайтов</b></span>
-      </div>
+      <div class="brand brand-lg"><span class="mark">Д</span><span class="brand-txt">Дозор <b>сторож вашего сайта</b></span></div>
       <h1 class="gate-title sm">Проверяем <span id="scan-host">prof-instrument.ru</span></h1>
       <p class="gate-lead">Обходим страницы и снимаем показатели. Можно закрыть вкладку — результат сохранится.</p>
 
-      <ol class="scan-list" id="lab-list">
-        <li class="scan-row" data-ms="400"><span class="scan-ico"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg></span><span class="scan-name">Обход каталога и ответы сервера</span><span class="scan-val">2 640 страниц</span></li>
-        <li class="scan-row" data-ms="1400"><span class="scan-ico"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg></span><span class="scan-name">Заголовки, описания, разметка товаров</span><span class="scan-val is-bad">8 ошибок</span></li>
+      <ol class="scan-list" id="scan-list">
+        <li class="scan-row" data-ms="400"><span class="scan-ico"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg></span><span class="scan-name">Обход каталога и ответы сервера</span><span class="scan-val">2 640 страниц</span></li>
+        <li class="scan-row" data-ms="1400"><span class="scan-ico"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg></span><span class="scan-name">Заголовки, описания, разметка товаров</span><span class="scan-val is-bad">8 находок</span></li>
         <li class="scan-row" data-ms="2500"><span class="scan-ico"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg></span><span class="scan-name">Скорость каталога на телефоне</span><span class="scan-val is-bad">4,6 с</span></li>
-        <li class="scan-row" data-ms="3500"><span class="scan-ico"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg></span><span class="scan-name">Дубли фильтров и распроданные позиции</span><span class="scan-val is-bad">4 314 адресов</span></li>
+        <li class="scan-row" data-ms="3500"><span class="scan-ico"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg></span><span class="scan-name">Дубли фильтров и распроданные позиции</span><span class="scan-val is-bad">4 314 адресов</span></li>
         <li class="scan-row is-wait" data-ms="4400"><span class="scan-ico"><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg></span><span class="scan-name">Позиции в поиске</span><span class="scan-val is-wait">нужен Вебмастер</span></li>
       </ol>
 
-      <p class="scan-next">Дальше агент соберёт очередь работ и предложит правки — каждая с просмотром «было → станет» и откатом одним нажатием. Сам он ничего не меняет, пока вы не решите.</p>
-
+      <p class="scan-next">Дальше агент соберёт из находок список фиксов и предложит их по одному — каждый с просмотром «было → станет» и откатом одним нажатием. Сам он ничего не меняет, пока вы не решите.</p>
       <button class="btn btn-soft" id="scan-skip" type="button">Показать результат</button>
     </div>
   </div>
@@ -115,333 +112,294 @@ FINISH: unreviewed and undocumented is unfinished.
 
 <!-- ═════ ПРИЛОЖЕНИЕ ═════ -->
 <section class="view" id="v-app">
+<div class="shell" id="shell">
 
-  <header class="topbar">
-    <div class="tb-row">
-      <div class="brand">
-        <span class="mark">Д</span>
-        <span class="brand-txt">Дозор <b>prof-instrument.ru</b></span>
-      </div>
+  <div class="side-scrim" id="side-scrim" aria-hidden="true"></div>
+
+  <!-- ── МЕНЮ СЛЕВА ── -->
+  <aside class="side" id="side">
+    <div class="side-top">
+      <div class="brand"><span class="mark">Д</span><span class="brand-txt side-label">Дозор</span></div>
+      <button class="side-toggle" id="side-toggle" type="button" aria-label="Свернуть меню" title="Свернуть меню">
+        <svg class="ico" aria-hidden="true"><use href="#i-panel"/></svg>
+      </button>
+    </div>
+
+    <nav class="side-nav" id="side-nav" aria-label="Разделы">
+      <button class="nav is-active" data-tab="auto" type="button" title="Автопилот">
+        <svg class="ico" aria-hidden="true"><use href="#i-auto"/></svg>
+        <span class="side-label">Автопилот</span><span class="nav-n side-label" id="nav-wait">3</span>
+      </button>
+      <button class="nav" data-tab="positions" type="button" title="Позиции в поиске">
+        <svg class="ico" aria-hidden="true"><use href="#i-chart"/></svg>
+        <span class="side-label">Позиции в поиске</span>
+      </button>
+      <button class="nav" data-tab="act" type="button" title="Акт">
+        <svg class="ico" aria-hidden="true"><use href="#i-doc"/></svg>
+        <span class="side-label">Акт</span>
+      </button>
+      <button class="nav" data-tab="settings" type="button" title="Настройки">
+        <svg class="ico" aria-hidden="true"><use href="#i-gear"/></svg>
+        <span class="side-label">Настройки</span>
+      </button>
+    </nav>
+
+    <div class="side-foot">
+      <button class="quota" id="quota" type="button" title="Тариф и остаток">
+        <span class="q-plan side-label" id="q-plan">Рост · 20 000 ₽/мес</span>
+        <span class="q-bar" aria-hidden="true"><i id="q-fill"></i></span>
+        <span class="q-txt side-label" id="q-txt">осталось 640 из 890 запросов</span>
+        <span class="q-mini" id="q-mini" aria-hidden="true">72%</span>
+      </button>
+      <button class="compl" id="compl" type="button" title="Проверка по комплаенсу">
+        <svg class="ico" aria-hidden="true"><use href="#i-shield"/></svg>
+        <span class="side-label">Проверка по комплаенсу</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- ── РАБОЧАЯ ОБЛАСТЬ ── -->
+  <div class="work">
+    <header class="topbar">
+      <button class="burger" id="burger" type="button" aria-label="Меню"><svg class="ico" aria-hidden="true"><use href="#i-menu"/></svg></button>
+      <div class="host" id="host">prof-instrument.ru</div>
       <div class="tb-right">
         <span class="badge badge-amb"><span class="dot dot-amb"></span>демонстрационные данные</span>
-        <span class="badge badge-plan" id="plan-badge">Подрядчик · 10 000 ₽/мес</span>
         <button class="btn btn-line btn-sm" id="restart" type="button">Другой сайт</button>
         <span class="avatar">И</span>
       </div>
-    </div>
-    <nav class="tabs" role="tablist" aria-label="Разделы">
-      <button class="tab is-active" role="tab" aria-selected="true" data-tab="summary">Сводка</button>
-      <button class="tab" role="tab" aria-selected="false" data-tab="positions">Позиции</button>
-      <button class="tab" role="tab" aria-selected="false" data-tab="errors">Ошибки</button>
-      <button class="tab" role="tab" aria-selected="false" data-tab="page">Страница</button>
-      <button class="tab" role="tab" aria-selected="false" data-tab="act">Акт</button>
-      <button class="tab" role="tab" aria-selected="false" data-tab="program">Программа</button>
-    </nav>
-  </header>
+    </header>
 
-  <main class="content">
+    <main class="content">
 
-    <!-- ── СВОДКА ── -->
-    <div class="panel is-active" id="t-summary" role="tabpanel">
+      <!-- ── АВТОПИЛОТ ── -->
+      <div class="panel is-active" id="t-auto" role="tabpanel">
 
-      <section class="card onb" id="onb" hidden>
-        <button class="onb-x" id="onb-close" type="button" aria-label="Скрыть">×</button>
-        <div class="onb-head" id="onb-head">С чего начать</div>
-        <ol class="onb-steps" id="onb-steps"></ol>
-        <div id="onb-cta"></div>
-      </section>
+        <section class="card onb" id="onb" hidden>
+          <button class="onb-x" id="onb-close" type="button" aria-label="Скрыть">×</button>
+          <div class="onb-head" id="onb-head"></div>
+          <ol class="onb-steps" id="onb-steps"></ol>
+          <div id="onb-cta"></div>
+        </section>
 
-            <div class="hero">
-        <div class="card hero-status">
-          <div class="hero-wash" aria-hidden="true"></div>
-          <div class="hero-in">
-            <div class="status-line"><span class="pulse"></span>требует внимания</div>
-            <h1 class="hero-title">Каталог работает вполсилы</h1>
-            <p class="hero-text">Из 890 запросов, по которым вас находят, только 96 стоят на первой странице. Главная причина одна: 1 238 карточек Яндекс не держит в поиске — считает, что на них нечего читать, кроме цены.</p>
-            <div class="hero-mini">
-              <div class="mini mini-grn"><b>5</b><span>работ в очереди</span></div>
-              <div class="mini mini-grn" id="mini-done"><b>+31</b><span>запрос в ТОП-10 за месяц</span></div>
-            </div>
+        <div class="verdict card" id="verdict">
+          <span class="pulse" id="v-pulse"></span>
+          <div class="v-body">
+            <b id="v-title">Агент работает</b>
+            <span id="v-sub"></span>
           </div>
+          <button class="btn btn-blue btn-sm" id="v-cta" type="button">К фиксам</button>
         </div>
+
         <div class="kpis" id="kpi-grid"></div>
-      </div>
 
-      <section class="card">
-        <div class="card-head">
-          <div class="ch-left">
-            <h2 class="ch-title">Что делает агент</h2>
-            <span class="ch-sub" id="orders-sub">очередь работ · наверху то, что вернёт больше трафика</span>
-          </div>
-          <span class="pill-count" id="orders-count">5 работ</span>
-        </div>
-        <ol class="orders" id="orders-list"></ol>
-        <div class="card-foot" id="orders-note"></div>
-      </section>
-
-      <section class="card wait-card" id="pend-paid">
-        <div class="wait-in">
-          <span class="wait-ico"><svg class="ico" aria-hidden="true"><use href="#i-lab"/></svg></span>
-          <div>
-            <div class="wait-title">Идёт замер: дубли фильтров закрыты</div>
-            <p class="wait-text">Правка применена 04.08. Робот уже переключился на карточки, но эффект по позициям считается окном в 14 дней — результат будет 18.08, в следующем акте. До закрытия окна мы не показываем промежуточных цифр: придуманная точность хуже честного пробела.</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="card wait-card" id="pend-free" hidden>
-        <div class="wait-in">
-          <span class="wait-ico"><svg class="ico" aria-hidden="true"><use href="#i-lab"/></svg></span>
-          <div>
-            <div class="wait-title">История позиций копится</div>
-            <p class="wait-text">Вебмастер подключён недавно. Сравнение «стало лучше или хуже» появится, когда наберутся два полных окна по 14 дней — к 25.08. До этого показываем позиции без стрелок: придуманная динамика хуже честного пробела.</p>
-          </div>
-        </div>
-      </section>
-    </div>
-
-    <!-- ── ПОЗИЦИИ ── -->
-    <div class="panel" id="t-positions" role="tabpanel">
-      <section class="card">
-        <div class="card-head col">
-          <div class="ch-row">
-            <h2 class="ch-title">Запросы <span class="ch-n">890</span></h2>
-            <div class="scale-key">
-              <span><i class="sw sw-1"></i>1–3</span>
-              <span><i class="sw sw-2"></i>4–10</span>
-              <span><i class="sw sw-3"></i>11–30</span>
-              <span><i class="sw sw-4"></i>30+</span>
-            </div>
-          </div>
-          <div class="chips" role="group" aria-label="Фильтр запросов">
-            <span class="chips-lbl">сегмент</span>
-            <button class="chip is-active" data-filter="all" type="button">Все<b>890</b></button>
-            <button class="chip" data-filter="top" type="button">На первой странице<b>96</b></button>
-            <button class="chip" data-filter="close" type="button">Почти дошли<b>132</b></button>
-            <button class="chip" data-filter="drop" type="button">Просели<b>57</b></button>
-          </div>
-        </div>
-
-        <div class="thead">
-          <div class="th th-q">Запрос</div>
-          <div class="th th-p">Позиция</div>
-          <div class="th th-d">За 14 дней</div>
-          <div class="th th-u">Страница</div>
-        </div>
-        <div id="pos-body"></div>
-        <div class="card-foot">Сравнение идёт за две недели целиком, а не день ко дню: по одному дню данные приходят рваными и дают ложные падения. Показано 10 запросов из 890. Яндекс раскрывает только запросы с достаточными показами — это потолок его выгрузки, а не пробел в нашем сборе.</div>
-      </section>
-    </div>
-
-    <!-- ── ОШИБКИ ── -->
-    <div class="panel" id="t-errors" role="tabpanel">
-      <section class="card">
-        <div class="card-head">
-          <div class="ch-left">
-            <h2 class="ch-title">Что сломано</h2>
-            <span class="ch-sub">цена посчитана в страницах и запросах, которых из-за ошибки нет</span>
-          </div>
-          <span class="pill-count">4 открыто · 4 исправлено</span>
-        </div>
-        <div id="defects-list"></div>
-      </section>
-    </div>
-
-    <!-- ── СТРАНИЦА ── -->
-    <div class="panel" id="t-page" role="tabpanel">
-      <div class="page-grid">
-        <div class="page-main">
-          <section class="card">
-            <div class="card-head">
+        <section class="card">
+          <div class="card-head col">
+            <div class="ch-row">
               <div class="ch-left">
-                <h2 class="ch-title">/catalog/perforatory/</h2>
-                <span class="ch-sub">категория · 40 запросов ведут сюда</span>
+                <h2 class="ch-title">Рабочая панель</h2>
+                <span class="ch-sub">каждая находка — фикс: что делаем, чего это стоит, кто нажимает</span>
               </div>
-              <a class="link-out" href="#" onclick="return false">открыть<svg class="ico" aria-hidden="true"><use href="#i-link"/></svg></a>
             </div>
-            <div class="thead thead-c">
-              <div class="th th-q">Запрос</div>
-              <div class="th th-p">Позиция</div>
-              <div class="th th-d">Динамика</div>
+            <div class="chips" role="group" aria-label="Состояние фиксов">
+              <button class="chip is-active" data-fx="wait" type="button">Ждут вас<b id="c-wait">3</b></button>
+              <button class="chip" data-fx="auto" type="button">Агент делает сам<b id="c-auto">4</b></button>
+              <button class="chip" data-fx="pages" type="button">Страницы</button>
             </div>
-            <div id="page-pos-body"></div>
-            <div class="card-foot">Показаны 5 запросов из 40, ведущих на эту страницу. Цвет позиции: зелёный — первая страница поиска, жёлтый — вторая-третья, красный — глубже 30-го места.</div>
-          </section>
+          </div>
+          <div id="fx-body"></div>
+          <div class="card-foot" id="fx-note"></div>
+        </section>
 
-          <section class="card">
-            <div class="card-head">
-              <div class="ch-left"><h2 class="ch-title">Что мешает этой странице</h2></div>
+        <section class="card watch" id="watch">
+          <div class="card-head">
+            <div class="ch-left">
+              <h2 class="ch-title">Под наблюдением</h2>
+              <span class="ch-sub">чинить нечего, но сторож следит и поднимет в работу, если станет хуже</span>
             </div>
-            <ul class="pdefects">
-              <li>
-                <span class="pd-ico is-bad"><svg class="ico" aria-hidden="true"><use href="#i-warn"/></svg></span>
-                <div><b>Категория отдаёт только сетку товаров</b><span>Сорок запросов застряли на 11–19 месте. Человек ищет «какой перфоратор выбрать» и «чем sds plus отличается от sds max» — на странице нет ни слова об этом, только плитки с ценами.</span><span class="pd-tag">ждёт вашего подтверждения · программа «Рост»</span></div>
-              </li>
-              <li>
-                <span class="pd-ico is-amb"><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg></span>
-                <div><b>Открывается 3,1 секунды при норме 2,5</b><span>Было 4,6 — агент пережал фото товаров и включил подгрузку по прокрутке 04.08. Остаток держит время ответа сервера на выборке из тысячи позиций, это уже вопрос к хостингу.</span></div>
-              </li>
-              <li class="is-fixed">
-                <span class="pd-ico is-ok"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg></span>
-                <div><b>Заголовок повторялся ещё на 639 карточках</b><span>Был общий «Купить в интернет-магазине — низкие цены» — поиск не понимал, какую страницу показывать. Агент собрал свой заголовок 21.07, категория поднялась с 11 на 7 место.</span></div>
-              </li>
-            </ul>
-          </section>
-        </div>
-
-        <aside class="page-side">
-          <section class="card plan-card">
-            <div class="plan-head"><svg class="ico" aria-hidden="true"><use href="#i-doc"/></svg>План по странице</div>
-            <p class="plan-text">Категория держится на 11–19 месте по сорока запросам: люди её ищут, но до первой страницы она не дотягивает. Страница отвечает на вопрос «что у вас есть» и не отвечает на вопрос «что мне взять».</p>
-            <div class="plan-lbl">Дописать на страницу</div>
-            <ul class="plan-list">
-              <li>Чем SDS-plus отличается от SDS-max и что брать под бетон, а что под демонтаж.</li>
-              <li>Какая мощность нужна под конкретную задачу — таблицей на четыре строки.</li>
-              <li>Что идёт в комплекте и что придётся докупить отдельно.</li>
-              <li>Частые вопросы: гарантия, сервис, совместимость буров.</li>
-            </ul>
-            <div class="plan-lbl">Поправить в разметке</div>
-            <ul class="plan-list">
-              <li>Свой заголовок: «Перфораторы SDS-plus и SDS-max — купить с гарантией».</li>
-              <li>Описание на 150–160 знаков с диапазоном цен и наличием.</li>
-              <li>Разметка товаров и отзывов — тогда категорию смогут цитировать поисковые ответы.</li>
-            </ul>
-            <div class="plan-foot">Ожидаемо: 40 запросов входят на первую страницу, порядка 120 посетителей в неделю.</div>
-          </section>
-        </aside>
+          </div>
+          <div id="watch-body"></div>
+        </section>
       </div>
-    </div>
 
-    <!-- ── АКТ ── -->
-    <div class="panel" id="t-act" role="tabpanel">
-
-      <section class="card teach-card" id="act-empty" hidden>
-        <div class="teach-in">
-          <span class="teach-ico"><svg class="ico" aria-hidden="true"><use href="#i-doc"/></svg></span>
-          <div>
-            <div class="teach-title">Акта пока нет — вы в бесплатной «Диагностике»</div>
-            <p class="teach-text">В платных программах здесь каждый месяц появляется одна страница: что агент сделал на сайте и что после этого изменилось — с датами, страницами и группами запросов. Это ответ на вопрос «за что я плачу», записанный цифрами.</p>
-            <button class="btn btn-blue btn-sm" data-goto="program" type="button">Посмотреть программы</button>
-          </div>
-        </div>
-      </section>
-
-      <div id="act-full">
-        <div class="card hero-status act-hero">
-          <div class="hero-wash grn" aria-hidden="true"></div>
-          <div class="hero-in">
-            <div class="status-line grn"><span class="pulse grn"></span>период закрыт</div>
-            <h1 class="hero-title">Акт № 07 · июль — август</h1>
-            <p class="hero-text">Применены три правки, обработаны 1 050 карточек и 96 новых позиций, поймана одна поломка. Программа «<span id="act-prog">Подрядчик</span>», период 14 июля — 11 августа 2026.</p>
-            <div class="act-totals">
-              <div class="at"><span class="at-l">Запросов в ТОП-10</span><span class="at-v">65<svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg>96</span></div>
-              <div class="at"><span class="at-l">Видимость</span><span class="at-v">10%<svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg>14%</span></div>
-              <div class="at"><span class="at-l">Открытых ошибок</span><span class="at-v">8<svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg>4</span></div>
-            </div>
-          </div>
+      <!-- ── ПОЗИЦИИ ── -->
+      <div class="panel" id="t-positions" role="tabpanel">
+        <div class="lead-card card">
+          <h2 class="lead-h">Где ваш магазин стоит в поиске</h2>
+          <p class="lead-p">Каждая строка — запрос, который люди набирают в Яндексе. Число рядом — какое место занимает ваш сайт: <b>1–3</b> это самый верх выдачи, <b>4–10</b> — первая страница, дальше человек почти не смотрит. Стрелка показывает, куда сдвинулись за две недели.</p>
         </div>
 
         <section class="card">
-          <div class="card-head">
-            <div class="ch-left">
-              <h2 class="ch-title">Сделано и что изменилось</h2>
-              <span class="ch-sub">каждая строка — правка агента и наблюдение после неё</span>
+          <div class="card-head col">
+            <div class="ch-row">
+              <h2 class="ch-title">Запросы <span class="ch-n">890</span></h2>
+              <div class="scale-key">
+                <span><i class="sw sw-1"></i>1–3</span><span><i class="sw sw-2"></i>4–10</span>
+                <span><i class="sw sw-3"></i>11–30</span><span><i class="sw sw-4"></i>30+</span>
+              </div>
+            </div>
+            <div class="chips" role="group" aria-label="Фильтр запросов">
+              <span class="chips-lbl">сегмент</span>
+              <button class="chip is-active" data-filter="all" type="button">Все<b>890</b></button>
+              <button class="chip" data-filter="top" type="button">На первой странице<b>96</b></button>
+              <button class="chip" data-filter="close" type="button">Почти дошли<b>132</b></button>
+              <button class="chip" data-filter="drop" type="button">Просели<b>57</b></button>
             </div>
           </div>
-          <div class="thead thead-act">
-            <div class="th">Работа</div>
-            <div class="th th-w">Когда</div>
-            <div class="th th-r">Что изменилось после</div>
+          <div class="thead">
+            <div class="th th-q">Запрос</div><div class="th th-p">Место</div>
+            <div class="th th-d">За 14 дней</div><div class="th th-u">Страница</div>
           </div>
-          <div class="act-rows">
-            <div class="act-row">
-              <div class="ar-w"><b>Разведены одинаковые заголовки карточек</b><span>шаблон на 640 карточках</span></div>
-              <div class="ar-d">21.07</div>
-              <div class="ar-r"><span class="res res-ok">Группа из 128 запросов: средняя позиция 17 → 11, тридцать одна вошла в первую десятку.</span></div>
-            </div>
-            <div class="act-row">
-              <div class="ar-w"><b>Добавлены описания для поиска</b><span>410 карточек без описаний</span></div>
-              <div class="ar-d">28.07</div>
-              <div class="ar-r"><span class="res res-ok">Из тех же показов — на 74 перехода в неделю больше: подпись под ссылкой стала внятной.</span></div>
-            </div>
-            <div class="act-row">
-              <div class="ar-w"><b>Закрыты дубли, которые плодили фильтры каталога</b><span>4 100 адресов · плюс сжатие фото товаров</span></div>
-              <div class="ar-d">04.08</div>
-              <div class="ar-r"><span class="res">Робот переключился на карточки: обход каталога ускорился втрое, страница открывается за 3,1 с вместо 4,6.</span><span class="res res-wait">Влияние на позиции — замер до 18.08.</span></div>
-            </div>
-            <div class="act-row">
-              <div class="ar-w"><b>Поймана поломка: обновление темы стёрло разметку цен</b><span>сторож регрессий · 1 240 карточек</span></div>
-              <div class="ar-d">29.07</div>
-              <div class="ar-r"><span class="res">Разметка возвращена в тот же день — до поисковика поломка дойти не успела.</span></div>
-            </div>
-            <div class="act-row">
-              <div class="ar-w"><b>Обработаны новые товары</b><span>96 позиций, появившихся за период</span></div>
-              <div class="ar-d">по мере появления</div>
-              <div class="ar-r"><span class="res">Заголовки, описания и разметка — в день публикации, а не «когда дойдут руки».</span></div>
-            </div>
-          </div>
-          <div class="card-foot">Сравнение — окно 14 дней к предыдущему окну, как везде в отчёте. Позиции двигает не только наша работа: сезон, конкуренты, алгоритмы поиска. Поэтому в акте написано «после правки», а не «благодаря правке» — придуманная причинность хуже честного наблюдения.</div>
+          <div id="pos-body"></div>
+          <div class="card-foot">Сравнение идёт за две недели целиком, а не день ко дню: по одному дню данные приходят рваными и дают ложные падения. Показано 10 запросов из 890. Яндекс раскрывает только запросы с достаточными показами — это потолок его выгрузки, а не пробел в нашем сборе.</div>
         </section>
       </div>
-    </div>
 
-    <!-- ── ПРОГРАММА ── -->
-    <div class="panel" id="t-program" role="tabpanel">
-      <div class="prog-intro">
-        <h2 class="prog-h">Диагностика бесплатна и остаётся бесплатной</h2>
-        <p class="prog-p">Деньги берутся за одно: агент своими руками приводит сайт в порядок и каждый месяц показывает актом, что изменилось.</p>
-      </div>
-
-      <div class="plans" id="plans"></div>
-
-      <section class="card">
-        <div class="card-head">
-          <div class="ch-left"><h2 class="ch-title">Что входит</h2></div>
-        </div>
-        <div class="feat-head">
-          <div class="fh-name"></div>
-          <div class="fh-col" data-col="free">Диагностика</div>
-          <div class="fh-col" data-col="pro">Подрядчик</div>
-          <div class="fh-col" data-col="growth">Рост</div>
-        </div>
-        <div id="feat-body"></div>
-      </section>
-
-      <section class="card trust-card">
-        <div class="trust-in">
-          <span class="trust-ico"><svg class="ico" aria-hidden="true"><use href="#i-shield"/></svg></span>
-          <div>
-            <div class="trust-title">Ваш сайт остаётся вашим</div>
-            <p class="trust-text">Правки записываются прямо в поля WordPress и остаются навсегда — даже если отключитесь. Доступ через плагин: пароли не нужны, отзывается одной кнопкой у вас в админке. Перед каждой правкой — снимок «как было», откат одним нажатием. Тексты публикуются только после вашего подтверждения.</p>
+      <!-- ── АКТ ── -->
+      <div class="panel" id="t-act" role="tabpanel">
+        <section class="card teach-card" id="act-empty" hidden>
+          <div class="teach-in">
+            <span class="teach-ico"><svg class="ico" aria-hidden="true"><use href="#i-doc"/></svg></span>
+            <div>
+              <div class="teach-title">Акта пока нет — вы в бесплатной «Диагностике»</div>
+              <p class="teach-text">В платных программах здесь каждый месяц появляется одна страница: что агент сделал на сайте и что после этого изменилось — с датами, страницами и группами запросов. Это ответ на вопрос «за что я плачу», записанный цифрами.</p>
+              <button class="btn btn-blue btn-sm" data-goto="settings" type="button">Посмотреть программы</button>
+            </div>
           </div>
+        </section>
+
+        <div id="act-full">
+          <div class="card hero-status act-hero">
+            <div class="hero-wash grn" aria-hidden="true"></div>
+            <div class="hero-in">
+              <div class="status-line grn"><span class="pulse grn"></span>период закрыт</div>
+              <h1 class="hero-title">Акт № 07 · июль — август</h1>
+              <p class="hero-text">Что сделали и что после этого изменилось. Период 14 июля — 11 августа 2026, программа «<span id="act-prog">Рост</span>».</p>
+              <div class="act-totals">
+                <div class="at"><span class="at-l">Запросов в ТОП-10</span><span class="at-v">65<svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg>96</span></div>
+                <div class="at"><span class="at-l">Видимость</span><span class="at-v">10%<svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg>14%</span></div>
+                <div class="at"><span class="at-l">Открытых фиксов</span><span class="at-v">8<svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg>4</span></div>
+              </div>
+            </div>
+          </div>
+
+          <section class="card">
+            <div class="card-head">
+              <div class="ch-left">
+                <h2 class="ch-title">Что изменилось после наших правок</h2>
+                <span class="ch-sub">результат по каждому фиксу, а не список работ</span>
+              </div>
+            </div>
+            <div class="thead thead-act">
+              <div class="th">Фикс</div><div class="th th-w">Когда</div><div class="th th-r">Что изменилось после</div>
+            </div>
+            <div id="act-rows"></div>
+            <div class="card-foot">Сравнение — окно 14 дней к предыдущему окну, как везде в интерфейсе. Позиции двигает не только наша работа: сезон, конкуренты, алгоритмы поиска. Поэтому здесь написано «после правки», а не «благодаря правке» — придуманная причинность хуже честного наблюдения.</div>
+          </section>
+
+          <section class="card">
+            <div class="card-head">
+              <div class="ch-left">
+                <h2 class="ch-title">Журнал работ</h2>
+                <span class="ch-sub">всё, что агент сделал за период, включая рутину без отдельного эффекта</span>
+              </div>
+              <span class="pill-count">142 операции</span>
+            </div>
+            <div id="log-body"></div>
+          </section>
         </div>
-      </section>
-    </div>
-
-    <footer class="foot">Все данные на экране синтетические и служат только для показа интерфейса. Ни один показатель не измерен на реальном сайте.</footer>
-  </main>
-
-  <!-- ═════ ПОМОЩНИК ═════ -->
-  <div class="chat" id="chat">
-    <div class="chat-panel" id="chat-panel" role="dialog" aria-label="Помощник Дозора" aria-modal="false" hidden>
-      <div class="chat-head">
-        <span class="chat-ava">Д</span>
-        <div class="chat-who"><b>Помощник</b><span id="chat-ctx">видит ваш сайт и очередь работ</span></div>
-        <button class="chat-x" id="chat-close" type="button" aria-label="Свернуть помощника">×</button>
       </div>
-      <div class="chat-log" id="chat-log" aria-live="polite"></div>
-      <div class="chat-sugg" id="chat-sugg"></div>
-      <form class="chat-form" id="chat-form" autocomplete="off">
-        <input class="chat-inp" id="chat-inp" placeholder="Спросите про сайт…" aria-label="Вопрос помощнику">
-        <button class="chat-send" type="submit" aria-label="Отправить"><svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></button>
-      </form>
-      <div class="chat-note">Демонстрация: ответы заготовлены. В продукте помощник читает данные вашего сайта.</div>
-    </div>
-    <button class="chat-fab" id="chat-fab" type="button" aria-label="Открыть помощника" aria-expanded="false">
-      <svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg>
-      <span class="chat-dot" id="chat-dot"></span>
-    </button>
+
+      <!-- ── НАСТРОЙКИ ── -->
+      <div class="panel" id="t-settings" role="tabpanel">
+
+        <section class="card">
+          <div class="card-head">
+            <div class="ch-left"><h2 class="ch-title">Подключение к сайту</h2><span class="ch-sub">через плагин, без паролей от админки</span></div>
+            <span class="st st-done"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>подключён 14.07</span>
+          </div>
+          <div class="set-rows">
+            <div class="set-row">
+              <div><b>Плагин «Дозор» для WordPress</b><span>версия 1.2 · сайт prof-instrument.ru · последний обмен 4 минуты назад</span></div>
+              <button class="btn btn-line btn-sm" type="button">Отозвать доступ</button>
+            </div>
+            <div class="set-row">
+              <div><b>Яндекс.Вебмастер</b><span>права подтверждены 14.07 · данные приходят с задержкой 1–3 дня, это потолок Яндекса</span></div>
+              <button class="btn btn-line btn-sm" type="button">Переподключить</button>
+            </div>
+          </div>
+          <div class="card-foot">Пароли от сайта мы не храним и не запрашиваем. Плагин отзывается одной кнопкой у вас в админке — после этого агент теряет доступ, а все сделанные правки остаются на сайте навсегда.</div>
+        </section>
+
+        <section class="card">
+          <div class="card-head">
+            <div class="ch-left"><h2 class="ch-title">Что агент делает без вопросов</h2><span class="ch-sub">доверие включается по частям — снимите галочку, и фикс будет ждать вашего нажатия</span></div>
+          </div>
+          <div id="auto-rows"></div>
+          <div class="card-foot">Тексты никогда не публикуются автоматически — это правило, а не настройка. Перед любой правкой агент делает снимок «как было»; откат — одно нажатие.</div>
+        </section>
+
+        <section class="card">
+          <div class="card-head">
+            <div class="ch-left"><h2 class="ch-title">Программа</h2><span class="ch-sub">диагностика бесплатна и остаётся бесплатной; деньги — за исполнение</span></div>
+          </div>
+          <div class="plans" id="plans"></div>
+          <div class="feat-head">
+            <div class="fh-name"></div>
+            <div class="fh-col" data-col="free">Диагностика</div>
+            <div class="fh-col" data-col="pro">Подрядчик</div>
+            <div class="fh-col" data-col="growth">Рост</div>
+          </div>
+          <div id="feat-body"></div>
+        </section>
+      </div>
+
+      <footer class="foot">Все данные на экране синтетические и служат только для показа интерфейса. Ни один показатель не измерен на реальном сайте.</footer>
+    </main>
   </div>
+</div>
+
+<!-- ── КОМПЛАЕНС: кросс-продажа ── -->
+<div class="modal" id="compl-modal" hidden>
+  <div class="modal-card" role="dialog" aria-label="Проверка по комплаенсу">
+    <button class="modal-x" id="compl-x" type="button" aria-label="Закрыть">×</button>
+    <span class="modal-ic"><svg class="ico" aria-hidden="true"><use href="#i-shield"/></svg></span>
+    <h2 class="modal-h">Проверка по комплаенсу</h2>
+    <p class="modal-p">Отдельная услуга: проверяем сайт по 152-ФЗ и смежным требованиям — политика обработки данных, формы согласия, cookie-баннер, права на изображения и тексты. На выходе отчёт с приоритетами и что именно исправить.</p>
+    <ul class="modal-list">
+      <li>52 параметра: персональные данные, авторские права, кибербезопасность</li>
+      <li>Отдельный отчёт, не смешивается с поисковыми фиксами</li>
+      <li>Штрафы по 152-ФЗ считаются отдельно от потерь трафика</li>
+    </ul>
+    <div class="modal-act">
+      <button class="btn btn-blue" type="button">Запросить проверку</button>
+      <button class="btn btn-line" id="compl-x2" type="button">Не сейчас</button>
+    </div>
+    <p class="modal-note">Это не входит в подписку «Дозора» — считается отдельно, потому что и работа другая.</p>
+  </div>
+</div>
+
+<!-- ── ПОМОЩНИК ── -->
+<div class="chat" id="chat">
+  <div class="chat-panel" id="chat-panel" role="dialog" aria-label="Помощник Дозора" hidden>
+    <div class="chat-head">
+      <span class="chat-ava">Д</span>
+      <div class="chat-who"><b>Помощник</b><span id="chat-ctx">видит ваш сайт и список фиксов</span></div>
+      <button class="chat-x" id="chat-close" type="button" aria-label="Свернуть помощника">×</button>
+    </div>
+    <div class="chat-log" id="chat-log" aria-live="polite"></div>
+    <div class="chat-sugg" id="chat-sugg"></div>
+    <form class="chat-form" id="chat-form" autocomplete="off">
+      <input class="chat-inp" id="chat-inp" placeholder="Спросите про сайт…" aria-label="Вопрос помощнику">
+      <button class="chat-send" type="submit" aria-label="Отправить"><svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+    </form>
+    <div class="chat-note">Демонстрация: ответы заготовлены. В продукте помощник читает данные вашего сайта.</div>
+  </div>
+  <button class="chat-fab" id="chat-fab" type="button" aria-label="Открыть помощника" aria-expanded="false">
+    <svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg>
+    <span class="chat-dot" id="chat-dot"></span>
+  </button>
+</div>
 
 </section>
 
@@ -537,10 +495,12 @@ FINISH: unreviewed and undocumented is unfinished.
   --grn:#2C8553; --grn-2:#1F7D4F; --grn-3:#3E8757; --grn-s:#E2F1E8; --grn-s2:#EAF3EC; --grn-line:#D6E8DC;
   --amb:#B07C28; --amb-2:#9A7B33; --amb-s:#FBF1DD; --amb-s2:#FBF6EE; --amb-line:#F0E6D4;
   --red:#C0392B; --red-s:#FBE8E4; --red-line:#F1D8D2;
+  --violet:#5B3FA8; --violet-s:#EFEAFA; --violet-line:#D6CBF0;
   --up:#2F8F5B; --down:#C0392B; --neu:#B0A89E;
   --sh:0 1px 2px rgba(18,52,44,.05),0 14px 30px -22px rgba(18,52,44,.22);
   --sh-lg:0 18px 50px -18px rgba(18,52,44,.30);
   --font:'Schibsted Grotesk',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --side-w:236px; --side-w-min:64px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 [hidden]{display:none!important}
@@ -552,34 +512,21 @@ h1,h2,h3{font-weight:700;letter-spacing:-.02em;text-wrap:balance}
 .ico{width:18px;height:18px;flex:none;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 @keyframes popIn{from{opacity:0;transform:translateY(8px) scale(.985)}to{opacity:1;transform:none}}
-@keyframes rowIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
-
 .view{display:none}
 .view.is-active{display:block}
 
-/* ── общие атомы ── */
+/* ── атомы ── */
 .card{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--sh);overflow:hidden;margin-bottom:16px}
-.mark{
-  width:28px;height:28px;border-radius:8px;flex:none;
-  background:linear-gradient(135deg,#14A5E5,var(--blue));color:#fff;
-  display:grid;place-items:center;font-weight:800;font-size:15px;
-}
-.brand{display:flex;align-items:center;gap:11px}
+.mark{width:28px;height:28px;border-radius:8px;flex:none;background:linear-gradient(135deg,#14A5E5,var(--blue));color:#fff;display:grid;place-items:center;font-weight:800;font-size:15px}
+.brand{display:flex;align-items:center;gap:11px;min-width:0}
 .brand-txt{font-weight:700;font-size:17px;letter-spacing:-.01em;white-space:nowrap}
 .brand-txt b{color:var(--mut-2);font-weight:500}
 .brand-lg .mark{width:34px;height:34px;border-radius:9px;font-size:18px}
 .brand-lg .brand-txt{font-size:18px}
-
 .dot{width:7px;height:7px;border-radius:50%;flex:none}
-.dot-grn{background:var(--grn)}
-.dot-blu{background:var(--blue)}
-.dot-amb{background:#D9A52A}
+.dot-grn{background:var(--grn)} .dot-blu{background:var(--blue)} .dot-amb{background:#D9A52A}
 
-.btn{
-  display:inline-flex;align-items:center;justify-content:center;gap:7px;
-  padding:9px 16px;border-radius:10px;font-size:14px;font-weight:600;
-  transition:background .15s,border-color .15s,color .15s,transform .12s,box-shadow .15s;
-}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:9px 16px;border-radius:10px;font-size:14px;font-weight:600;transition:background .15s,border-color .15s,color .15s,transform .12s,box-shadow .15s}
 .btn:active{transform:translateY(1px)}
 .btn:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
 .btn .ico{width:16px;height:16px}
@@ -587,440 +534,135 @@ h1,h2,h3{font-weight:700;letter-spacing:-.02em;text-wrap:balance}
 .btn-blue:hover{background:var(--blue-d)}
 .btn-line{border:1px solid #D9E6E1;background:#fff;color:var(--ink-4)}
 .btn-line:hover{border-color:#D8D2C8;color:var(--ink)}
-.btn-soft{
-  border:1px solid var(--line-2);color:var(--ink-4);
-  background:linear-gradient(180deg,#FFFFFF 0%,#EFF3F1 100%);
-  box-shadow:0 2px 0 #E2E9E5,0 4px 10px -5px rgba(18,52,44,.16);
-}
-.btn-soft:hover{transform:translateY(-1.5px);background:linear-gradient(180deg,#FFFFFF 0%,#E8EEEB 100%);box-shadow:0 4px 0 #E2E9E5,0 10px 18px -6px rgba(18,52,44,.24)}
-.btn-soft:active{transform:translateY(1px);box-shadow:0 1px 0 #E2E9E5,0 3px 8px -5px rgba(18,52,44,.16)}
+.btn-soft{border:1px solid var(--line-2);color:var(--ink-4);background:linear-gradient(180deg,#FFFFFF 0%,#EFF3F1 100%);box-shadow:0 2px 0 #E2E9E5,0 4px 10px -5px rgba(18,52,44,.16)}
+.btn-soft:hover{transform:translateY(-1.5px);box-shadow:0 4px 0 #E2E9E5,0 10px 18px -6px rgba(18,52,44,.24)}
 .btn-lg{padding:12px 22px;font-size:15px;border-radius:11px}
 .btn-sm{padding:7px 13px;font-size:13.5px;border-radius:9px}
-
-.inp{
-  padding:10px 14px;background:#fff;border:1px solid var(--line-2);border-radius:10px;
-  font:inherit;font-size:14.5px;color:var(--ink);outline:none;transition:border-color .15s,box-shadow .15s;
-}
+.inp{padding:10px 14px;background:#fff;border:1px solid var(--line-2);border-radius:10px;font:inherit;font-size:14.5px;color:var(--ink);outline:none;transition:border-color .15s,box-shadow .15s}
 .inp:focus{border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-s)}
 .inp-lg{padding:13px 16px;font-size:16px;border-radius:11px}
-
-.badge{
-  display:inline-flex;align-items:center;gap:7px;padding:6px 12px;border-radius:8px;
-  font-size:13.5px;font-weight:500;white-space:nowrap;
-}
+.badge{display:inline-flex;align-items:center;gap:7px;padding:6px 12px;border-radius:8px;font-size:13.5px;font-weight:500;white-space:nowrap}
 .badge-amb{background:var(--amb-s2);border:1px solid var(--amb-line);color:var(--amb-2)}
-.badge-plan{background:var(--blue-s);border:1px solid var(--blue-line);color:var(--blue);font-weight:600}
-.avatar{
-  width:30px;height:30px;border-radius:50%;flex:none;
-  background:var(--blue-s2);color:var(--blue);display:grid;place-items:center;font-weight:700;font-size:14px;
-}
+.avatar{width:30px;height:30px;border-radius:50%;flex:none;background:var(--blue-s2);color:var(--blue);display:grid;place-items:center;font-weight:700;font-size:14px}
 
-/* ── ворота: направление и скан ── */
-.gate{
-  min-height:100vh;display:flex;align-items:center;justify-content:center;padding:40px 20px;
-  background:linear-gradient(150deg,#E4F1FB 0%,#EFF7FD 40%,#FFFFFF 75%);
-}
-.gate-card{
-  width:100%;max-width:680px;background:#fff;border:1px solid var(--line);
-  border-radius:20px;box-shadow:var(--sh-lg);padding:32px 36px 30px;
-  animation:popIn .3s cubic-bezier(.2,.8,.2,1);
-}
+/* ── ворота ── */
+.gate{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:40px 20px;background:linear-gradient(150deg,#E4F1FB 0%,#EFF7FD 40%,#FFFFFF 75%)}
+.gate-card{width:100%;max-width:680px;background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:var(--sh-lg);padding:32px 36px 30px;animation:popIn .3s cubic-bezier(.2,.8,.2,1)}
 .gate-title{font-size:31px;line-height:1.12;margin-top:26px;max-width:17ch}
 .gate-title.sm{font-size:26px;max-width:none}
 .gate-lead{margin-top:12px;color:var(--ink-4);font-size:15.5px;max-width:56ch}
 .gate-form{display:flex;gap:10px;margin-top:24px;flex-wrap:wrap}
 .gate-form .inp{flex:1 1 260px}
-.gate-split{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:30px;padding-top:24px;border-top:1px solid var(--line-3)}
-.gs-head{display:flex;align-items:center;gap:9px;font-weight:600;font-size:14px;margin-bottom:11px}
-.gs-list li{position:relative;padding-left:16px;font-size:14px;color:var(--ink-4);margin-bottom:7px;line-height:1.45}
-.gs-list li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:1.5px;border-radius:1px;background:var(--faint)}
-.gate-note{margin-top:22px;padding-top:16px;border-top:1px solid var(--line-3);font-size:13px;color:var(--mut-2);line-height:1.55}
-
-.scan-list{margin-top:26px}
-.scan-row{
-  display:flex;align-items:center;gap:13px;padding:14px 2px;border-bottom:1px solid var(--line-4);
-  opacity:0;transform:translateY(4px);
-  transition:opacity .45s cubic-bezier(.16,1,.3,1),transform .45s cubic-bezier(.16,1,.3,1);
-}
-.scan-row.is-in{opacity:1;transform:none}
-.scan-ico{width:24px;height:24px;border-radius:50%;flex:none;display:grid;place-items:center;background:var(--grn-s);color:var(--grn-2)}
-.scan-ico .ico{width:14px;height:14px;stroke-width:2.2}
-.scan-row.is-wait .scan-ico{background:var(--amb-s);color:var(--amb)}
-.scan-name{flex:1;font-weight:500;font-size:15px}
-.scan-val{font-size:14px;font-weight:600;color:var(--grn)}
-.scan-val.is-bad{color:var(--red)}
-.scan-val.is-wait{color:var(--amb);font-weight:500}
-.scanning-btn{margin-top:22px}
-#scan-skip{margin-top:24px}
-
-/* ── топбар ── */
-.topbar{
-  position:sticky;top:0;z-index:30;padding:0 30px;
-  background:rgba(255,255,255,.9);backdrop-filter:saturate(180%) blur(12px);
-  border-bottom:1px solid var(--line-2);
-}
-.tb-row{display:flex;align-items:center;justify-content:space-between;gap:16px;height:62px}
-.tb-right{display:flex;align-items:center;gap:11px;flex-wrap:wrap;justify-content:flex-end}
-.tabs{display:flex;gap:2px;height:46px;overflow-x:auto;scrollbar-width:none}
-.tabs::-webkit-scrollbar{display:none}
-.tab{
-  padding:0 14px;height:46px;font-size:14.5px;font-weight:600;color:var(--ink-4);
-  white-space:nowrap;position:relative;transition:color .15s;
-}
-.tab:hover{color:var(--ink)}
-.tab:focus-visible{outline:2px solid var(--blue);outline-offset:-3px;border-radius:6px}
-.tab.is-active{color:var(--ink)}
-.tab.is-active::after{content:"";position:absolute;left:8px;right:8px;bottom:0;height:2.5px;border-radius:3px 3px 0 0;background:var(--blue)}
-
-.content{padding:26px 30px 48px;max-width:1360px;margin:0 auto}
-@media(max-width:820px){
-  .topbar{padding:0 16px}
-  .tb-row{height:auto;padding:11px 0 9px;flex-wrap:wrap;gap:10px}
-  .tb-right{width:100%;justify-content:flex-start}
-  .content{padding:20px 16px 40px}
-  .tab{padding:0 11px}
-}
-@media(max-width:420px){
-  .badge{font-size:12.5px;padding:5px 10px}
-  .tb-right .btn-line{margin-left:auto}
-}
-.panel{display:none}
-.panel.is-active{display:block;animation:fadeIn .25s ease}
-@media(prefers-reduced-motion:reduce){
-  .panel.is-active,.gate-card{animation:none}
-  .scan-row{transition:none;opacity:1;transform:none}
-}
-.foot{margin-top:24px;padding-top:18px;border-top:1px solid var(--line-3);font-size:12.5px;color:var(--mut-2)}
-
-/* ── герой ── */
-.hero{display:grid;grid-template-columns:minmax(340px,1.15fr) 1.85fr;gap:16px;margin-bottom:16px}
-@media(max-width:1080px){.hero{grid-template-columns:1fr}}
-.hero-status{position:relative;padding:26px;margin-bottom:0}
-.hero-wash{position:absolute;inset:0;width:620px;pointer-events:none;background:linear-gradient(140deg,#E4F1FB 0%,#EFF7FD 44%,#FFFFFF 78%)}
-.hero-wash.grn{background:linear-gradient(140deg,#E7F3EA 0%,#F2FAF4 44%,#FFFFFF 78%)}
-.hero-in{position:relative}
-.status-line{
-  display:flex;align-items:center;gap:9px;margin-bottom:13px;
-  font-size:12.5px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--amb);
-}
-.status-line.grn{color:var(--grn)}
-.pulse{width:9px;height:9px;border-radius:50%;background:var(--amb);box-shadow:0 0 0 4px var(--amb-s)}
-.pulse.grn{background:var(--grn);box-shadow:0 0 0 4px var(--grn-s)}
-.hero-title{font-size:32px;line-height:1.06}
-.hero-text{margin-top:13px;font-size:15px;color:var(--ink-4);line-height:1.6;max-width:52ch}
-.hero-mini{display:flex;gap:10px;margin-top:20px}
-.mini{flex:1;border-radius:12px;padding:12px 14px}
-.mini b{display:block;font-size:21px;font-weight:700;letter-spacing:-.02em}
-.mini span{display:block;font-size:12.5px;color:var(--mut-3);margin-top:2px}
-.mini-grn{background:var(--grn-s2);border:1px solid var(--grn-line)}
-.mini-grn b{color:var(--grn)}
-
-.kpis{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
-  background:var(--line-2);border:1px solid var(--line);border-radius:18px;
-  box-shadow:var(--sh);overflow:hidden;
-}
-@media(max-width:720px){.kpis{grid-template-columns:repeat(2,1fr)}}
-.kpi{background:#fff;padding:17px 18px;transition:background .15s}
-.kpi:hover{background:var(--surf-5)}
-.kpi-l{font-size:13px;color:var(--mut);min-height:18px;line-height:1.35}
-.kpi-v{font-size:29px;font-weight:700;letter-spacing:-.025em;margin-top:7px;line-height:1}
-.kpi-d{display:flex;align-items:center;gap:5px;margin-top:8px;font-size:13.5px;font-weight:600}
-.kpi-d .ico{width:13px;height:13px;stroke-width:2.4}
-.kpi-s{font-size:12.5px;color:var(--mut-3);margin-top:5px}
-.is-up{color:var(--up)} .is-down{color:var(--down)} .is-neu{color:var(--neu)}
-
-/* ── шапки карточек ── */
-.card-head{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:17px 24px;border-bottom:1px solid var(--line-3)}
-.card-head.col{flex-direction:column;align-items:stretch;gap:15px}
-.ch-row{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
-.ch-left{display:flex;align-items:baseline;gap:11px;flex-wrap:wrap;min-width:0}
-.ch-title{font-size:18px}
-.ch-n{color:var(--mut-2);font-weight:500;font-size:15px}
-.ch-sub{font-size:13px;color:var(--mut-3)}
-.pill-count{
-  font-size:13px;font-weight:600;color:var(--ink-4);background:var(--surf-4);
-  padding:4px 12px;border-radius:20px;white-space:nowrap;
-}
-.card-foot{padding:14px 24px;border-top:1px solid var(--line-4);background:var(--surf-2);font-size:12.5px;line-height:1.6;color:var(--mut-2)}
-.link-out{display:inline-flex;align-items:center;gap:6px;color:var(--blue);font-size:13.5px;font-weight:600;text-decoration:none}
-.link-out:hover{color:var(--blue-d)}
-.link-out .ico{width:14px;height:14px}
-
-/* ── очередь работ ── */
-.order{display:grid;grid-template-columns:30px 1fr auto;gap:16px;padding:18px 24px;border-bottom:1px solid var(--line-4)}
-.order:last-child{border-bottom:0}
-@media(max-width:820px){.order{grid-template-columns:26px 1fr;gap:12px}}
-.o-no{
-  width:30px;height:30px;border-radius:9px;display:grid;place-items:center;
-  background:var(--surf-4);color:var(--mut);font-size:14px;font-weight:700;
-}
-.order.is-done .o-no{background:var(--grn-s);color:var(--grn-2)}
-.order.is-live .o-no{background:var(--blue-s);color:var(--blue)}
-.o-what{font-size:16px;font-weight:700;letter-spacing:-.015em;line-height:1.3}
-.o-why{margin-top:5px;font-size:14px;color:var(--ink-4);line-height:1.5;max-width:66ch}
-.o-where{margin-top:7px;font-size:12.5px;color:var(--mut-2)}
-.o-side{display:flex;flex-direction:column;align-items:flex-end;gap:9px;flex:none}
-@media(max-width:820px){.o-side{grid-column:2;flex-direction:row;flex-wrap:wrap;align-items:center;justify-content:flex-start;margin-top:10px}}
-.o-price{text-align:right}
-@media(max-width:820px){.o-price{text-align:left}}
-.o-price b{display:block;font-size:17px;font-weight:700;letter-spacing:-.02em;color:var(--grn)}
-.o-price span{display:block;font-size:11.5px;color:var(--mut-3);margin-top:2px}
-
-.st{
-  display:inline-flex;align-items:center;gap:6px;padding:5px 10px;border-radius:8px;
-  font-size:12px;font-weight:600;white-space:nowrap;
-}
-.st .ico{width:13px;height:13px;stroke-width:2.2}
-.st-done{background:var(--grn-s);color:var(--grn-2)}
-.st-wait{background:var(--amb-s);color:var(--amb)}
-.st-live{background:var(--blue-s);color:var(--blue)}
-.st-lock{background:var(--surf-4);color:var(--mut)}
-
-/* диф правки */
-.rx{margin-top:14px;border:1px solid var(--line-2);border-radius:12px;overflow:hidden;max-width:660px;background:var(--surf)}
-.rx-row{display:flex;gap:12px;padding:11px 14px;align-items:baseline}
-.rx-row+.rx-row{border-top:1px solid var(--line-4)}
-.rx-tag{flex:none;width:52px;font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--mut-4)}
-.rx-val{font-size:13.5px;line-height:1.5;overflow-wrap:anywhere}
-.rx-was .rx-val{color:var(--mut-2);text-decoration:line-through;text-decoration-color:#D9938A}
-.rx-will .rx-val{color:var(--ink);font-weight:600}
-.rx-scope{padding:10px 14px;border-top:1px solid var(--line-4);font-size:12.5px;color:var(--mut-2)}
-.rx-act{display:flex;gap:8px;padding:12px 14px;border-top:1px solid var(--line-4);background:#fff;flex-wrap:wrap}
-.o-res{display:flex;gap:8px;align-items:flex-start;margin-top:11px;font-size:14px;font-weight:500;color:var(--up);max-width:62ch;line-height:1.45}
-.o-res .ico{width:16px;height:16px;margin-top:1px;stroke-width:2.2}
-.o-res.is-wait{color:var(--amb)}
-.o-res.is-plain{color:var(--ink-4);font-weight:400}
-.o-lock{margin-top:11px;font-size:13.5px;color:var(--mut-2)}
-.o-lock a{color:var(--blue);font-weight:600;text-decoration:none;cursor:pointer}
-.o-lock a:hover{text-decoration:underline}
-
-/* ── таблицы ── */
-.thead{display:flex;align-items:center;background:var(--surf-2);border-bottom:1px solid var(--line-2)}
-.th{padding:11px 16px;font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--mut)}
-.th-q{flex:1;min-width:0;padding-left:24px}
-.th-p{flex:none;width:120px}
-.th-d{flex:none;width:120px}
-.th-u{flex:none;width:230px;padding-right:24px}
-.thead-c .th-p,.thead-c~#page-pos-body .q-pos{width:104px}
-.thead-c .th-d,.thead-c~#page-pos-body .q-del{width:128px}
-.thead-c .th-d{padding-right:24px}
-.qrow{display:flex;align-items:center;border-bottom:1px solid var(--line-4);transition:background .15s}
-.qrow:last-child{border-bottom:0}
-.qrow:hover{background:var(--surf-3)}
-.q-cell{padding:12px 16px}
-.q-name{flex:1;min-width:0;padding-left:24px;font-size:14.5px;color:var(--ink-2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.q-pos{flex:none;width:120px}
-.q-del{flex:none;width:120px;font-size:13.5px;font-weight:600;display:flex;align-items:center;gap:5px}
-.q-del .ico{width:13px;height:13px;stroke-width:2.4}
-.q-url{flex:none;width:230px;padding-right:24px;font-size:13px;color:var(--mut-2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.pos-badge{
-  display:inline-block;min-width:38px;text-align:center;
-  padding:4px 10px;border-radius:8px;font-size:14px;font-weight:700;letter-spacing:-.01em;
-}
-.b1{background:var(--grn-s);color:var(--grn-2)}
-.b2{background:#ECF5EE;color:var(--grn-3)}
-.b3{background:var(--amb-s);color:var(--amb)}
-.b4{background:var(--red-s);color:var(--red)}
-.q-empty{padding:48px 24px;text-align:center}
-.q-empty-t{font-size:16px;font-weight:600;color:var(--ink-3);margin-top:10px}
-.q-empty-s{font-size:14px;color:var(--mut-2);margin-top:4px}
-.q-empty .ico{width:30px;height:30px;color:var(--faint)}
-
-/* узкие экраны: строка запроса складывается */
-@media(max-width:620px){
-  .thead{display:none}
-  .qrow{flex-wrap:wrap;padding:12px 16px}
-  .q-cell{padding:0}
-  .q-name{flex:1 1 100%;padding-left:0;white-space:normal;font-weight:500}
-  .q-pos,.q-del{width:auto;margin-top:9px}
-  .q-pos{margin-right:14px}
-  .q-url{flex:1 1 100%;width:auto;padding:0;margin-top:7px}
-  .thead-c~#page-pos-body .q-pos,.thead-c~#page-pos-body .q-del{width:auto}
-}
-
-.scale-key{display:flex;gap:14px;flex-wrap:wrap}
-.scale-key span{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;color:var(--mut-2)}
-.sw{width:10px;height:10px;border-radius:3px;display:inline-block}
-.sw-1{background:#2C8553} .sw-2{background:#6FB182} .sw-3{background:#D6A146} .sw-4{background:#D88179}
-
-.chips{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.chips-lbl{font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--mut-4)}
-.chip{
-  display:inline-flex;align-items:center;gap:6px;padding:6px 13px;border-radius:20px;
-  border:1px solid #D9E6E1;background:#fff;color:var(--ink-3);
-  font-size:14px;font-weight:600;transition:all .15s;
-}
-.chip b{font-weight:600;font-size:12.5px;color:var(--mut-2)}
-.chip:hover{border-color:#D8D2C8}
-.chip:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
-.chip.is-active{border-color:var(--blue);background:var(--blue-s);color:var(--blue)}
-.chip.is-active b{color:#D17AA6}
-
-/* ── ошибки ── */
-.def{border-bottom:1px solid var(--line-4)}
-.def:last-child{border-bottom:0}
-.def-btn{
-  width:100%;display:grid;grid-template-columns:26px 1fr auto 20px;gap:14px;align-items:center;
-  padding:16px 24px;text-align:left;transition:background .15s;
-}
-.def-btn:hover{background:var(--surf-3)}
-.def-btn:focus-visible{outline:2px solid var(--blue);outline-offset:-3px}
-@media(max-width:760px){.def-btn{grid-template-columns:24px 1fr 20px;gap:11px;padding:14px 16px}}
-.def-ic{width:26px;height:26px;border-radius:8px;display:grid;place-items:center}
-.def-ic .ico{width:15px;height:15px}
-.def-ic.crit{background:var(--red-s);color:var(--red)}
-.def-ic.warn{background:var(--amb-s);color:var(--amb)}
-.def-ic.note{background:var(--surf-4);color:var(--mut)}
-.def-ic.ok{background:var(--grn-s);color:var(--grn-2)}
-.def.is-fixed .def-n{color:var(--ink-3);font-weight:600}
-.def-fix.is-done{background:var(--grn-s2);border-color:var(--grn-line);color:var(--grn-2)}
-.def-n{font-size:15.5px;font-weight:700;letter-spacing:-.015em}
-.def-t{display:block;font-size:12.5px;color:var(--mut-2);margin-top:4px}
-.def-c{text-align:right;font-size:13px;font-weight:600;color:var(--ink-3);white-space:nowrap;line-height:1.45}
-@media(max-width:760px){.def-c{display:none}}
-.def-chev{width:18px;height:18px;fill:none;stroke:var(--faint);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:transform .2s cubic-bezier(.16,1,.3,1)}
-.def.is-open .def-chev{transform:rotate(90deg)}
-.def-body{display:none;padding:0 24px 20px 64px}
-@media(max-width:760px){.def-body{padding:0 16px 18px 51px}}
-.def.is-open .def-body{display:block;animation:fadeIn .25s ease}
-.def-body p{font-size:14.5px;color:var(--ink-4);line-height:1.6;max-width:76ch}
-.def-fix{
-  margin-top:13px;padding:12px 15px;border-radius:11px;
-  background:var(--blue-s);border:1px solid var(--blue-line);
-  font-size:14px;color:#1B5A93;font-weight:500;line-height:1.55;max-width:76ch;
-}
-.def-cm{display:none}
-@media(max-width:760px){.def-cm{display:block;font-size:12.5px;font-weight:600;color:var(--mut-2);margin-bottom:9px}}
-
-/* ── страница ── */
-.page-grid{display:grid;grid-template-columns:1.35fr .8fr;gap:16px;align-items:start}
-.page-main,.page-side{min-width:0}
-@media(max-width:1080px){.page-grid{grid-template-columns:1fr}}
-.pdefects{padding:6px 0}
-.pdefects li{display:flex;gap:13px;padding:14px 24px;border-bottom:1px solid var(--line-4)}
-.pdefects li:last-child{border-bottom:0}
-.pd-ico{width:26px;height:26px;border-radius:8px;flex:none;display:grid;place-items:center}
-.pd-ico .ico{width:15px;height:15px}
-.pd-ico.is-bad{background:var(--red-s);color:var(--red)}
-.pd-ico.is-amb{background:var(--amb-s);color:var(--amb)}
-.pd-ico.is-ok{background:var(--grn-s);color:var(--grn-2)}
-.pdefects b{display:block;font-size:14.5px;font-weight:700}
-.pdefects li.is-fixed b{color:var(--ink-3);font-weight:600}
-.pdefects span{display:block;font-size:13.5px;color:var(--ink-4);margin-top:3px;line-height:1.5}
-.pd-tag{margin-top:7px!important;font-size:12px!important;font-weight:600;color:var(--blue)!important}
-.plan-card{padding:22px 24px;position:sticky;top:128px}
-@media(max-width:1080px){.plan-card{position:static}}
-.plan-head{display:flex;align-items:center;gap:8px;color:var(--blue);font-weight:700;font-size:15px;padding-bottom:13px;border-bottom:1px solid var(--line-3)}
-.plan-text{margin-top:14px;font-size:14.5px;color:var(--ink-4);line-height:1.6}
-.plan-lbl{margin-top:20px;font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--mut-4)}
-.plan-list{margin-top:10px}
-.plan-list li{position:relative;padding-left:19px;font-size:14.5px;margin-bottom:9px;line-height:1.45}
-.plan-list li::before{content:"";position:absolute;left:0;top:8px;width:8px;height:8px;border-radius:3px;background:var(--blue-s);border:1.5px solid var(--blue-line)}
-.plan-foot{margin-top:20px;padding:12px 14px;border-radius:11px;background:var(--grn-s2);border:1px solid var(--grn-line);font-size:13.5px;font-weight:500;color:var(--grn-2);line-height:1.5}
-
-/* ── акт ── */
-.act-hero{margin-bottom:16px}
-.act-hero .hero-wash{width:100%;background:linear-gradient(115deg,#E7F3EA 0%,#F2FAF4 38%,#FFFFFF 70%)}
-.act-totals{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap}
-.at{flex:1 1 150px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 14px}
-.at-l{display:block;font-size:12px;color:var(--mut-3)}
-.at-v{display:flex;align-items:center;gap:8px;margin-top:6px;font-size:19px;font-weight:700;letter-spacing:-.02em;color:var(--grn)}
-.at-v .ico{width:15px;height:15px;color:var(--faint);stroke-width:2}
-.thead-act .th{flex:1;min-width:0;padding-left:24px}
-.thead-act .th-w{flex:none;width:150px;padding-left:16px}
-.thead-act .th-r{flex:none;width:42%;padding-right:24px}
-.act-row{display:flex;align-items:flex-start;border-bottom:1px solid var(--line-4);transition:background .15s}
-.act-row:last-child{border-bottom:0}
-.act-row:hover{background:var(--surf-3)}
-.ar-w{flex:1;min-width:0;padding:15px 16px 15px 24px}
-.ar-w b{display:block;font-size:14.5px;font-weight:600;line-height:1.4}
-.ar-w span{display:block;font-size:12.5px;color:var(--mut-2);margin-top:3px}
-.ar-d{flex:none;width:150px;padding:15px 16px;font-size:13.5px;color:var(--ink-3)}
-.ar-r{flex:none;width:42%;padding:15px 24px 15px 16px}
-.res{display:block;font-size:14px;color:var(--ink-4);line-height:1.5}
-.res-ok{color:var(--up);font-weight:500}
-.res-wait{color:var(--amb);font-size:13px;margin-top:4px}
-@media(max-width:900px){
-  .thead-act{display:none}
-  .act-row{flex-direction:column}
-  .ar-w,.ar-d,.ar-r{width:100%;padding:0 20px}
-  .ar-w{padding-top:16px}
-  .ar-d{padding-top:6px;font-size:12.5px;color:var(--mut-2)}
-  .ar-r{padding-top:9px;padding-bottom:16px}
-}
-
-.wait-card,.teach-card,.trust-card{padding:19px 22px}
-.wait-in,.teach-in,.trust-in{display:flex;gap:14px;align-items:flex-start}
-.wait-ico,.teach-ico,.trust-ico{width:34px;height:34px;border-radius:10px;flex:none;display:grid;place-items:center}
-.wait-ico{background:var(--amb-s);color:var(--amb)}
-.teach-ico,.trust-ico{background:var(--blue-s);color:var(--blue)}
-.wait-ico .ico,.teach-ico .ico,.trust-ico .ico{width:19px;height:19px}
-.wait-title,.teach-title,.trust-title{font-size:15.5px;font-weight:700}
-.wait-text,.teach-text,.trust-text{margin-top:5px;font-size:14px;color:var(--ink-4);line-height:1.6;max-width:78ch}
-.teach-text{margin-bottom:14px}
-.wait-card{background:var(--amb-s2);border-color:var(--amb-line)}
-
-/* ── программы ── */
-.prog-intro{margin-bottom:18px}
-.prog-h{font-size:24px;line-height:1.15}
-.prog-p{margin-top:9px;font-size:15px;color:var(--ink-4);max-width:66ch}
-.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:16px}
-@media(max-width:900px){.plans{grid-template-columns:1fr}}
-.plan{
-  background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--sh);
-  padding:22px 22px 20px;display:flex;flex-direction:column;position:relative;overflow:hidden;
-  transition:border-color .15s,box-shadow .15s;
-}
-.plan:hover{border-color:#D6E4DE;box-shadow:0 6px 20px -10px rgba(0,0,0,.14)}
-.plan.is-cur{border-color:var(--blue);box-shadow:0 0 0 1px var(--blue),var(--sh)}
-.plan-tag{
-  position:absolute;top:0;right:22px;padding:4px 11px;border-radius:0 0 8px 8px;
-  background:var(--blue);color:#fff;font-size:11.5px;font-weight:700;letter-spacing:.03em;
-}
-.plan-n{font-size:19px;font-weight:700;letter-spacing:-.02em}
-.plan-price{margin-top:9px;font-size:28px;font-weight:700;letter-spacing:-.03em;line-height:1}
-.plan-price i{font-style:normal;font-size:15px;font-weight:500;color:var(--mut-2);letter-spacing:0}
-.plan-ess{margin-top:9px;font-size:14px;color:var(--ink-4);line-height:1.5;min-height:42px}
-.plan-cta{margin-top:16px}
-.plan-cta .btn{width:100%}
-.plan-cur{
-  margin-top:16px;display:flex;align-items:center;justify-content:center;gap:7px;
-  padding:9px;border-radius:10px;background:var(--blue-s);color:var(--blue);
-  font-size:13.5px;font-weight:600;
-}
-.plan-cur .ico{width:15px;height:15px;stroke-width:2.2}
-
-.feat-head{display:flex;align-items:center;background:var(--surf-2);border-bottom:1px solid var(--line-2)}
-.fh-name{flex:1;min-width:0;padding:11px 24px}
-.fh-col{
-  flex:none;width:140px;padding:11px 10px;text-align:center;
-  font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--mut);
-}
-.fh-col.is-cur{color:var(--blue)}
-.feat{display:flex;align-items:center;border-bottom:1px solid var(--line-4);transition:background .15s}
-.feat:last-child{border-bottom:0}
-.feat:hover{background:var(--surf-3)}
-.ft-n{flex:1;min-width:0;padding:12px 24px;font-size:14px;font-weight:500;line-height:1.4}
-.ft-c{flex:none;width:140px;padding:12px 10px;text-align:center}
-.ft-c.is-cur{background:var(--surf-5)}
-.ft-y{color:var(--grn-2)}
-.ft-y .ico{width:17px;height:17px;stroke-width:2.4}
-.ft-n-no{color:var(--faint);font-size:15px}
-@media(max-width:760px){
-  .fh-col,.ft-c{width:84px}
-  .ft-n,.fh-name{padding-left:16px;padding-right:8px}
-  .fh-col{font-size:10.5px;letter-spacing:0}
-}
-
-/* ── онбординг и связки (юзабилити-пакет 11.08) ── */
 .hiw{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px;padding-top:22px;border-top:1px solid var(--line-3)}
 @media(max-width:640px){.hiw{grid-template-columns:1fr;gap:12px}}
 .hiw li{display:flex;gap:10px;align-items:flex-start}
 .hiw b{width:22px;height:22px;border-radius:50%;flex:none;display:grid;place-items:center;background:var(--blue-s);color:var(--blue);font-size:12px;font-weight:700}
 .hiw div{font-size:12.5px;color:var(--ink-4);line-height:1.5}
 .hiw span{display:block;font-weight:600;font-size:14px;color:var(--ink)}
+.gate-split{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:26px;padding-top:22px;border-top:1px solid var(--line-3)}
+@media(max-width:640px){.gate-split{grid-template-columns:1fr;gap:18px}}
+.gs-head{display:flex;align-items:center;gap:9px;font-weight:600;font-size:14px;margin-bottom:11px}
+.gs-list li{position:relative;padding-left:16px;font-size:14px;color:var(--ink-4);margin-bottom:7px;line-height:1.45}
+.gs-list li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:1.5px;border-radius:1px;background:var(--faint)}
+.gate-note{margin-top:22px;padding-top:16px;border-top:1px solid var(--line-3);font-size:13px;color:var(--mut-2);line-height:1.55}
+.scan-list{margin-top:26px}
+.scan-row{display:flex;align-items:center;gap:13px;padding:14px 2px;border-bottom:1px solid var(--line-4);opacity:0;transform:translateY(4px);transition:opacity .45s cubic-bezier(.16,1,.3,1),transform .45s cubic-bezier(.16,1,.3,1)}
+.scan-row.is-in{opacity:1;transform:none}
+.scan-ico{width:24px;height:24px;border-radius:50%;flex:none;display:grid;place-items:center;background:var(--grn-s);color:var(--grn-2)}
+.scan-ico .ico{width:14px;height:14px;stroke-width:2.2}
+.scan-row.is-wait .scan-ico{background:var(--amb-s);color:var(--amb)}
+.scan-name{flex:1;font-weight:500;font-size:15px}
+.scan-val{font-size:14px;font-weight:600;color:var(--grn)}
+.scan-val.is-bad{color:var(--red)} .scan-val.is-wait{color:var(--amb);font-weight:500}
 .scan-next{margin-top:18px;padding:13px 15px;border-radius:11px;background:var(--blue-s);border:1px solid var(--blue-line);font-size:13.5px;color:#1B5A93;line-height:1.55}
+#scan-skip{margin-top:20px}
+
+/* ── КАРКАС: меню слева ── */
+.shell{display:flex;min-height:100vh}
+.side{
+  width:var(--side-w);flex:none;position:sticky;top:0;height:100vh;
+  display:flex;flex-direction:column;background:var(--surf-2);
+  border-right:1px solid var(--line-2);padding:14px 12px;
+}
+.shell.is-min .side{width:var(--side-w-min)}
+.shell.is-min .side-label{opacity:0;width:0;overflow:hidden;pointer-events:none}
+.shell.is-min .side-top{flex-direction:column;gap:10px;justify-content:center}
+.shell.is-min .side-toggle{transform:rotate(180deg)}
+.shell.is-min .nav,.shell.is-min .compl{justify-content:center;padding-left:0;padding-right:0}
+.shell.is-min .quota{padding:9px 6px;align-items:center}
+.shell.is-min .q-bar{display:none}
+.shell.is-min .q-mini{display:block}
+.side-top{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:4px 6px 14px;border-bottom:1px solid var(--line-2);margin-bottom:12px}
+.side-label{transition:opacity .18s ease;white-space:nowrap}
+.side-toggle{width:30px;height:30px;border-radius:8px;flex:none;color:var(--mut);display:grid;place-items:center}
+.side-toggle:hover{background:var(--surf-3);color:var(--ink)}
+.side-toggle:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.side-nav{display:flex;flex-direction:column;gap:3px;flex:1}
+.nav{
+  display:flex;align-items:center;gap:11px;padding:10px 11px;border-radius:10px;
+  font-size:14.5px;font-weight:500;color:var(--ink-4);text-align:left;
+  transition:background .15s,color .15s;position:relative;
+}
+.nav:hover{background:var(--surf-3);color:var(--ink)}
+.nav:focus-visible{outline:2px solid var(--blue);outline-offset:-2px}
+.nav.is-active{background:#fff;color:var(--ink);font-weight:600;box-shadow:0 1px 2px rgba(18,52,44,.06)}
+.nav.is-active .ico{color:var(--blue)}
+.nav-n{margin-left:auto;min-width:20px;height:20px;padding:0 6px;border-radius:10px;background:var(--blue);color:#fff;font-size:11.5px;font-weight:700;display:grid;place-items:center;transition:none}
+.shell.is-min .nav-n{position:absolute;top:4px;right:6px;margin:0;min-width:16px;height:16px;padding:0 4px;font-size:10px;opacity:1;width:auto;overflow:visible;border:2px solid var(--surf-2)}
+.shell.is-min .nav.is-active .nav-n{border-color:#fff}
+.side-foot{display:flex;flex-direction:column;gap:8px;padding-top:12px;border-top:1px solid var(--line-2)}
+.quota{
+  display:flex;flex-direction:column;gap:7px;padding:11px 12px;border-radius:12px;text-align:left;
+  background:var(--blue-s);border:1px solid var(--blue-line);transition:border-color .15s;
+}
+.quota:hover{border-color:var(--blue)}
+.quota:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.q-plan{font-size:12.5px;font-weight:700;color:var(--blue);line-height:1.25}
+.q-bar{display:block;height:6px;border-radius:3px;background:#CFE2F4;overflow:hidden}
+.q-bar i{display:block;height:100%;width:100%;border-radius:3px;background:var(--blue);transform-origin:left center;transform:scaleX(0);transition:transform .3s cubic-bezier(.2,.8,.2,1)}
+.q-txt{font-size:11.5px;color:#2C6FA6;line-height:1.35}
+.q-mini{display:none;font-size:12px;font-weight:700;color:var(--blue)}
+.compl{
+  display:flex;align-items:center;gap:10px;padding:10px 11px;border-radius:10px;
+  font-size:13.5px;font-weight:600;color:var(--violet);
+  background:var(--violet-s);border:1px solid var(--violet-line);transition:background .15s;
+}
+.compl:hover{background:#E6DEF7}
+.compl:focus-visible{outline:2px solid var(--violet);outline-offset:2px}
+.side-scrim{display:none}
+
+.work{flex:1;min-width:0;display:flex;flex-direction:column}
+.topbar{position:sticky;top:0;z-index:30;display:flex;align-items:center;gap:14px;height:60px;padding:0 26px;background:rgba(255,255,255,.9);backdrop-filter:saturate(180%) blur(12px);border-bottom:1px solid var(--line-2)}
+.burger{display:none;width:34px;height:34px;border-radius:9px;color:var(--ink-4)}
+.burger:hover{background:var(--surf-3)}
+.host{font-weight:600;font-size:15px;color:var(--ink-3);flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.tb-right{display:flex;align-items:center;gap:11px;flex-wrap:wrap;justify-content:flex-end}
+.content{padding:22px 26px 40px;max-width:1180px;width:100%}
+.panel{display:none}
+.panel.is-active{display:block;animation:fadeIn .25s ease}
+.foot{margin-top:24px;padding-top:18px;border-top:1px solid var(--line-3);font-size:12.5px;color:var(--mut-2)}
+
+@media(max-width:900px){
+  .side{position:fixed;left:0;top:0;z-index:70;transform:translateX(-100%);transition:transform .22s cubic-bezier(.2,.8,.2,1);box-shadow:0 18px 50px -18px rgba(18,52,44,.4)}
+  .shell.is-open .side{transform:none}
+  .shell.is-min .side{width:var(--side-w)}
+  .shell.is-min .side-label{opacity:1;width:auto}
+  .shell.is-min .q-mini{display:none}
+  .shell.is-min .q-bar{display:block}
+  .shell.is-min .nav,.shell.is-min .compl{justify-content:flex-start;padding-left:11px}
+  .burger{display:grid;place-items:center}
+  .side-scrim{display:block;position:fixed;inset:0;z-index:65;background:rgba(22,33,29,.34);opacity:0;pointer-events:none;transition:opacity .22s}
+  .shell.is-open .side-scrim{opacity:1;pointer-events:auto}
+  .topbar{padding:0 16px}
+  .content{padding:18px 16px 36px}
+}
+@media(prefers-reduced-motion:reduce){
+  .panel.is-active,.gate-card{animation:none}
+  .scan-row{transition:none;opacity:1;transform:none}
+  .side{transition:none}
+}
+
+/* ── онбординг ── */
 .onb{position:relative;padding:20px 22px;border-color:var(--blue-line)}
 .onb-head{font-size:16px;font-weight:700}
 .onb-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:14px 0 16px}
@@ -1035,49 +677,291 @@ h1,h2,h3{font-weight:700;letter-spacing:-.02em;text-wrap:balance}
 .onb-steps span{display:block;font-size:12.5px;color:var(--ink-4);margin-top:2px;line-height:1.45}
 .onb-x{position:absolute;top:10px;right:12px;width:30px;height:30px;border-radius:8px;color:var(--mut);font-size:18px;line-height:1}
 .onb-x:hover{background:var(--surf-3);color:var(--ink)}
-.rx-safe{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--mut);margin-left:auto;align-self:center}
+
+/* ── вердикт ── */
+.verdict{display:flex;align-items:center;gap:14px;padding:15px 20px}
+.v-body{flex:1;min-width:0}
+.v-body b{display:block;font-size:16.5px;font-weight:700;letter-spacing:-.015em}
+.v-body span{display:block;font-size:13.5px;color:var(--ink-4);margin-top:2px}
+.pulse{width:10px;height:10px;border-radius:50%;flex:none;background:var(--grn);box-shadow:0 0 0 4px var(--grn-s)}
+.pulse.amb{background:var(--amb);box-shadow:0 0 0 4px var(--amb-s)}
+.pulse.grn{background:var(--grn);box-shadow:0 0 0 4px var(--grn-s)}
+@media(max-width:620px){.verdict{flex-wrap:wrap}.v-body{flex-basis:100%;order:2}.verdict .btn{order:3;width:100%}}
+
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line-2);border:1px solid var(--line);border-radius:18px;box-shadow:var(--sh);overflow:hidden;margin-bottom:16px}
+@media(max-width:720px){.kpis{grid-template-columns:repeat(2,1fr)}}
+.kpi{background:#fff;padding:16px 17px;transition:background .15s}
+.kpi:hover{background:var(--surf-5)}
+.kpi-l{font-size:13px;color:var(--mut);min-height:18px;line-height:1.35}
+.kpi-v{font-size:28px;font-weight:700;letter-spacing:-.025em;margin-top:6px;line-height:1}
+.kpi-d{display:flex;align-items:center;gap:5px;margin-top:7px;font-size:13.5px;font-weight:600}
+.kpi-d .ico{width:13px;height:13px;stroke-width:2.4}
+.kpi-s{font-size:12.5px;color:var(--mut);margin-top:5px}
+.is-up{color:var(--up)} .is-down{color:var(--down)} .is-neu{color:var(--neu)}
+
+/* ── шапки карточек ── */
+.card-head{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:17px 24px;border-bottom:1px solid var(--line-3)}
+.card-head.col{flex-direction:column;align-items:stretch;gap:14px}
+.ch-row{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.ch-left{display:flex;align-items:baseline;gap:11px;flex-wrap:wrap;min-width:0}
+.ch-title{font-size:18px}
+.ch-n{color:var(--mut-2);font-weight:500;font-size:15px}
+.ch-sub{font-size:13px;color:var(--mut)}
+.pill-count{font-size:13px;font-weight:600;color:var(--ink-4);background:var(--surf-4);padding:4px 12px;border-radius:20px;white-space:nowrap}
+.card-foot{padding:14px 24px;border-top:1px solid var(--line-4);background:var(--surf-2);font-size:12.5px;line-height:1.6;color:var(--mut-2)}
+.lead-card{padding:20px 24px}
+.lead-h{font-size:19px}
+.lead-p{margin-top:9px;font-size:14.5px;color:var(--ink-4);line-height:1.6;max-width:82ch}
+.lead-p b{color:var(--ink);font-weight:600}
+
+/* ── фиксы ── */
+.fx{display:grid;grid-template-columns:32px 1fr auto;gap:16px;padding:18px 24px;border-bottom:1px solid var(--line-4)}
+.fx:last-child{border-bottom:0}
+@media(max-width:820px){.fx{grid-template-columns:28px 1fr;gap:12px}}
+.fx-ic{width:32px;height:32px;border-radius:10px;display:grid;place-items:center}
+.fx-ic .ico{width:17px;height:17px}
+.fx-ic.wait{background:var(--blue-s);color:var(--blue)}
+.fx-ic.done{background:var(--grn-s);color:var(--grn-2)}
+.fx-ic.meas{background:var(--amb-s);color:var(--amb)}
+.fx-ic.lock{background:var(--surf-4);color:var(--mut)}
+.fx-name{font-size:16px;font-weight:700;letter-spacing:-.015em;line-height:1.3}
+.fx-term{display:block;font-size:12px;color:var(--mut-2);margin-top:3px}
+.fx-why{margin-top:7px;font-size:14px;color:var(--ink-4);line-height:1.5;max-width:66ch}
+.fx-where{margin-top:7px;font-size:12.5px;color:var(--mut)}
+.fx-side{display:flex;flex-direction:column;align-items:flex-end;gap:9px;flex:none}
+@media(max-width:820px){.fx-side{grid-column:2;flex-direction:row;flex-wrap:wrap;align-items:center;justify-content:flex-start;margin-top:10px}}
+.fx-cost{text-align:right}
+@media(max-width:820px){.fx-cost{text-align:left}}
+.fx-cost b{display:block;font-size:17px;font-weight:700;letter-spacing:-.02em;color:var(--grn)}
+.fx-cost span{display:block;font-size:11.5px;color:var(--mut);margin-top:2px}
+.st{display:inline-flex;align-items:center;gap:6px;padding:5px 10px;border-radius:8px;font-size:12px;font-weight:600;white-space:nowrap}
+.st .ico{width:13px;height:13px;stroke-width:2.2}
+.st-done{background:var(--grn-s);color:var(--grn-2)}
+.st-wait{background:var(--amb-s);color:var(--amb)}
+.st-live{background:var(--blue-s);color:var(--blue)}
+.st-lock{background:var(--surf-4);color:var(--mut)}
+.rx{margin-top:14px;border:1px solid var(--line-2);border-radius:12px;overflow:hidden;max-width:660px;background:var(--surf)}
+.rx-row{display:flex;gap:12px;padding:11px 14px;align-items:baseline}
+.rx-row+.rx-row{border-top:1px dashed var(--line-4)}
+.rx-tag{flex:none;width:52px;font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--mut-4)}
+.rx-val{font-size:13.5px;line-height:1.5;overflow-wrap:anywhere}
+.rx-was .rx-val{color:var(--mut-2);text-decoration:line-through;text-decoration-color:#D9938A}
+.rx-will .rx-val{color:var(--ink);font-weight:600}
+.rx-scope{padding:10px 14px;border-top:1px dashed var(--line-4);font-size:12.5px;color:var(--mut-2)}
+.rx-act{display:flex;gap:8px;padding:12px 14px;border-top:1px solid var(--line-4);background:#fff;flex-wrap:wrap;align-items:center}
+.rx-safe{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--mut);margin-left:auto}
 .rx-safe .ico{width:14px;height:14px}
-.def-go{margin-top:10px}
-.def-go a,.q-go{color:var(--blue);font-size:13.5px;font-weight:600;cursor:pointer;text-decoration:none}
-.def-go a:hover,.q-go:hover{text-decoration:underline}
-.q-go{font-size:13px}
-/* контраст мелких подписей */
-.kpi-s,.o-price span,.o-where,.q-url,.at-l,.ch-sub{color:var(--mut)}
-/* мобильные табы и тап-зоны */
+@media(max-width:620px){.rx-safe{margin-left:0;flex-basis:100%}}
+.fx-res{display:flex;gap:8px;align-items:flex-start;margin-top:11px;font-size:14px;font-weight:500;color:var(--up);max-width:62ch;line-height:1.45}
+.fx-res .ico{width:16px;height:16px;margin-top:1px;stroke-width:2.2}
+.fx-res.is-wait{color:var(--amb)}
+.fx-res.is-plain{color:var(--ink-4);font-weight:400}
+.fx-lock{margin-top:11px;font-size:13.5px;color:var(--mut-2)}
+.fx-lock a{color:var(--blue);font-weight:600;cursor:pointer}
+.fx-lock a:hover{text-decoration:underline}
+.fx-empty{padding:44px 24px;text-align:center}
+.fx-empty .ico{width:28px;height:28px;color:var(--faint)}
+.fx-empty-t{font-size:16px;font-weight:600;color:var(--ink-3);margin-top:10px}
+.fx-empty-s{font-size:14px;color:var(--mut-2);margin-top:4px}
+.watch .card-head{border-bottom:1px solid var(--line-4)}
+.w-row{display:flex;align-items:flex-start;gap:13px;padding:14px 24px;border-bottom:1px solid var(--line-4)}
+.w-row:last-child{border-bottom:0}
+.w-ic{width:26px;height:26px;border-radius:8px;flex:none;display:grid;place-items:center;background:var(--surf-4);color:var(--mut)}
+.w-ic .ico{width:15px;height:15px}
+.w-row b{display:block;font-size:14.5px;font-weight:600}
+.w-row span{display:block;font-size:13.5px;color:var(--ink-4);margin-top:3px;line-height:1.5}
+
+/* ── таблицы ── */
+.thead{display:flex;align-items:center;background:var(--surf-2);border-bottom:1px solid var(--line-2)}
+.th{padding:11px 16px;font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--mut)}
+.th-q{flex:1;min-width:0;padding-left:24px}
+.th-p{flex:none;width:110px} .th-d{flex:none;width:130px} .th-u{flex:none;width:230px;padding-right:24px}
+.qrow{display:flex;align-items:center;border-bottom:1px solid var(--line-4);transition:background .15s}
+.qrow:last-child{border-bottom:0}
+.qrow:hover{background:var(--surf-3)}
+.q-cell{padding:12px 16px}
+.q-name{flex:1;min-width:0;padding-left:24px;font-size:14.5px;color:var(--ink-2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.q-pos{flex:none;width:110px}
+.q-del{flex:none;width:130px;font-size:13.5px;font-weight:600;display:flex;align-items:center;gap:5px}
+.q-del .ico{width:13px;height:13px;stroke-width:2.4}
+.q-url{flex:none;width:230px;padding-right:24px;font-size:13px;color:var(--mut);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pos-badge{display:inline-block;min-width:38px;text-align:center;padding:4px 10px;border-radius:8px;font-size:14px;font-weight:700}
+.b1{background:var(--grn-s);color:var(--grn-2)} .b2{background:#ECF5EE;color:var(--grn-3)}
+.b3{background:var(--amb-s);color:var(--amb)} .b4{background:var(--red-s);color:var(--red)}
+.q-empty{padding:48px 24px;text-align:center}
+.q-empty-t{font-size:16px;font-weight:600;color:var(--ink-3);margin-top:10px}
+.q-empty-s{font-size:14px;color:var(--mut-2);margin-top:4px}
+.q-empty .ico{width:30px;height:30px;color:var(--faint)}
+.scale-key{display:flex;gap:14px;flex-wrap:wrap}
+.scale-key span{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;color:var(--mut)}
+.sw{width:10px;height:10px;border-radius:3px;display:inline-block}
+.sw-1{background:#2C8553} .sw-2{background:#6FB182} .sw-3{background:#D6A146} .sw-4{background:#D88179}
+.chips{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.chips-lbl{font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--mut-4)}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:6px 13px;border-radius:20px;border:1px solid #D9E6E1;background:#fff;color:var(--ink-3);font-size:14px;font-weight:600;transition:all .15s}
+.chip b{font-weight:600;font-size:12.5px;color:var(--mut-2)}
+.chip:hover{border-color:#D8D2C8}
+.chip:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.chip.is-active{border-color:var(--blue);background:var(--blue-s);color:var(--blue)}
+.chip.is-active b{color:#D17AA6}
 @media(max-width:620px){
-  .tabs{flex-wrap:wrap;height:auto;padding:2px 0 6px}
-  .tab{height:38px}
+  .thead{display:none}
+  .qrow{flex-wrap:wrap;padding:12px 16px}
+  .q-cell{padding:0}
+  .q-name{flex:1 1 100%;padding-left:0;white-space:normal;font-weight:500}
+  .q-pos,.q-del{width:auto;margin-top:9px} .q-pos{margin-right:14px}
+  .q-url{flex:1 1 100%;width:auto;padding:0;margin-top:7px}
   .chip{padding:9px 15px}
-  .btn-sm{padding:10px 15px}
-  .rx-safe{margin-left:0;flex-basis:100%}
 }
+
+/* ── страницы ── */
+.page-grid{display:grid;grid-template-columns:1.3fr .85fr;gap:16px;align-items:start;padding:16px 16px 0}
+.page-main,.page-side{min-width:0}
+@media(max-width:1080px){.page-grid{grid-template-columns:1fr}}
+.pdefects li{display:flex;gap:13px;padding:14px 24px;border-bottom:1px solid var(--line-4)}
+.pdefects li:last-child{border-bottom:0}
+.pd-ico{width:26px;height:26px;border-radius:8px;flex:none;display:grid;place-items:center}
+.pd-ico .ico{width:15px;height:15px}
+.pd-ico.is-bad{background:var(--red-s);color:var(--red)}
+.pd-ico.is-amb{background:var(--amb-s);color:var(--amb)}
+.pd-ico.is-ok{background:var(--grn-s);color:var(--grn-2)}
+.pdefects b{display:block;font-size:14.5px;font-weight:700}
+.pdefects li.is-fixed b{color:var(--ink-3);font-weight:600}
+.pdefects span{display:block;font-size:13.5px;color:var(--ink-4);margin-top:3px;line-height:1.5}
+.pd-tag{margin-top:7px!important;font-size:12px!important;font-weight:600;color:var(--blue)!important}
+.plan-card{padding:22px 24px}
+.plan-head{display:flex;align-items:center;gap:8px;color:var(--blue);font-weight:700;font-size:15px;padding-bottom:13px;border-bottom:1px solid var(--line-3)}
+.plan-text{margin-top:14px;font-size:14.5px;color:var(--ink-4);line-height:1.6}
+.plan-lbl{margin-top:20px;font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--mut-4)}
+.plan-list{margin-top:10px}
+.plan-list li{position:relative;padding-left:19px;font-size:14.5px;margin-bottom:9px;line-height:1.45}
+.plan-list li::before{content:"";position:absolute;left:0;top:8px;width:8px;height:8px;border-radius:3px;background:var(--blue-s);border:1.5px solid var(--blue-line)}
+.plan-foot{margin-top:20px;padding:12px 14px;border-radius:11px;background:var(--grn-s2);border:1px solid var(--grn-line);font-size:13.5px;font-weight:500;color:var(--grn-2);line-height:1.5}
+.link-out{display:inline-flex;align-items:center;gap:6px;color:var(--blue);font-size:13.5px;font-weight:600;text-decoration:none}
+.link-out:hover{color:var(--blue-d)}
+.link-out .ico{width:14px;height:14px}
+
+/* ── акт ── */
+.hero-status{position:relative;padding:26px;margin-bottom:16px}
+.hero-wash{position:absolute;inset:0;width:100%;pointer-events:none;background:linear-gradient(115deg,#E7F3EA 0%,#F2FAF4 38%,#FFFFFF 70%)}
+.hero-in{position:relative}
+.status-line{display:flex;align-items:center;gap:9px;margin-bottom:13px;font-size:12.5px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--grn)}
+.hero-title{font-size:30px;line-height:1.08}
+.hero-text{margin-top:12px;font-size:15px;color:var(--ink-4);line-height:1.6;max-width:62ch}
+.act-totals{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap}
+.at{flex:1 1 150px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.at-l{display:block;font-size:12px;color:var(--mut)}
+.at-v{display:flex;align-items:center;gap:8px;margin-top:6px;font-size:19px;font-weight:700;letter-spacing:-.02em;color:var(--grn)}
+.at-v .ico{width:15px;height:15px;color:var(--faint);stroke-width:2}
+.thead-act .th{flex:1;min-width:0;padding-left:24px}
+.thead-act .th-w{flex:none;width:150px;padding-left:16px}
+.thead-act .th-r{flex:none;width:42%;padding-right:24px}
+.act-row{display:flex;align-items:flex-start;border-bottom:1px solid var(--line-4);transition:background .15s}
+.act-row:last-child{border-bottom:0}
+.act-row:hover{background:var(--surf-3)}
+.ar-w{flex:1;min-width:0;padding:15px 16px 15px 24px}
+.ar-w b{display:block;font-size:14.5px;font-weight:600;line-height:1.4}
+.ar-w span{display:block;font-size:12.5px;color:var(--mut);margin-top:3px}
+.ar-d{flex:none;width:150px;padding:15px 16px;font-size:13.5px;color:var(--ink-3)}
+.ar-r{flex:none;width:42%;padding:15px 24px 15px 16px}
+.res{display:block;font-size:14px;color:var(--ink-4);line-height:1.5}
+.res-ok{color:var(--up);font-weight:500}
+.res-wait{color:var(--amb);font-size:13px;margin-top:4px}
+@media(max-width:900px){
+  .thead-act{display:none}
+  .act-row{flex-direction:column}
+  .ar-w,.ar-d,.ar-r{width:100%;padding:0 20px}
+  .ar-w{padding-top:16px} .ar-d{padding-top:6px;font-size:12.5px;color:var(--mut-2)} .ar-r{padding-top:9px;padding-bottom:16px}
+}
+.log-row{display:flex;align-items:center;gap:13px;padding:11px 24px;border-bottom:1px solid var(--line-4);font-size:14px}
+.log-row:last-child{border-bottom:0}
+.log-d{flex:none;width:56px;font-size:12.5px;color:var(--mut)}
+.log-ic{width:22px;height:22px;border-radius:7px;flex:none;display:grid;place-items:center;background:var(--surf-4);color:var(--mut)}
+.log-ic .ico{width:13px;height:13px}
+.log-t{flex:1;min-width:0;color:var(--ink-3)}
+.log-n{flex:none;font-size:12.5px;color:var(--mut);font-weight:600}
+@media(max-width:620px){.log-row{flex-wrap:wrap}.log-t{flex-basis:calc(100% - 90px)}.log-n{margin-left:35px}}
+
+/* ── настройки ── */
+.set-rows,#auto-rows{padding:4px 0}
+.set-row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:15px 24px;border-bottom:1px solid var(--line-4)}
+.set-row:last-child{border-bottom:0}
+.set-row b{display:block;font-size:14.5px;font-weight:600}
+.set-row span{display:block;font-size:13px;color:var(--mut);margin-top:3px;line-height:1.45}
+@media(max-width:620px){.set-row{flex-direction:column;align-items:stretch;gap:11px}}
+.auto-row{display:flex;align-items:center;gap:14px;padding:13px 24px;border-bottom:1px solid var(--line-4)}
+.auto-row:last-child{border-bottom:0}
+.sw-t{width:40px;height:23px;border-radius:12px;flex:none;background:var(--line-2);position:relative;transition:background .18s}
+.sw-t::after{content:"";position:absolute;top:2.5px;left:2.5px;width:18px;height:18px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(18,52,44,.3);transition:transform .18s}
+.sw-t.on{background:var(--blue)}
+.sw-t.on::after{transform:translateX(17px)}
+.sw-t.lock{background:var(--surf-4);cursor:not-allowed}
+.auto-txt{flex:1;min-width:0}
+.auto-txt b{display:block;font-size:14.5px;font-weight:600}
+.auto-txt span{display:block;font-size:13px;color:var(--mut);margin-top:2px;line-height:1.45}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding:18px 24px}
+@media(max-width:900px){.plans{grid-template-columns:1fr}}
+.plan{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px;display:flex;flex-direction:column;position:relative;transition:border-color .15s,box-shadow .15s}
+.plan:hover{border-color:#D6E4DE;box-shadow:0 6px 20px -10px rgba(0,0,0,.14)}
+.plan.is-cur{border-color:var(--blue);box-shadow:0 0 0 1px var(--blue)}
+.plan-tag{position:absolute;top:0;right:20px;padding:4px 11px;border-radius:0 0 8px 8px;background:var(--blue);color:#fff;font-size:11.5px;font-weight:700}
+.plan-n{font-size:18px;font-weight:700;letter-spacing:-.02em}
+.plan-price{margin-top:8px;font-size:26px;font-weight:700;letter-spacing:-.03em;line-height:1}
+.plan-price i{font-style:normal;font-size:14px;font-weight:500;color:var(--mut-2)}
+.plan-ess{margin-top:9px;font-size:13.5px;color:var(--ink-4);line-height:1.5;min-height:60px}
+.plan-cta{margin-top:14px}
+.plan-cta .btn{width:100%}
+.plan-cur{margin-top:14px;display:flex;align-items:center;justify-content:center;gap:7px;padding:9px;border-radius:10px;background:var(--blue-s);color:var(--blue);font-size:13.5px;font-weight:600}
+.plan-cur .ico{width:15px;height:15px;stroke-width:2.2}
+.feat-head{display:flex;align-items:center;background:var(--surf-2);border-top:1px solid var(--line-2);border-bottom:1px solid var(--line-2)}
+.fh-name{flex:1;min-width:0;padding:11px 24px}
+.fh-col{flex:none;width:140px;padding:11px 10px;text-align:center;font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--mut)}
+.fh-col.is-cur{color:var(--blue)}
+.feat{display:flex;align-items:center;border-bottom:1px solid var(--line-4);transition:background .15s}
+.feat:last-child{border-bottom:0}
+.feat:hover{background:var(--surf-3)}
+.ft-n{flex:1;min-width:0;padding:12px 24px;font-size:14px;font-weight:500;line-height:1.4}
+.ft-c{flex:none;width:140px;padding:12px 10px;text-align:center}
+.ft-c.is-cur{background:var(--surf-5)}
+.ft-y{color:var(--grn-2)} .ft-y .ico{width:17px;height:17px;stroke-width:2.4}
+.ft-no{color:var(--mut);font-size:15px}
+@media(max-width:760px){
+  .fh-col,.ft-c{width:84px}
+  .ft-n,.fh-name{padding-left:16px;padding-right:8px}
+  .fh-col{font-size:10.5px;letter-spacing:0}
+}
+
+.teach-card{padding:19px 22px}
+.teach-in{display:flex;gap:14px;align-items:flex-start}
+.teach-ico{width:34px;height:34px;border-radius:10px;flex:none;display:grid;place-items:center;background:var(--blue-s);color:var(--blue)}
+.teach-ico .ico{width:19px;height:19px}
+.teach-title{font-size:15.5px;font-weight:700}
+.teach-text{margin:5px 0 14px;font-size:14px;color:var(--ink-4);line-height:1.6;max-width:78ch}
+
+/* ── модалка комплаенса ── */
+.modal{position:fixed;inset:0;z-index:80;display:grid;place-items:center;padding:20px;background:rgba(22,33,29,.4);backdrop-filter:blur(2px);animation:fadeIn .2s ease}
+.modal-card{position:relative;width:100%;max-width:520px;background:#fff;border-radius:18px;box-shadow:0 24px 70px -18px rgba(18,52,44,.5);padding:28px 30px 24px;animation:popIn .24s cubic-bezier(.2,.8,.2,1);max-height:90vh;overflow-y:auto}
+.modal-x{position:absolute;top:12px;right:14px;width:32px;height:32px;border-radius:9px;color:var(--mut);font-size:20px;line-height:1}
+.modal-x:hover{background:var(--surf-3);color:var(--ink)}
+.modal-ic{width:44px;height:44px;border-radius:13px;display:grid;place-items:center;background:var(--violet-s);color:var(--violet)}
+.modal-ic .ico{width:24px;height:24px}
+.modal-h{margin-top:14px;font-size:22px}
+.modal-p{margin-top:10px;font-size:14.5px;color:var(--ink-4);line-height:1.6}
+.modal-list{margin-top:16px}
+.modal-list li{position:relative;padding-left:20px;font-size:14px;color:var(--ink-3);margin-bottom:8px;line-height:1.45}
+.modal-list li::before{content:"";position:absolute;left:0;top:8px;width:8px;height:8px;border-radius:3px;background:var(--violet-s);border:1.5px solid var(--violet-line)}
+.modal-act{display:flex;gap:9px;margin-top:20px;flex-wrap:wrap}
+.modal-note{margin-top:14px;padding-top:12px;border-top:1px solid var(--line-3);font-size:12.5px;color:var(--mut);line-height:1.5}
 
 /* ── помощник ── */
 .chat{position:fixed;right:22px;bottom:22px;z-index:60;display:flex;flex-direction:column;align-items:flex-end;gap:12px}
-.chat-fab{
-  width:56px;height:56px;border-radius:50%;position:relative;flex:none;
-  background:linear-gradient(135deg,#14A5E5,var(--blue));color:#fff;
-  display:grid;place-items:center;
-  box-shadow:0 6px 20px -6px rgba(18,52,44,.45),0 2px 6px rgba(18,52,44,.2);
-  transition:transform .16s cubic-bezier(.2,.8,.2,1),box-shadow .16s;
-}
-.chat-fab:hover{transform:translateY(-2px);box-shadow:0 12px 28px -8px rgba(18,52,44,.5)}
-.chat-fab:active{transform:translateY(0)}
+.chat-fab{width:56px;height:56px;border-radius:50%;position:relative;flex:none;background:linear-gradient(135deg,#14A5E5,var(--blue));color:#fff;display:grid;place-items:center;box-shadow:0 6px 20px -6px rgba(18,52,44,.45),0 2px 6px rgba(18,52,44,.2);transition:transform .16s cubic-bezier(.2,.8,.2,1),box-shadow .16s}
+.chat-fab:hover{transform:translateY(-2px)}
 .chat-fab:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
 .chat-fab .ico{width:24px;height:24px;stroke-width:1.8}
-.chat-dot{
-  position:absolute;top:2px;right:2px;width:13px;height:13px;border-radius:50%;
-  background:var(--red);border:2.5px solid #fff;
-}
+.chat-dot{position:absolute;top:2px;right:2px;width:13px;height:13px;border-radius:50%;background:var(--red);border:2.5px solid #fff}
 .chat-dot.is-off{display:none}
-.chat.is-open .chat-fab .ico{opacity:.85}
-.chat-panel{
-  width:378px;max-width:calc(100vw - 32px);height:min(560px,calc(100vh - 120px));
-  background:#fff;border:1px solid var(--line);border-radius:18px;
-  box-shadow:0 24px 60px -18px rgba(18,52,44,.42),0 2px 6px rgba(18,52,44,.08);
-  display:flex;flex-direction:column;overflow:hidden;
-  animation:popIn .22s cubic-bezier(.2,.8,.2,1);
-}
+.chat-panel{width:378px;max-width:calc(100vw - 32px);height:min(560px,calc(100vh - 120px));background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:0 24px 60px -18px rgba(18,52,44,.42);display:flex;flex-direction:column;overflow:hidden;animation:popIn .22s cubic-bezier(.2,.8,.2,1)}
 .chat-head{display:flex;align-items:center;gap:11px;padding:14px 14px 13px 16px;border-bottom:1px solid var(--line-3);background:var(--surf-2)}
 .chat-ava{width:32px;height:32px;border-radius:10px;flex:none;background:linear-gradient(135deg,#14A5E5,var(--blue));color:#fff;display:grid;place-items:center;font-weight:800;font-size:15px}
 .chat-who{flex:1;min-width:0}
@@ -1093,99 +977,113 @@ h1,h2,h3{font-weight:700;letter-spacing:-.02em;text-wrap:balance}
 .msg-a em{font-style:normal;color:var(--blue);font-weight:600;cursor:pointer;text-decoration:underline;text-underline-offset:2px}
 .msg-typing{align-self:flex-start;display:flex;gap:4px;padding:13px}
 .msg-typing i{width:6px;height:6px;border-radius:50%;background:var(--faint);animation:blink 1.2s infinite}
-.msg-typing i:nth-child(2){animation-delay:.2s}
-.msg-typing i:nth-child(3){animation-delay:.4s}
+.msg-typing i:nth-child(2){animation-delay:.2s} .msg-typing i:nth-child(3){animation-delay:.4s}
 @keyframes blink{0%,60%,100%{opacity:.3}30%{opacity:1}}
 .chat-sugg{display:flex;flex-wrap:wrap;gap:6px;padding:0 14px 10px}
-.sugg{
-  border:1px solid var(--line-2);background:#fff;border-radius:16px;
-  padding:6px 11px;font-size:12.5px;font-weight:500;color:var(--ink-3);
-  transition:border-color .15s,background .15s,color .15s;text-align:left;
-}
+.sugg{border:1px solid var(--line-2);background:#fff;border-radius:16px;padding:6px 11px;font-size:12.5px;font-weight:500;color:var(--ink-3);transition:all .15s;text-align:left}
 .sugg:hover{border-color:var(--blue);background:var(--blue-s);color:var(--blue)}
 .sugg:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
 .chat-form{display:flex;gap:8px;padding:11px 14px;border-top:1px solid var(--line-3)}
-.chat-inp{
-  flex:1;min-width:0;padding:10px 13px;border:1px solid var(--line-2);border-radius:11px;
-  font:inherit;font-size:14px;outline:none;transition:border-color .15s,box-shadow .15s;
-}
+.chat-inp{flex:1;min-width:0;padding:10px 13px;border:1px solid var(--line-2);border-radius:11px;font:inherit;font-size:14px;outline:none;transition:border-color .15s,box-shadow .15s}
 .chat-inp:focus{border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-s)}
-.chat-send{width:40px;height:40px;flex:none;border-radius:11px;background:var(--blue);color:#fff;display:grid;place-items:center;transition:background .15s}
+.chat-send{width:40px;height:40px;flex:none;border-radius:11px;background:var(--blue);color:#fff;display:grid;place-items:center}
 .chat-send:hover{background:var(--blue-d)}
 .chat-note{padding:0 14px 12px;font-size:11.5px;color:var(--mut-4);line-height:1.4}
 @media(max-width:620px){
   .chat{right:12px;bottom:12px;left:12px;align-items:stretch;gap:10px}
   .chat-panel{width:auto;max-width:none;height:min(64vh,470px)}
-  .chat-fab{width:52px;height:52px}
-  .chat-fab{align-self:flex-end}
+  .chat-fab{align-self:flex-end;width:52px;height:52px}
 }
-@media(prefers-reduced-motion:reduce){
-  .chat-panel,.msg{animation:none}
-  .msg-typing i{animation:none;opacity:.5}
-}
+@media(prefers-reduced-motion:reduce){.chat-panel,.msg,.modal,.modal-card{animation:none}.msg-typing i{animation:none;opacity:.5}}
 </style>
 
 <script>
 (function(){
 'use strict';
 
-var NB = '\u00A0';   // неразрывный пробел для чисел
+var NB = ' ';
 
-/* ═══ ДЕМОНСТРАЦИОННЫЕ ДАННЫЕ (синтетические) ═══ */
+/* ═══ ДАННЫЕ (синтетические) ═══ */
 
 var KPI = [
-  {l:'Запросов на первой странице', v:'96', d:'+31', dir:'up', s:'из 890 · норма 210–320'},
-  {l:'Видимость магазина', v:'14%', d:'+4 п.п.', dir:'up', s:'норма 35–50%'},
-  {l:'Карточек держится в поиске', v:'1 402', d:'выпало 1 238', dir:'down', s:'из 2 640 · норма от 2 300'},
-  {l:'Каталог открывается на телефоне', v:'3,1 с', d:'было 4,6 с', dir:'up', s:'норма до 2,5 с'},
-  {l:'Открытых ошибок', v:'4', d:'было 8', dir:'up', s:'четыре закрыты за период'},
-  {l:'Запросов в первой тройке', v:'22', d:'+9', dir:'up', s:'норма 25–60'}
+  {l:'Запросов на первой странице', v:'96',    d:'+31',            dir:'up',   s:'из 890 · норма 210–320'},
+  {l:'Видимость магазина',          v:'14%',   d:'+4 п.п.',        dir:'up',   s:'норма 35–50%'},
+  {l:'Карточек держится в поиске',  v:'1'+NB+'402', d:'выпало 1'+NB+'238', dir:'down', s:'из 2'+NB+'640 · норма от 2'+NB+'300'},
+  {l:'Каталог открывается',         v:'3,1 с', d:'было 4,6 с',     dir:'up',   s:'на телефоне · норма до 2,5 с'},
+  {l:'Открытых фиксов',             v:'3',     d:'было 8',         dir:'up',   s:'четыре закрыты за месяц'},
+  {l:'Запросов в первой тройке',    v:'22',    d:'+9',             dir:'up',   s:'норма 25–60'}
 ];
 
-var ORDERS = [
-  {what:'Наполнить 1 238 карточек товаров',
-   why:'Яндекс выкинул их из поиска с пометкой «малоценная страница»: на них только название, цена и фото с завода. Нужны характеристики, совместимость и для какой работы товар — по три-четыре абзаца.',
-   where:'/catalog/ — 1 238 карточек', price:'+310', unit:'запросов вернётся',
+/* каждая находка — фикс: человеческое имя, цена потерь, кто нажимает */
+var FIXES = [
+  {name:'Наполнить 1'+NB+'238 карточек товаров', term:'LOW_QUALITY · Яндекс не держит их в поиске',
+   why:'На карточках только название, цена и фото от поставщика — читать нечего, и поиск их выбросил. Нужны характеристики, совместимость и для какой работы товар.',
+   where:'/catalog/ — 1'+NB+'238 карточек', cost:'+310', unit:'запросов вернётся',
    tier:'growth', state:'confirm',
    rx:{was:'название, цена, фото поставщика',
        will:'характеристики таблицей, с чем совместим, для каких работ, чем отличается от соседней позиции',
        scope:'первые 40 ходовых артикулов, дальше волнами · каждый текст публикуется после вашего подтверждения'}},
-  {what:'Развести одинаковые заголовки карточек',
+
+  {name:'Вернуть 214 проданных товаров вместо ошибки', term:'HTTP 404 на распроданных артикулах',
+   why:'Когда позиция уходит из наличия, движок удаляет карточку и отдаёт «страница не найдена». Вместе с ней пропадает весь трафик, который она копила годами — а люди продолжают искать этот артикул.',
+   where:'/catalog/ — 214 артикулов', cost:'+86', unit:'запросов вернётся',
+   tier:'base', state:'proposed',
+   rx:{was:'HTTP 404 — страница не найдена',
+       will:'карточка остаётся, помечена «нет в наличии», сверху три аналога в наличии',
+       scope:'214 артикулов · дальше автоматически при каждом уходе товара'}},
+
+  {name:'Дописать категорию «Перфораторы»', term:'категория отдаёт только сетку товаров',
+   why:'Сорок запросов застряли на 11–19 месте. Человек ищет «какой перфоратор выбрать» и «чем sds plus отличается от sds max» — на странице об этом ни слова.',
+   where:'/catalog/perforatory/', cost:'+40', unit:'запросов войдёт в топ',
+   tier:'growth', state:'confirm',
+   rx:{was:'категория отдаёт только плитки с ценами',
+       will:'чем отличаются патроны, как выбрать под бетон и под демонтаж, таблица мощностей, частые вопросы',
+       scope:'один текст · публикация после вашего подтверждения'}},
+
+  {name:'Развести одинаковые заголовки карточек', term:'дубликаты title · 640 карточек',
    why:'На 640 карточках стоял один шаблон «Купить в интернет-магазине — низкие цены». Поиск считал их взаимозаменяемыми и не показывал ни одну.',
-   where:'/catalog/ — 640 карточек', price:'+128', unit:'запросов вернулось',
-   freeWhy:'На 640 карточках стоит один шаблон «Купить в интернет-магазине — низкие цены». Поиск считает их взаимозаменяемыми и не показывает ни одну.',
-   freeUnit:'запросов вернётся',
+   where:'/catalog/ — 640 карточек', cost:'+128', unit:'запросов вернулось',
    tier:'base', state:'done', when:'21.07',
    result:'Группа из 128 запросов: средняя позиция 17 → 11, тридцать одна вошла в первую десятку.',
    rx:{was:'Купить в интернет-магазине — низкие цены',
        will:'{Товар} {артикул} — купить по цене {цена} ₽',
        scope:'шаблон · 640 карточек одной правкой'}},
-  {what:'Закрыть дубли, которые плодят фильтры каталога',
-   why:'Каждая галочка в фильтре создавала отдельный адрес. Робот тратил обход на 4 100 копий вместо живых карточек — из-за этого новые товары попадали в поиск неделями.',
-   where:'/catalog/*?filter_* — 4 100 адресов', price:'4 100', unit:'копий убрано из обхода',
-   freeWhy:'Каждая галочка в фильтре создаёт отдельный адрес. Робот тратит обход на 4 100 копий вместо живых карточек — новые товары попадают в поиск неделями.',
-   freeUnit:'копий уйдёт из обхода',
+
+  {name:'Закрыть дубли, которые плодят фильтры', term:'canonical · 4'+NB+'100 адресов-копий',
+   why:'Каждая галочка в фильтре создавала отдельный адрес. Робот тратил обход на копии вместо живых карточек — новые товары попадали в поиск неделями.',
+   where:'/catalog/*?filter_* — 4'+NB+'100 адресов', cost:'4'+NB+'100', unit:'копий убрано из обхода',
    tier:'base', state:'measuring', when:'04.08',
    result:'Робот переключился на карточки: обход каталога ускорился втрое.',
    note:'Влияние на позиции — замер до 18.08.',
    rx:{was:'каждая комбинация фильтров — отдельная страница в индексе',
        will:'канонический адрес категории; комбинации закрыты от обхода',
-       scope:'весь каталог · 4 100 адресов'}},
-  {what:'Дописать категорию «Перфораторы»',
-   why:'Сорок запросов держатся на 11–19 месте. До первой страницы не хватает ответа, чем SDS-plus отличается от SDS-max и какой брать под конкретную работу.',
-   where:'/catalog/perforatory/', price:'+40', unit:'запросов войдёт в топ',
-   tier:'growth', state:'confirm',
-   rx:{was:'категория отдаёт только сетку товаров',
-       will:'чем отличаются патроны, как выбрать под бетон и под демонтаж, таблица мощностей, частые вопросы',
-       scope:'один текст · публикация после вашего подтверждения'},
-   goto:'page', golabel:'Как агент видит эту страницу — разбор'},
-  {what:'Вернуть 214 проданных товаров вместо ошибки',
-   why:'Когда позиция уходит из наличия, карточка отдаёт ошибку 404. Вместе с ней теряется весь накопленный трафик — а люди искали этот артикул годами и продолжают искать.',
-   where:'/catalog/ — 214 распроданных артикулов', price:'+86', unit:'запросов вернётся',
-   tier:'base', state:'proposed',
-   rx:{was:'HTTP 404 — страница не найдена',
-       will:'карточка остаётся, помечена «нет в наличии», сверху три аналога в наличии',
-       scope:'214 артикулов · дальше автоматически при каждом уходе товара'}}
+       scope:'весь каталог · 4'+NB+'100 адресов'}},
+
+  {name:'Добавить описания для поиска', term:'отсутствует meta description · 410 карточек',
+   why:'Описание — две строки под синей ссылкой в выдаче. Когда его нет, поисковик собирает подпись сам, из случайных обрывков. Читается плохо, кликают реже.',
+   where:'/catalog/ — 410 карточек', cost:'+74', unit:'перехода в неделю',
+   tier:'base', state:'done', when:'28.07',
+   result:'Из тех же показов — на 74 перехода в неделю больше.',
+   rx:{was:'описание не заполнено, поиск придумывает подпись сам',
+       will:'150–160 знаков с ценой, артикулом и наличием',
+       scope:'шаблон по каталогу · 410 карточек'}},
+
+  {name:'Вернуть разметку цен после обновления темы', term:'сторож регрессий · schema.org/Offer',
+   why:'Обновление темы магазина стёрло разметку цены и наличия. Без неё поиск перестаёт показывать цену прямо в выдаче, и карточка проигрывает соседям в той же строке.',
+   where:'/catalog/ — 1'+NB+'240 карточек', cost:'1'+NB+'240', unit:'карточек спасено',
+   tier:'base', state:'done', when:'29.07',
+   result:'Разметка возвращена в день поломки — до поисковика она дойти не успела.',
+   rx:{was:'разметка цены и наличия стёрта обновлением',
+       will:'разметка восстановлена из снимка, сторож следит за повтором',
+       scope:'1'+NB+'240 карточек · автоматически'}}
+];
+
+/* не фикс: чинить нечего, но следим */
+var WATCH = [
+  {name:'Каталог открывается 3,1 секунды при норме 2,5', term:'LCP 3,1 с · остаток 0,6 с',
+   text:'Было 4,6 — агент пережал фото товаров и включил подгрузку по прокрутке. Оставшееся держит не вёрстка, а время ответа сервера: на категории в тысячу позиций хостинг отдаёт первый байт за 1,4 секунды. Автоматически это не чинится — нужен тариф хостинга побыстрее или кеширование категорий.'},
+  {name:'Страницы пагинации конкурируют с категориями', term:'/page/2/ в индексе наравне с первой',
+   text:'Вторые и третьи страницы списков попадают в поиск наравне с самой категорией. Пока доля таких показов меньше процента — трогать не за что. Сторож поднимет это в работу, если вырастет.'}
 ];
 
 var POS = [
@@ -1202,56 +1100,39 @@ var POS = [
 ];
 
 var PAGE_POS = [
-  {q:'перфоратор sds plus купить',   p:7,  was:11},
-  {q:'перфоратор для бетона',        p:11, was:14},
-  {q:'перфоратор цена',              p:13, was:13},
-  {q:'какой перфоратор выбрать',     p:28, was:34},
-  {q:'перфоратор sds max мощный',    p:16, was:19}
+  {q:'перфоратор sds plus купить', p:7,  was:11},
+  {q:'перфоратор для бетона',      p:11, was:14},
+  {q:'перфоратор цена',            p:13, was:13},
+  {q:'какой перфоратор выбрать',   p:28, was:34},
+  {q:'перфоратор sds max мощный',  p:16, was:19}
 ];
 
-var DEFECTS = [
-  {name:'1 238 карточек выброшены из поиска', term:'LOW_QUALITY · малоценная или маловостребованная страница',
-   cost:'1 238 карточек\n310 запросов', crit:'crit',
-   text:'Робот дошёл до карточек, посмотрел и решил не держать их в поиске: кроме названия, цены и фотографии от поставщика на них ничего нет. Такое решение снимается только содержанием — переобход и переотправка в Вебмастере ничего не изменят, пока карточка пустая.',
-   fix:'Агент допишет на каждую характеристики таблицей, совместимость и для каких работ товар подходит. Начнёт с сорока ходовых артикулов, дальше волнами — вы подтверждаете каждый текст. Работа с текстами входит в программу «Рост».',
-   link:{goto:'program',label:'Что входит в «Рост»'}},
-  {name:'214 проданных товаров отдают ошибку 404', term:'HTTP 404 на распроданных артикулах',
-   cost:'214 карточек\n86 запросов', crit:'crit',
-   text:'Когда позиция уходит из наличия, движок магазина удаляет карточку и отдаёт «страница не найдена». Вместе с ней пропадает весь трафик, который карточка накопила за годы, — а люди продолжают искать этот артикул по названию и коду.',
-   fix:'Агент оставит карточку живой, пометит «нет в наличии» и выведет сверху три аналога, которые есть. Дальше это будет происходить само при каждом уходе товара. Правка ждёт вашего нажатия в очереди работ.',
-   link:{goto:'summary',label:'Открыть очередь работ'}},
-  {name:'Каталог открывается 3,1 секунды при норме 2,5', term:'LCP 3,1 с при пороге 2,5 с',
-   cost:'весь каталог\nостаток 0,6 с', crit:'warn',
-   text:'Было 4,6 секунды — агент пережал фотографии товаров и включил подгрузку по прокрутке, стало 3,1. Оставшееся держит не вёрстка, а время ответа сервера: на категории с тысячей позиций хостинг отдаёт первый байт за 1,4 секунды. Это уже не наша территория.',
-   fix:'Автоматически не чинится: нужен тариф хостинга побыстрее или кеширование категорий на стороне сервера. Мы следим за цифрой и предупредим, если станет хуже.'},
-  {name:'Страницы пагинации конкурируют с категориями', term:'/page/2/ в индексе наравне с первой',
-   cost:'340 адресов', crit:'note',
-   text:'Вторые и третьи страницы списков товаров попадают в поиск наравне с самой категорией. Иногда по запросу «перфораторы» человеку показывается четвёртая страница списка — он видит случайные позиции и уходит.',
-   fix:'Действий пока не требуется: доля таких показов меньше процента. Сторож держит это под наблюдением и поднимет в очередь, если вырастет.'},
-  {name:'Фильтры каталога плодили 4 100 дублей', term:'canonical · закрыто от обхода', done:'04.08',
-   cost:'4 100 адресов', crit:'ok',
-   text:'Каждая галочка в фильтре создавала отдельный адрес-копию. Робот тратил обход на копии вместо живых карточек — из-за этого новые товары попадали в поиск неделями.',
-   fix:'Агент указал канонический адрес категории и закрыл комбинации фильтров от обхода. Обход каталога ускорился втрое; влияние на позиции — замер до 18.08.'},
-  {name:'Один заголовок на 640 карточках', term:'дубликаты title', done:'21.07',
-   cost:'640 карточек\n128 запросов', crit:'ok',
-   text:'Заголовок — это синяя ссылка, которую человек видит в результатах поиска. На 640 карточках он был одинаковый: «Купить в интернет-магазине — низкие цены». Поисковик считал такие страницы взаимозаменяемыми и выбирал из них одну, чаще всего не ту.',
-   fix:'Агент собрал заголовок по шаблону из названия товара, артикула и цены — одна правка в шаблоне вместо 640 ручных. После неё группа из 128 запросов поднялась со средней 17 на 11.'},
-  {name:'На 410 карточках нет описания', term:'отсутствует meta description', done:'28.07',
-   cost:'410 карточек', crit:'ok',
-   text:'Описание — это две строки под синей ссылкой в поиске. Когда его нет, поисковик собирает подпись сам, из случайных обрывков текста. Читается плохо, кликают реже.',
-   fix:'Агент собрал описания на 150–160 знаков с ценой, артикулом и наличием, шаблоном по каталогу. Из тех же показов стало на 74 перехода в неделю больше.'},
-  {name:'Разметка цен слетела после обновления темы', term:'сторож регрессий · schema.org/Offer', done:'29.07',
-   cost:'1 240 карточек', crit:'ok',
-   text:'Обновление темы магазина стёрло разметку цены и наличия на карточках. Без неё поиск перестаёт показывать цену прямо в выдаче, и карточка проигрывает соседним магазинам в той же строке.',
-   fix:'Сторож заметил пропажу в день обновления и вернул разметку в тот же день — до поисковика поломка дойти не успела.'}
+var LOG = [
+  {d:'11.08', t:'Обход каталога, проверка 2'+NB+'640 страниц', n:'ежедневно'},
+  {d:'09.08', t:'Обработаны новые товары: заголовки, описания, разметка', n:'12 карточек'},
+  {d:'06.08', t:'Обработаны новые товары', n:'9 карточек'},
+  {d:'04.08', t:'Закрыты дубли фильтров, пережаты фото товаров', n:'4'+NB+'100 адресов'},
+  {d:'02.08', t:'Обработаны новые товары', n:'21 карточка'},
+  {d:'29.07', t:'Сторож вернул разметку цен после обновления темы', n:'1'+NB+'240 карточек'},
+  {d:'28.07', t:'Собраны описания для поиска', n:'410 карточек'},
+  {d:'21.07', t:'Разведены заголовки карточек', n:'640 карточек'},
+  {d:'14.07', t:'Первое обследование сайта, собрана очередь фиксов', n:'8 находок'}
+];
+
+var AUTONOMY = [
+  {on:true,  lock:false, n:'Заголовки и описания', s:'шаблоны по каталогу — самая безопасная категория, ошибиться негде'},
+  {on:true,  lock:false, n:'Разметка товаров и цен', s:'schema.org — влияет на вид карточки в выдаче, не на содержание'},
+  {on:true,  lock:false, n:'Внутренние ссылки и перенаправления', s:'битые адреса, распроданные позиции, канонические адреса'},
+  {on:false, lock:false, n:'Скорость: сжатие фото и подгрузка', s:'трогает файлы на сервере — пока просит подтверждение'},
+  {on:false, lock:true,  n:'Тексты страниц и карточек', s:'всегда только с вашим подтверждением — это правило, не настройка'}
 ];
 
 var FEATURES = [
-  ['Обследование сайта и очередь работ с ценой в трафике', 1,1,1],
+  ['Обследование сайта и очередь фиксов с ценой в трафике', 1,1,1],
   ['Позиции из Вебмастера, история и сравнение окно к окну', 1,1,1],
   ['Отчёт по ссылке — можно переслать кому угодно', 1,1,1],
-  ['Технические правки руками агента: заголовки, описания, разметка, ссылки, скорость', 0,1,1],
-  ['Каждая правка: «было → станет», снимок и откат одним нажатием', 0,1,1],
+  ['Технические фиксы руками агента: заголовки, описания, разметка, ссылки, скорость', 0,1,1],
+  ['Каждый фикс: «было → станет», снимок и откат одним нажатием', 0,1,1],
   ['Сторож регрессий: чинит, если сайт сломало обновлением', 0,1,1],
   ['Новые товары обрабатываются в день появления', 0,1,1],
   ['Ежемесячный акт: сделали → изменилось', 0,1,1],
@@ -1261,61 +1142,66 @@ var FEATURES = [
 ];
 
 var PLANS = [
-  {id:'free',   n:'Диагностика', price:'0 ₽',      per:'',     ess:'Показываем, что мешает сайту, и во что это обходится. Смотрите и чините сами.', cta:'Перейти'},
-  {id:'pro',    n:'Подрядчик',   price:'10 000 ₽', per:'/мес', ess:'Агент сам чинит техническое: заголовки, описания, разметку, ссылки, скорость. Каждый месяц — акт.', cta:'Включить'},
-  {id:'growth', n:'Рост',        price:'20 000 ₽', per:'/мес', ess:'Всё из «Подрядчика» плюс тексты и новые страницы под спрос — с вашим подтверждением.', cta:'Включить'}
+  {id:'free',   n:'Диагностика', price:'0 ₽',            per:'',     ess:'Показываем, что мешает сайту и во что это обходится. Смотрите и чините сами.', cta:'Перейти'},
+  {id:'pro',    n:'Подрядчик',   price:'10'+NB+'000 ₽', per:'/мес', ess:'Агент сам чинит техническое: заголовки, описания, разметку, ссылки, скорость. Каждый месяц — акт.', cta:'Включить'},
+  {id:'growth', n:'Рост',        price:'20'+NB+'000 ₽', per:'/мес', ess:'Всё из «Подрядчика» плюс тексты и новые страницы под спрос — с вашим подтверждением.', cta:'Включить'}
 ];
 
-var PLAN_META = {free:'Диагностика · 0 ₽', pro:'Подрядчик · 10 000 ₽/мес', growth:'Рост · 20 000 ₽/мес'};
+var PLAN_META = {free:'Диагностика · 0 ₽', pro:'Подрядчик · 10'+NB+'000 ₽/мес', growth:'Рост · 20'+NB+'000 ₽/мес'};
 var PLAN_NAME = {free:'Диагностика', pro:'Подрядчик', growth:'Рост'};
-
+var QUOTA = {
+  free:   {used:120, cap:200, txt:'осталось 80 из 200 запросов'},
+  pro:    {used:390, cap:500, txt:'осталось 110 из 500 запросов'},
+  growth: {used:250, cap:890, txt:'осталось 640 из 890 запросов'}
+};
 
 var ONB = {
-  free: {head:'С чего начать', cta:{goto:'program', label:'Посмотреть программы'}, steps:[
-    ['grn','i-check','Сайт проверен','Очередь работ ниже — у каждой цена в запросах, которые вернутся.'],
+  free: {head:'С чего начать', cta:{goto:'settings', label:'Посмотреть программы'}, steps:[
+    ['grn','i-check','Сайт проверен','Список фиксов ниже — у каждого цена в запросах, которые вернутся.'],
     ['amb','i-clock','История позиций копится','Сравнение «лучше или хуже» появится к 25.08 — раньше врать не будем.'],
     ['blu','i-pen','Агент ждёт включения','Пока он только показывает. Чинит — в программе «Подрядчик».']
   ]},
   pro: {head:'Агент работает — вот что происходит', cta:{goto:'act', label:'Открыть акт за июль'}, steps:[
-    ['grn','i-check','Техническое агент делает сам','Три правки уже применены: заголовки, описания, дубли фильтров.'],
-    ['blu','i-pen','Одна правка ждёт вас','Возврат распроданных карточек — агент не тронет сайт, пока вы не нажмёте.'],
+    ['grn','i-check','Техническое агент делает сам','Четыре фикса применены: заголовки, описания, дубли фильтров, разметка.'],
+    ['blu','i-pen','Один фикс ждёт вас','Возврат распроданных карточек — агент не тронет сайт, пока вы не нажмёте.'],
     ['amb','i-clock','Идёт замер','Эффект считается окном в 14 дней. Ближайший результат — 18.08.']
   ]},
   growth: {head:'Агент чинит и пишет — вот что происходит', cta:{goto:'act', label:'Открыть акт за июль'}, steps:[
-    ['grn','i-check','Техническое агент делает сам','Три правки применены, четвёртая ждёт вашего нажатия.'],
-    ['blu','i-pen','Два текста ждут вашего слова','Наполнение 1 238 карточек и категория «Перфораторы» — публикуются только после подтверждения.'],
-    ['amb','i-clock','Идёт замер','Эффект каждой правки считается окном в 14 дней, итог попадает в акт.']
+    ['grn','i-check','Техническое агент делает сам','Четыре фикса применены без вашего участия.'],
+    ['blu','i-pen','Три фикса ждут вашего слова','Два текста и возврат распроданных карточек — в рабочей панели ниже.'],
+    ['amb','i-clock','Идёт замер','Эффект каждого фикса считается окном в 14 дней, итог попадает в акт.']
   ]}
 };
 
 /* ═══ ПОМОЩНИК: заготовленные ответы ═══ */
 var CHAT_A = {
-  start:  ['С чего начать?', 'Смотрите первую строку очереди — она наверху не случайно: там больше всего потерянного трафика. У технических правок нажмите <b>Применить</b>, у текстов — <b>Опубликовать</b>. Всё остальное агент делает сам.'],
-  safe:   ['Вы не сломаете мне сайт?', 'Перед каждой правкой агент делает снимок «как было». Откат — одно нажатие, вернётся ровно прежнее состояние. Тексты вообще не публикуются без вашего подтверждения, а доступ идёт через плагин: паролей от сайта у нас нет, и вы отзываете его одной кнопкой в своей админке.'],
+  start:  ['С чего начать?', 'Смотрите вкладку «Ждут вас» в рабочей панели — там всё, где нужно ваше решение. У технических фиксов нажмите <b>Применить</b>, у текстов — <b>Опубликовать</b>. Остальное агент делает сам, вы увидите это в акте.'],
+  safe:   ['Вы не сломаете мне сайт?', 'Перед каждым фиксом агент делает снимок «как было». Откат — одно нажатие, вернётся ровно прежнее состояние. Тексты вообще не публикуются без вашего подтверждения, а доступ идёт через плагин: паролей от сайта у нас нет, и вы отзываете его одной кнопкой в своей админке.'],
   leave:  ['Что будет, если я отключусь?', 'Всё останется вашим. Мы пишем правки прямо в поля WordPress, а не подменяем страницу скриптом поверх. Отключение подписки ничего не стирает — заголовки, описания и разметка просто остаются на сайте.'],
-  numbers:['Откуда эти цифры?', 'Позиции и запросы — из вашего Яндекс.Вебмастера, мы их не выдумываем и не досчитываем. Ошибки — из обхода сайта нашим роботом. Скорость — замер мобильной загрузки. Всё, чего мы не знаем, помечено словами, а не нулями.'],
+  numbers:['Откуда эти цифры?', 'Позиции и запросы — из вашего Яндекс.Вебмастера, мы их не выдумываем. Фиксы — из обхода сайта нашим роботом. Скорость — замер мобильной загрузки. Всё, чего мы не знаем, помечено словами, а не нулями.'],
   window: ['Почему эффект только через 14 дней?', 'Мы сравниваем двухнедельное окно с предыдущим, а не день с днём. По одному дню Вебмастер отдаёт рваные данные: сегодня запрос показался, завтра нет — и выходит ложное падение. Окно это сглаживает, но требует времени.'],
   history:['Что значит «история копится»?', 'Вебмастер подключён недавно. Чтобы честно сказать «стало лучше», нужно два полных окна по 14 дней — они закроются к 25.08. До этого мы показываем сами позиции, но без стрелок: придуманная динамика хуже честного пробела.'],
-  lowq:   ['Что такое LOW_QUALITY?', 'Так Яндекс помечает страницу, которую посмотрел и решил не держать в поиске: читать нечего. У вас это 1'+NB+'238 карточек, где кроме названия, цены и фото ничего нет. Лечится только содержанием — переобход и переотправка не помогут, пока карточка пустая.'],
+  lowq:   ['Почему карточки выпали из поиска?', 'Яндекс посмотрел их и решил не держать: читать нечего. У вас так с 1'+NB+'238 карточками, где кроме названия, цены и фото ничего нет. Лечится только содержанием — переобход и переотправка не помогут, пока карточка пустая.'],
   speed:  ['Почему скорость не чините до конца?', 'Было 4,6 секунды, стало 3,1 — агент пережал фото и включил подгрузку по прокрутке. Оставшиеся 0,6 держит не вёрстка, а время ответа сервера: на категории в тысячу позиций хостинг отдаёт первый байт за 1,4 секунды. Это чинится тарифом хостинга или кешированием, автоматически мы туда не лезем.'],
   who:    ['Кто напишет тексты?', 'Черновик готовит агент: берёт характеристики, совместимость и назначение товара. Дальше текст приходит вам на подтверждение — публикуется только после вашего «да». Мы не выкладываем на сайт то, чего вы не видели.'],
-  growth: ['Чем «Рост» отличается от «Подрядчика»?', '«Подрядчик» за 10'+NB+'000 ₽ — техническое: заголовки, описания, разметка, ссылки, скорость, сторож регрессий. «Рост» за 20'+NB+'000 ₽ добавляет работу с текстами: наполнение карточек, тексты категорий и новые страницы под спрос. Граница проходит ровно по контенту.'],
-  effect: ['Как вы считаете эффект?', 'Берём запросы той страницы, которую правили, и сравниваем окно до и окно после. В акте пишем «после правки группа запросов сдвинулась с 17 на 11» — именно «после», а не «благодаря». Позиции двигает ещё сезон, конкуренты и алгоритмы; приписывать всё себе было бы враньём.'],
-  cost:   ['Сколько это стоит?', 'Диагностика — бесплатно и навсегда. «Подрядчик» — 10'+NB+'000 ₽ в месяц, агент чинит техническое. «Рост» — 20'+NB+'000 ₽, добавляются тексты и новые страницы. Подробное сравнение на вкладке <em data-goto="program">Программа</em>.'],
+  growth: ['Чем «Рост» отличается от «Подрядчика»?', '«Подрядчик» за 10'+NB+'000 ₽ — техническое: заголовки, описания, разметка, ссылки, скорость, сторож регрессий. «Рост» за 20'+NB+'000 ₽ добавляет тексты: наполнение карточек, тексты категорий, новые страницы под спрос. Граница проходит ровно по контенту. Сравнение — в <em data-goto="settings">Настройках</em>.'],
+  effect: ['Как вы считаете эффект?', 'Берём запросы той страницы, которую правили, и сравниваем окно до и окно после. В акте пишем «после фикса группа запросов сдвинулась с 17 на 11» — именно «после», а не «благодаря». Позиции двигает ещё сезон, конкуренты и алгоритмы; приписывать всё себе было бы враньём.'],
+  quota:  ['Что за остаток запросов?', 'Это сколько запросов из вашего тарифа агент ещё возьмёт в работу в этом месяце. На «Росте» — 890, израсходовано 250. Счётчик обнуляется первого числа; неизрасходованное не переносится.'],
+  cost:   ['Сколько это стоит?', 'Диагностика — бесплатно и навсегда. «Подрядчик» — 10'+NB+'000 ₽ в месяц, агент чинит техническое. «Рост» — 20'+NB+'000 ₽, добавляются тексты и новые страницы. Сравнение — в <em data-goto="settings">Настройках</em>.'],
+  compl:  ['Что за проверка по комплаенсу?', 'Это отдельная услуга, не часть подписки: проверяем сайт по 152-ФЗ — политика обработки данных, формы согласия, cookie-баннер, права на изображения. Штрафы там считаются отдельно от потерь трафика, поэтому и работа отдельная.'],
   '404':  ['Почему проданные товары отдают ошибку?', 'Движок магазина удаляет карточку, когда позиция уходит из наличия, — и вместе с ней пропадает весь трафик, который она копила годами. Агент оставит карточку живой с пометкой «нет в наличии» и тремя аналогами сверху. Дальше это будет происходить само.'],
-  fallback:['', 'Я отвечаю по данным вашего сайта: очередь работ, ошибки, позиции, акт. В демонстрации набор ответов ограничен — попробуйте одну из подсказок ниже, там самое частое.']
+  fallback:['', 'Я отвечаю по данным вашего сайта: фиксы, позиции, акт, тариф. В демонстрации набор ответов ограничен — попробуйте одну из подсказок ниже, там самое частое.']
 };
 
 var CHAT_CTX = {
-  summary:  {ctx:'видит очередь работ по вашему сайту', q:['start','safe','numbers']},
-  positions:{ctx:'видит ваши позиции в Яндексе',        q:['window','history','numbers']},
-  errors:   {ctx:'видит найденные ошибки',              q:['lowq','404','speed']},
-  page:     {ctx:'разбирает страницу каталога',         q:['who','growth','start']},
+  auto:     {ctx:'видит список фиксов по вашему сайту', q:['start','safe','numbers']},
+  positions:{ctx:'видит ваши позиции в Яндексе',        q:['window','history','lowq']},
   act:      {ctx:'читает акт за период',                q:['effect','window','leave']},
-  program:  {ctx:'знает, что входит в программы',       q:['growth','cost','leave']}
+  settings: {ctx:'знает про тариф и доступы',           q:['growth','quota','compl']}
 };
 
 var TIER = 'growth';
+var FX = 'wait';
 var FILTER = 'all';
 var ONB_CLOSED = false;
 var OVERRIDE = {};
@@ -1333,9 +1219,21 @@ function delta(p,was){
   if(TIER==='free') return '<span class="is-neu">копится</span>';
   if(was==null) return '<span class="is-neu">новый</span>';
   var d = was - p;
-  if(d===0) return '<span class="is-neu">'+ico('i-flat')+'на&nbsp;месте</span>';
+  if(d===0) return '<span class="is-neu">'+ico('i-flat')+'на'+NB+'месте</span>';
   var up = d>0;
   return '<span class="'+(up?'is-up':'is-down')+'">'+ico(up?'i-up':'i-down')+(up?'+':'−')+Math.abs(d)+'</span>';
+}
+
+/* состояние фикса с учётом тарифа и нажатий в демо */
+function fxState(f,i){
+  if(OVERRIDE[i]) return OVERRIDE[i];
+  if(TIER==='free') return 'free';
+  if(f.tier==='growth') return TIER==='growth' ? f.state : 'locked';
+  return f.state;
+}
+function fxGroup(st){
+  if(st==='done'||st==='measuring') return 'auto';
+  return 'wait';
 }
 
 /* ═══ РЕНДЕР ═══ */
@@ -1344,13 +1242,11 @@ function renderKpi(){
   $('#kpi-grid').innerHTML = KPI.map(function(k){
     var cls = k.dir==='up' ? 'is-up' : k.dir==='down' ? 'is-down' : 'is-neu';
     var arrow = k.dir==='up' ? 'i-up' : k.dir==='down' ? 'i-down' : '';
-    var delta = TIER==='free'
+    var d = TIER==='free'
       ? '<div class="kpi-d is-neu">история копится</div>'
       : '<div class="kpi-d '+cls+'">'+(arrow?ico(arrow):'')+esc(k.d)+'</div>';
-    return '<div class="kpi">'
-      + '<div class="kpi-l">'+esc(k.l)+'</div>'
-      + '<div class="kpi-v">'+esc(k.v)+'</div>'
-      + delta
+    return '<div class="kpi"><div class="kpi-l">'+esc(k.l)+'</div>'
+      + '<div class="kpi-v">'+esc(k.v)+'</div>'+d
       + '<div class="kpi-s">'+esc(k.s)+'</div></div>';
   }).join('');
 }
@@ -1359,92 +1255,179 @@ function chip(cls,icon,text){
   return '<span class="st '+cls+'">'+(icon?ico(icon):'')+text+'</span>';
 }
 
-function rx(o,actions){
+function rx(f,actions){
   return '<div class="rx">'
-    + '<div class="rx-row rx-was"><span class="rx-tag">было</span><span class="rx-val">'+esc(o.rx.was)+'</span></div>'
-    + '<div class="rx-row rx-will"><span class="rx-tag">станет</span><span class="rx-val">'+esc(o.rx.will)+'</span></div>'
-    + '<div class="rx-scope">'+esc(o.rx.scope)+'</div>'
+    + '<div class="rx-row rx-was"><span class="rx-tag">было</span><span class="rx-val">'+esc(f.rx.was)+'</span></div>'
+    + '<div class="rx-row rx-will"><span class="rx-tag">станет</span><span class="rx-val">'+esc(f.rx.will)+'</span></div>'
+    + '<div class="rx-scope">'+esc(f.rx.scope)+'</div>'
     + (actions ? '<div class="rx-act">'+actions+'<span class="rx-safe">'+ico('i-shield')+'снимок «как было» · откат одним нажатием</span></div>' : '')
     + '</div>';
 }
 
-function orderState(o,i){
-  if(OVERRIDE[i]) return OVERRIDE[i];
-  if(TIER==='free') return 'free';
-  if(o.tier==='growth') return TIER==='growth' ? o.state : 'locked';
-  return o.state;
+function fxCard(f,i,st){
+  var icoCls='wait', icoId='i-pen', badge='', body='';
+
+  if(st==='free'){
+    body = '<div class="rx-act" style="padding:12px 0 0;border:0;background:none">'
+      + '<button class="btn '+(i===0?'btn-blue':'btn-line')+' btn-sm" data-goto="settings" type="button">Пусть починит агент</button></div>';
+  }
+  else if(st==='locked'){
+    icoCls='lock'; icoId='i-lock';
+    badge = chip('st-lock','i-lock','программа «Рост»');
+    body = '<p class="fx-lock">Работа с текстами входит в программу «Рост» — 20'+NB+'000 ₽/мес. <a data-goto="settings">Что ещё она умеет</a></p>';
+  }
+  else if(st==='done'){
+    icoCls='done'; icoId='i-check';
+    badge = chip('st-done','i-check','сделано '+f.when);
+    body = '<div class="fx-res">'+ico('i-up')+esc(f.result)+'</div>';
+  }
+  else if(st==='measuring'){
+    icoCls='meas'; icoId='i-lab';
+    badge = chip('st-wait','i-clock','замер до 18.08');
+    body = '<div class="fx-res is-plain">'+ico('i-check')+esc(f.result)+'</div>'
+         + '<div class="fx-res is-wait">'+ico('i-lab')+esc(f.note)+'</div>';
+  }
+  else if(st==='proposed'){
+    badge = chip('st-live','i-pen','предложен фикс');
+    body = rx(f,'<button class="btn btn-blue btn-sm" data-apply="'+i+'" type="button">Применить</button>'
+            + '<button class="btn btn-line btn-sm" data-skip="'+i+'" type="button">Пропустить</button>');
+  }
+  else if(st==='confirm'){
+    badge = chip('st-live','i-pen','ждёт подтверждения');
+    body = rx(f,'<button class="btn btn-blue btn-sm" data-confirm="'+i+'" type="button">Опубликовать текст</button>'
+            + '<button class="btn btn-line btn-sm" data-skip="'+i+'" type="button">Позже</button>');
+  }
+  else if(st==='applied'){
+    icoCls='done'; icoId='i-check';
+    badge = chip('st-done','i-check','применено сегодня');
+    body = '<div class="fx-res is-wait">'+ico('i-lab')+'Фикс на сайте. Замер эффекта: окно закроется 25.08.</div>'
+      + '<div class="rx-act" style="padding:11px 0 0;border:0;background:none">'
+      + '<button class="btn btn-line btn-sm" data-undo="'+i+'" type="button">'+ico('i-undo')+'Откатить</button></div>';
+  }
+  else if(st==='confirmed'){
+    icoCls='done'; icoId='i-check';
+    badge = chip('st-done','i-check','текст принят');
+    body = '<div class="fx-res is-plain">'+ico('i-check')+'Страница обновится в течение часа. Замер эффекта — с 25.08.</div>'
+      + '<div class="rx-act" style="padding:11px 0 0;border:0;background:none">'
+      + '<button class="btn btn-line btn-sm" data-undo="'+i+'" type="button">'+ico('i-undo')+'Отменить</button></div>';
+  }
+  else if(st==='skipped'){
+    icoCls='lock';
+    badge = chip('st-lock','','отложено');
+    body = '<p class="fx-lock">Не выполняется. <a data-undo="'+i+'">Вернуть в работу</a></p>';
+  }
+
+  return '<div class="fx">'
+    + '<div class="fx-ic '+icoCls+'">'+ico(icoId)+'</div>'
+    + '<div><div class="fx-name">'+esc(f.name)+'<span class="fx-term">'+esc(f.term)+'</span></div>'
+    +   '<p class="fx-why">'+esc(f.why)+'</p>'
+    +   '<div class="fx-where">'+esc(f.where)+'</div>'+body+'</div>'
+    + '<div class="fx-side">'+badge
+    +   '<div class="fx-cost"><b>'+esc(f.cost)+'</b><span>'+esc(f.unit)+'</span></div></div>'
+    + '</div>';
 }
 
-function renderOrders(){
-  $('#orders-list').innerHTML = ORDERS.map(function(o,i){
-    var s = orderState(o,i), st='', body='', rowCls='';
+function pageBlock(){
+  return '<div class="page-grid">'
+    + '<div class="page-main">'
+      + '<section class="card"><div class="card-head">'
+      +   '<div class="ch-left"><h2 class="ch-title">/catalog/perforatory/</h2>'
+      +   '<span class="ch-sub">категория · 40 запросов ведут сюда</span></div>'
+      +   '<a class="link-out" href="#" onclick="return false">открыть'+ico('i-link')+'</a></div>'
+      + '<div class="thead"><div class="th th-q">Запрос</div><div class="th th-p">Место</div><div class="th th-d">Динамика</div></div>'
+      + '<div id="page-pos-body"></div>'
+      + '<div class="card-foot">Показаны 5 запросов из 40. Цвет места: зелёный — первая страница поиска, жёлтый — вторая-третья, красный — глубже 30-го.</div></section>'
+      + '<section class="card"><div class="card-head"><div class="ch-left"><h2 class="ch-title">Что мешает этой странице</h2></div></div>'
+      + '<ul class="pdefects">'
+      +   '<li><span class="pd-ico is-bad">'+ico('i-warn')+'</span><div><b>Категория отдаёт только сетку товаров</b>'
+      +     '<span>Сорок запросов застряли на 11–19 месте. Человек ищет «какой перфоратор выбрать» — на странице об этом ни слова.</span>'
+      +     '<span class="pd-tag">фикс ждёт вашего подтверждения</span></div></li>'
+      +   '<li><span class="pd-ico is-amb">'+ico('i-clock')+'</span><div><b>Открывается 3,1 секунды при норме 2,5</b>'
+      +     '<span>Было 4,6 — агент пережал фото 04.08. Остаток держит время ответа сервера, это вопрос к хостингу.</span></div></li>'
+      +   '<li class="is-fixed"><span class="pd-ico is-ok">'+ico('i-check')+'</span><div><b>Заголовок повторялся ещё на 639 карточках</b>'
+      +     '<span>Был общий «Купить в интернет-магазине». Агент собрал свой 21.07, категория поднялась с 11 на 7 место.</span></div></li>'
+      + '</ul></section></div>'
+    + '<aside class="page-side"><section class="card plan-card">'
+      + '<div class="plan-head">'+ico('i-doc')+'План по странице</div>'
+      + '<p class="plan-text">Категория держится на 11–19 месте по сорока запросам: люди её ищут, но до первой страницы она не дотягивает. Страница отвечает на вопрос «что у вас есть» и не отвечает на вопрос «что мне взять».</p>'
+      + '<div class="plan-lbl">Дописать на страницу</div><ul class="plan-list">'
+      +   '<li>Чем SDS-plus отличается от SDS-max и что брать под бетон, а что под демонтаж.</li>'
+      +   '<li>Какая мощность нужна под конкретную задачу — таблицей на четыре строки.</li>'
+      +   '<li>Что идёт в комплекте и что придётся докупить.</li>'
+      +   '<li>Частые вопросы: гарантия, сервис, совместимость буров.</li></ul>'
+      + '<div class="plan-lbl">Поправить в разметке</div><ul class="plan-list">'
+      +   '<li>Свой заголовок: «Перфораторы SDS-plus и SDS-max — купить с гарантией».</li>'
+      +   '<li>Описание на 150–160 знаков с диапазоном цен и наличием.</li>'
+      +   '<li>Разметка товаров и отзывов — тогда категорию смогут цитировать поисковые ответы.</li></ul>'
+      + '<div class="plan-foot">Ожидаемо: 40 запросов входят на первую страницу, порядка 120 посетителей в неделю.</div>'
+      + '</section></aside></div>';
+}
 
-    if(s==='free'){
-      body = '<div class="rx-act" style="padding:12px 0 0;border:0;background:none">'
-        + '<button class="btn '+(i===0?'btn-blue':'btn-line')+' btn-sm" data-goto="program" type="button">Пусть починит агент</button></div>';
-    }
-    else if(s==='locked'){
-      st = chip('st-lock','i-lock','программа «Рост»');
-      body = '<p class="o-lock">Работа с текстами входит в программу «Рост» — 20 000 ₽/мес. <a data-goto="program">Что ещё она умеет</a></p>';
-    }
-    else if(s==='done'){
-      rowCls=' is-done'; st = chip('st-done','i-check','применено '+o.when);
-      body = '<div class="o-res">'+ico('i-up')+esc(o.result)+'</div>';
-    }
-    else if(s==='measuring'){
-      rowCls=' is-done'; st = chip('st-wait','i-clock','замер до 18.08');
-      body = '<div class="o-res is-plain">'+ico('i-check')+esc(o.result)+'</div>'
-           + '<div class="o-res is-wait">'+ico('i-lab')+esc(o.note)+'</div>';
-    }
-    else if(s==='proposed'){
-      rowCls=' is-live'; st = chip('st-live','i-pen','предложена правка');
-      body = rx(o,'<button class="btn btn-blue btn-sm" data-apply="'+i+'" type="button">Применить</button>'
-              + '<button class="btn btn-line btn-sm" data-skip="'+i+'" type="button">Пропустить</button>');
-    }
-    else if(s==='confirm'){
-      rowCls=' is-live'; st = chip('st-live','i-pen','ждёт подтверждения');
-      body = rx(o,'<button class="btn btn-blue btn-sm" data-confirm="'+i+'" type="button">Опубликовать текст</button>'
-              + '<button class="btn btn-line btn-sm" data-skip="'+i+'" type="button">Позже</button>');
-    }
-    else if(s==='applied'){
-      rowCls=' is-done'; st = chip('st-done','i-check','применено сегодня');
-      body = '<div class="o-res is-wait">'+ico('i-lab')+'Правка на сайте. Замер эффекта: окно закроется 25.08.</div>'
-        + '<div class="rx-act" style="padding:11px 0 0;border:0;background:none">'
-        + '<button class="btn btn-line btn-sm" data-undo="'+i+'" type="button">'+ico('i-undo')+'Откатить</button></div>';
-    }
-    else if(s==='confirmed'){
-      rowCls=' is-done'; st = chip('st-done','i-check','текст принят');
-      body = '<div class="o-res is-plain">'+ico('i-check')+'Страница обновится в течение часа. Замер эффекта — с 25.08.</div>'
-        + '<div class="rx-act" style="padding:11px 0 0;border:0;background:none">'
-        + '<button class="btn btn-line btn-sm" data-undo="'+i+'" type="button">'+ico('i-undo')+'Отменить</button></div>';
-    }
-    else if(s==='skipped'){
-      st = chip('st-lock','','отложено');
-      body = '<p class="o-lock">Не выполняется. <a data-undo="'+i+'">Вернуть в работу</a></p>';
-    }
+function renderFx(){
+  var body = $('#fx-body'), note = $('#fx-note');
 
-    if(o.goto){ body += '<p class="o-lock"><a data-goto="'+o.goto+'">'+esc(o.golabel)+' →</a></p>'; }
+  if(FX==='pages'){
+    body.innerHTML = pageBlock();
+    renderPagePos();
+    note.textContent = 'Разбор одной страницы: её запросы, что ей мешает и что агент предлагает дописать. В продукте сюда можно провалиться из любой строки позиций.';
+    return;
+  }
 
-    return '<li class="order'+rowCls+'">'
-      + '<div class="o-no">'+(i+1)+'</div>'
-      + '<div><div class="o-what">'+esc(o.what)+'</div>'
-      +   '<p class="o-why">'+esc(s==='free' && o.freeWhy ? o.freeWhy : o.why)+'</p>'
-      +   '<div class="o-where">'+esc(o.where)+'</div>'+body+'</div>'
-      + '<div class="o-side">'+st
-      +   '<div class="o-price"><b>'+esc(o.price)+'</b><span>'+esc(s==='free' && o.freeUnit ? o.freeUnit : o.unit)+'</span></div></div>'
-      + '</li>';
+  var rows = [];
+  FIXES.forEach(function(f,i){
+    var st = fxState(f,i);
+    if(TIER==='free'){ if(FX==='wait') rows.push(fxCard(f,i,st)); return; }
+    if(fxGroup(st)===FX) rows.push(fxCard(f,i,st));
+  });
+
+  if(!rows.length){
+    body.innerHTML = '<div class="fx-empty">'+ico('i-check')
+      + '<div class="fx-empty-t">Здесь пусто — и это хорошо</div>'
+      + '<div class="fx-empty-s">'+(FX==='wait'
+          ? 'Всё, что требовало вашего решения, разобрано. Агент продолжает работать сам.'
+          : 'Агент пока ничего не делал сам в этом периоде.')+'</div></div>';
+  } else {
+    body.innerHTML = rows.join('');
+  }
+
+  note.textContent = TIER==='free'
+    ? 'В «Диагностике» агент показывает, что чинить. Чинит он в программах «Подрядчик» и «Рост» — каждый фикс с просмотром «было → станет», снимком и откатом.'
+    : FX==='wait'
+      ? 'Здесь только то, где нужно ваше решение. Перед любой правкой агент делает снимок «как было», откат — одно нажатие.'
+      : 'Это агент сделал сам, не спрашивая: категории включены в настройках. Любое из этих действий откатывается.';
+}
+
+function renderCounts(){
+  var w=0,a=0;
+  FIXES.forEach(function(f,i){
+    var st = fxState(f,i);
+    if(TIER==='free'){ w++; return; }
+    if(fxGroup(st)==='auto') a++; else w++;
+  });
+  $('#c-wait').textContent = w;
+  $('#c-auto').textContent = a;
+  $('#nav-wait').textContent = w;
+  $('#nav-wait').hidden = !w;
+  return {w:w,a:a};
+}
+
+function renderVerdict(c){
+  var free = TIER==='free';
+  $('#v-pulse').className = 'pulse' + (free ? ' amb' : '');
+  $('#v-title').textContent = free ? 'Агент не подключён' : 'Агент работает';
+  $('#v-sub').textContent = free
+    ? c.w+' фиксов найдено · чинить их некому, пока не включена программа'
+    : c.w+' ждут вашего решения · '+c.a+' агент сделал сам за месяц';
+  $('#v-cta').textContent = free ? 'Включить агента' : 'К фиксам';
+  $('#v-cta').dataset.goto = free ? 'settings' : '';
+}
+
+function renderWatch(){
+  $('#watch-body').innerHTML = WATCH.map(function(w){
+    return '<div class="w-row"><span class="w-ic">'+ico('i-clock')+'</span>'
+      + '<div><b>'+esc(w.name)+'</b><span>'+esc(w.text)+'</span>'
+      + '<span style="color:var(--mut-4);font-size:12px;margin-top:5px">'+esc(w.term)+'</span></div></div>';
   }).join('');
-
-  $('#orders-note').innerHTML = TIER==='free'
-    ? 'В «Диагностике» агент показывает, что чинить. Чинит он в программах «Подрядчик» и «Рост» — каждая правка с просмотром «было → станет», снимком и откатом.'
-      + '<div style="margin-top:11px"><button class="btn btn-blue btn-sm" data-goto="program" type="button">Включить агента — от 10\u00A0000 ₽/мес</button></div>'
-    : TIER==='pro'
-    ? 'Работы 1 и 4 — тексты, они входят в программу «Рост». Техническое агент делает сам: перед каждой правкой — снимок «как было», откат одним нажатием.'
-    : 'Тексты публикуются только после вашего подтверждения. Техническое агент делает сам; любая правка откатывается одним нажатием.';
-
-  $('#orders-sub').textContent = TIER==='free'
-    ? 'очередь работ · наверху то, что вернёт больше трафика'
-    : 'очередь работ · агент идёт сверху вниз';
 }
 
 function posRow(r,compact){
@@ -1452,7 +1435,7 @@ function posRow(r,compact){
     + '<div class="q-cell q-name">'+esc(r.q)+'</div>'
     + '<div class="q-cell q-pos"><span class="pos-badge '+bandCls(r.p)+'">'+r.p+'</span></div>'
     + '<div class="q-cell q-del">'+delta(r.p,r.was)+'</div>'
-    + (compact ? '' : '<div class="q-cell q-url">'+(r.page==='/catalog/perforatory/' ? '<a class="q-go" data-goto="page">'+esc(r.page)+' →</a>' : esc(r.page))+'</div>')
+    + (compact ? '' : '<div class="q-cell q-url">'+esc(r.page)+'</div>')
     + '</div>';
 }
 
@@ -1471,36 +1454,61 @@ function renderPos(filter){
 }
 
 function renderPagePos(){
-  $('#page-pos-body').innerHTML = PAGE_POS.map(function(r){return posRow(r,true)}).join('');
+  var el = $('#page-pos-body');
+  if(el) el.innerHTML = PAGE_POS.map(function(r){return posRow(r,true)}).join('');
 }
 
-function renderDefects(){
-  var icons = {crit:'i-warn', warn:'i-warn', note:'i-clock', ok:'i-check'};
-  $('#defects-list').innerHTML = DEFECTS.map(function(d){
-    return '<div class="def'+(d.done?' is-fixed':'')+'">'
-      + '<button class="def-btn" type="button" aria-expanded="false">'
-      +   '<span class="def-ic '+d.crit+'">'+ico(icons[d.crit])+'</span>'
-      +   '<span><span class="def-n">'+esc(d.name)+'</span><span class="def-t">'+esc(d.term)+'</span></span>'
-      +   (d.done
-            ? '<span class="st st-done">'+ico('i-check')+'исправлено '+d.done+'</span>'
-            : '<span class="def-c">'+esc(d.cost).replace(/\n/g,'<br>')+'</span>')
-      +   '<svg class="def-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="m9.5 6.5 5.5 5.5-5.5 5.5"/></svg>'
-      + '</button>'
-      + '<div class="def-body">'
-      +   '<div class="def-cm">'+esc(d.cost).replace(/\n/g,' · ')+'</div>'
-      +   '<p>'+esc(d.text)+'</p><div class="def-fix'+(d.done?' is-done':'')+'">'+esc(d.fix)+'</div>'
-      +   (d.link ? '<div class="def-go"><a data-goto="'+d.link.goto+'">'+esc(d.link.label)+' →</a></div>' : '')
-      + '</div></div>';
+function renderAct(){
+  $('#act-rows').innerHTML = FIXES.filter(function(f){
+    return f.state==='done' || f.state==='measuring';
+  }).map(function(f){
+    return '<div class="act-row">'
+      + '<div class="ar-w"><b>'+esc(f.name)+'</b><span>'+esc(f.where)+'</span></div>'
+      + '<div class="ar-d">'+esc(f.when)+'</div>'
+      + '<div class="ar-r"><span class="res res-ok">'+esc(f.result)+'</span>'
+      + (f.note ? '<span class="res res-wait">'+esc(f.note)+'</span>' : '')+'</div></div>';
   }).join('');
 
-  $$('.def-btn').forEach(function(b){
-    b.addEventListener('click', function(){
-      var open = b.parentNode.classList.toggle('is-open');
-      b.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
-  });
+  $('#log-body').innerHTML = LOG.map(function(l){
+    return '<div class="log-row"><span class="log-d">'+esc(l.d)+'</span>'
+      + '<span class="log-ic">'+ico('i-check')+'</span>'
+      + '<span class="log-t">'+esc(l.t)+'</span>'
+      + '<span class="log-n">'+esc(l.n)+'</span></div>';
+  }).join('');
 }
 
+function renderAutonomy(){
+  $('#auto-rows').innerHTML = AUTONOMY.map(function(a,i){
+    return '<div class="auto-row">'
+      + '<span class="sw-t'+(a.on?' on':'')+(a.lock?' lock':'')+'" role="switch" aria-checked="'+(a.on?'true':'false')
+      +   '" aria-label="'+esc(a.n)+'"'+(a.lock?'':' data-auto="'+i+'" tabindex="0"')+'></span>'
+      + '<div class="auto-txt"><b>'+esc(a.n)+'</b><span>'+esc(a.s)+'</span></div></div>';
+  }).join('');
+}
+
+function renderPlans(){
+  $('#plans').innerHTML = PLANS.map(function(p){
+    var cur = p.id===TIER;
+    return '<div class="plan'+(cur?' is-cur':'')+'">'
+      + (cur ? '<span class="plan-tag">ваша программа</span>' : '')
+      + '<div class="plan-n">'+esc(p.n)+'</div>'
+      + '<div class="plan-price">'+esc(p.price)+'<i>'+esc(p.per)+'</i></div>'
+      + '<p class="plan-ess">'+esc(p.ess)+'</p>'
+      + (cur ? '<div class="plan-cur">'+ico('i-check')+'подключена</div>'
+             : '<div class="plan-cta"><button class="btn '+(p.id==='free'?'btn-line':'btn-blue')+'" data-tier="'+p.id+'" type="button">'+esc(p.cta)+'</button></div>')
+      + '</div>';
+  }).join('');
+
+  var cols = ['free','pro','growth'];
+  $('#feat-body').innerHTML = FEATURES.map(function(f){
+    return '<div class="feat"><div class="ft-n">'+esc(f[0])+'</div>'
+      + cols.map(function(c,ci){
+          return '<div class="ft-c'+(c===TIER?' is-cur':'')+'">'
+            + (f[ci+1] ? '<span class="ft-y">'+ico('i-check')+'</span>' : '<span class="ft-no">—</span>')+'</div>';
+        }).join('') + '</div>';
+  }).join('');
+  $$('.fh-col').forEach(function(th){ th.classList.toggle('is-cur', th.dataset.col===TIER); });
+}
 
 function renderOnb(){
   var o = ONB[TIER];
@@ -1513,50 +1521,25 @@ function renderOnb(){
   $('#onb').hidden = ONB_CLOSED;
 }
 
-function renderPlans(){
-  $('#plans').innerHTML = PLANS.map(function(p){
-    var cur = p.id===TIER;
-    return '<div class="plan'+(cur?' is-cur':'')+'">'
-      + (cur ? '<span class="plan-tag">ваша программа</span>' : '')
-      + '<div class="plan-n">'+esc(p.n)+'</div>'
-      + '<div class="plan-price">'+esc(p.price)+'<i>'+esc(p.per)+'</i></div>'
-      + '<p class="plan-ess">'+esc(p.ess)+'</p>'
-      + (cur
-          ? '<div class="plan-cur">'+ico('i-check')+'подключена</div>'
-          : '<div class="plan-cta"><button class="btn '+(p.id==='free'?'btn-line':'btn-blue')+'" data-tier="'+p.id+'" type="button">'+esc(p.cta)+'</button></div>')
-      + '</div>';
-  }).join('');
-
-  var cols = ['free','pro','growth'];
-  $('#feat-body').innerHTML = FEATURES.map(function(f){
-    return '<div class="feat"><div class="ft-n">'+esc(f[0])+'</div>'
-      + cols.map(function(c,ci){
-          return '<div class="ft-c'+(c===TIER?' is-cur':'')+'">'
-            + (f[ci+1] ? '<span class="ft-y">'+ico('i-check')+'</span>' : '<span class="ft-n-no">—</span>')
-            + '</div>';
-        }).join('') + '</div>';
-  }).join('');
-
-  $$('.fh-col').forEach(function(th){
-    th.classList.toggle('is-cur', th.dataset.col===TIER);
-  });
+function renderQuota(){
+  var q = QUOTA[TIER];
+  var left = Math.round((q.cap - q.used) / q.cap * 100);
+  $('#q-plan').textContent = PLAN_META[TIER];
+  $('#q-txt').textContent = q.txt;
+  $('#q-fill').style.transform = 'scaleX(' + (left/100) + ')';
+  $('#q-mini').textContent = left + '%';
 }
 
 function setTier(t){
   TIER = t; OVERRIDE = {};
-  $('#plan-badge').textContent = PLAN_META[t];
   $('#act-empty').hidden = t !== 'free';
   $('#act-full').hidden  = t === 'free';
-  $('#pend-paid').hidden = t === 'free';
-  $('#pend-free').hidden = t !== 'free';
-  renderOnb();
-  renderPos(FILTER);
-  renderPagePos();
-  renderKpi();
-  $('#mini-done').hidden = t === 'free';
   if(t !== 'free') $('#act-prog').textContent = PLAN_NAME[t];
-  renderOrders();
-  renderPlans();
+  if(TIER==='free' && FX==='auto') FX='wait';
+  $$('.chip[data-fx]').forEach(function(c){ c.classList.toggle('is-active', c.dataset.fx===FX); });
+  renderQuota(); renderOnb(); renderKpi();
+  renderVerdict(renderCounts());
+  renderFx(); renderWatch(); renderPos(FILTER); renderAct(); renderAutonomy(); renderPlans();
 }
 
 /* ═══ НАВИГАЦИЯ ═══ */
@@ -1567,22 +1550,19 @@ function show(id){
 }
 
 function activateTab(name){
+  if(!name) return;
+  $$('.nav').forEach(function(x){ x.classList.toggle('is-active', x.dataset.tab===name); });
+  $$('.panel').forEach(function(p){ p.classList.toggle('is-active', p.id==='t-'+name); });
+  $('#shell').classList.remove('is-open');
   if(typeof chatOpen !== 'undefined' && chatOpen && !chatBusy) setTimeout(chatSugg, 0);
-  $$('.tab').forEach(function(x){
-    var on = x.dataset.tab===name;
-    x.classList.toggle('is-active', on);
-    x.setAttribute('aria-selected', on ? 'true' : 'false');
-  });
-  $$('.panel').forEach(function(p){
-    p.classList.toggle('is-active', p.id==='t-'+name);
-  });
+  window.scrollTo(0,0);
 }
 
 $('#intake-form').addEventListener('submit', function(e){
   e.preventDefault();
   var host = ($('#site-input').value || 'prof-instrument.ru').trim().replace(/^https?:\/\//,'').replace(/\/$/,'');
   $('#scan-host').textContent = host;
-  $$('.brand-txt b').forEach(function(b){ if(b.closest('#v-app')) b.textContent = host; });
+  $('#host').textContent = host;
   show('v-scan');
   runScan();
 });
@@ -1590,79 +1570,108 @@ $('#intake-form').addEventListener('submit', function(e){
 var timers = [];
 function runScan(){
   timers.forEach(clearTimeout); timers = [];
-  var rows = $$('#lab-list .scan-row');
+  var rows = $$('#scan-list .scan-row');
   rows.forEach(function(r){r.classList.remove('is-in')});
-  rows.forEach(function(r){
-    timers.push(setTimeout(function(){r.classList.add('is-in')}, +r.dataset.ms));
-  });
+  rows.forEach(function(r){ timers.push(setTimeout(function(){r.classList.add('is-in')}, +r.dataset.ms)); });
   timers.push(setTimeout(function(){show('v-app')}, 5600));
 }
-
-$('#scan-skip').addEventListener('click', function(){
-  timers.forEach(clearTimeout); timers = [];
-  show('v-app');
-});
+$('#scan-skip').addEventListener('click', function(){ timers.forEach(clearTimeout); timers=[]; show('v-app'); });
 $('#restart').addEventListener('click', function(){ show('v-intake') });
-$('#onb-close').addEventListener('click', function(){ ONB_CLOSED = true; $('#onb').hidden = true; });
 
-$$('.tab').forEach(function(t){
-  t.addEventListener('click', function(){ activateTab(t.dataset.tab) });
-});
-document.querySelector('.tabs').addEventListener('keydown', function(e){
-  if(e.key!=='ArrowLeft' && e.key!=='ArrowRight') return;
-  var tabs = $$('.tab'), i = tabs.indexOf(document.activeElement);
+$$('.nav').forEach(function(n){ n.addEventListener('click', function(){ activateTab(n.dataset.tab) }); });
+$('#side-nav').addEventListener('keydown', function(e){
+  if(e.key!=='ArrowDown' && e.key!=='ArrowUp') return;
+  var items = $$('.nav'), i = items.indexOf(document.activeElement);
   if(i<0) return;
-  var n = (i + (e.key==='ArrowRight'?1:-1) + tabs.length) % tabs.length;
-  tabs[n].focus(); activateTab(tabs[n].dataset.tab); e.preventDefault();
+  var n = (i + (e.key==='ArrowDown'?1:-1) + items.length) % items.length;
+  items[n].focus(); activateTab(items[n].dataset.tab); e.preventDefault();
 });
 
-$$('.chip').forEach(function(c){
+$('#side-toggle').addEventListener('click', function(){
+  var min = $('#shell').classList.toggle('is-min');
+  this.setAttribute('aria-label', min ? 'Развернуть меню' : 'Свернуть меню');
+  this.title = min ? 'Развернуть меню' : 'Свернуть меню';
+});
+$('#burger').addEventListener('click', function(){ $('#shell').classList.add('is-open'); });
+$('#side-scrim').addEventListener('click', function(){ $('#shell').classList.remove('is-open'); });
+
+$('#onb-close').addEventListener('click', function(){ ONB_CLOSED = true; $('#onb').hidden = true; });
+$('#v-cta').addEventListener('click', function(){
+  if(this.dataset.goto){ activateTab(this.dataset.goto); return; }
+  FX='wait';
+  $$('.chip[data-fx]').forEach(function(c){ c.classList.toggle('is-active', c.dataset.fx==='wait'); });
+  renderFx();
+  $('#fx-body').scrollIntoView({behavior:'smooth', block:'start'});
+});
+
+$$('.chip[data-fx]').forEach(function(c){
   c.addEventListener('click', function(){
-    $$('.chip').forEach(function(x){x.classList.toggle('is-active', x===c)});
+    FX = c.dataset.fx;
+    $$('.chip[data-fx]').forEach(function(x){ x.classList.toggle('is-active', x===c); });
+    renderFx();
+  });
+});
+$$('.chip[data-filter]').forEach(function(c){
+  c.addEventListener('click', function(){
     FILTER = c.dataset.filter;
+    $$('.chip[data-filter]').forEach(function(x){ x.classList.toggle('is-active', x===c); });
     renderPos(FILTER);
   });
 });
 
+/* комплаенс */
+function complOpen(v){ $('#compl-modal').hidden = !v; }
+$('#compl').addEventListener('click', function(){ complOpen(true); });
+$('#compl-x').addEventListener('click', function(){ complOpen(false); });
+$('#compl-x2').addEventListener('click', function(){ complOpen(false); });
+$('#compl-modal').addEventListener('click', function(e){ if(e.target===this) complOpen(false); });
+$('#quota').addEventListener('click', function(){ activateTab('settings'); });
+
+/* действия по фиксам, переходы, тарифы, тумблеры */
 document.addEventListener('click', function(e){
-  var el = e.target.closest ? e.target.closest('[data-goto],[data-apply],[data-skip],[data-confirm],[data-undo],[data-tier]') : null;
+  var el = e.target.closest ? e.target.closest('[data-goto],[data-apply],[data-skip],[data-confirm],[data-undo],[data-tier],[data-auto]') : null;
   if(!el) return;
-  if(el.dataset.goto){ activateTab(el.dataset.goto); window.scrollTo(0,0); return; }
-  if(el.dataset.tier){ setTier(el.dataset.tier); window.scrollTo(0,0); return; }
+  if(el.dataset.goto){ activateTab(el.dataset.goto); return; }
+  if(el.dataset.tier){ setTier(el.dataset.tier); activateTab('auto'); return; }
+  if(el.dataset.auto != null){
+    var a = AUTONOMY[+el.dataset.auto]; a.on = !a.on; renderAutonomy(); return;
+  }
   var i = +(el.dataset.apply || el.dataset.skip || el.dataset.confirm || el.dataset.undo);
   if(el.dataset.apply   != null) OVERRIDE[i] = 'applied';
   else if(el.dataset.confirm != null) OVERRIDE[i] = 'confirmed';
   else if(el.dataset.skip    != null) OVERRIDE[i] = 'skipped';
   else delete OVERRIDE[i];
-  renderOrders();
+  renderFx(); renderVerdict(renderCounts());
 });
-
+document.addEventListener('keydown', function(e){
+  if(e.key!==' ' && e.key!=='Enter') return;
+  var el = document.activeElement;
+  if(el && el.dataset && el.dataset.auto != null){
+    var a = AUTONOMY[+el.dataset.auto]; a.on = !a.on; renderAutonomy(); e.preventDefault();
+  }
+});
 
 /* ═══ ПОМОЩНИК ═══ */
 var chatOpen = false, chatSeeded = false, chatBusy = false;
 
 function curTab(){
-  var t = document.querySelector('.tab.is-active');
-  return t ? t.dataset.tab : 'summary';
+  var t = document.querySelector('.nav.is-active');
+  return t ? t.dataset.tab : 'auto';
 }
-
 function chatPush(who, html){
   var d = document.createElement('div');
   d.className = 'msg msg-' + who;
   d.innerHTML = html;
   $('#chat-log').appendChild(d);
   $('#chat-log').scrollTop = $('#chat-log').scrollHeight;
-  return d;
 }
-
 function chatSugg(){
-  var ctx = CHAT_CTX[curTab()] || CHAT_CTX.summary;
+  var ctx = CHAT_CTX[curTab()] || CHAT_CTX.auto;
   $('#chat-ctx').textContent = ctx.ctx;
   $('#chat-sugg').innerHTML = ctx.q.map(function(k){
     return '<button class="sugg" type="button" data-ask="'+k+'">'+esc(CHAT_A[k][0])+'</button>';
   }).join('');
 }
-
 function chatAnswer(key){
   if(chatBusy) return;
   chatBusy = true;
@@ -1673,26 +1682,24 @@ function chatAnswer(key){
   $('#chat-log').appendChild(t);
   $('#chat-log').scrollTop = $('#chat-log').scrollHeight;
   setTimeout(function(){
-    t.remove();
-    chatPush('a', a[1]);
-    chatSugg();
+    t.remove(); chatPush('a', a[1]); chatSugg();
     var log = $('#chat-log');
     requestAnimationFrame(function(){ log.scrollTop = log.scrollHeight; });
     chatBusy = false;
-  }, 480);
+  }, 460);
 }
-
-/* сопоставление свободного ввода с темой */
 var CHAT_KEYS = [
   ['safe',   ['слома','безопас','риск','страшн','опасн','довер']],
   ['leave',  ['отключ','отпишу','уйду','отмен','перестан','навсегда']],
   ['numbers',['откуда','достовер','правда','источник','верить']],
-  ['window', ['14','двe недел','две недел','почему так долго','когда результат','окно']],
+  ['window', ['14','две недел','когда результат','окно']],
   ['history',['копится','нет динамик','нет стрел','нет сравнен']],
   ['lowq',   ['low','малоцен','выпал','не в индекс','выброш','индекс']],
   ['speed',  ['скорост','медлен','грузит','секунд','lcp','хостинг']],
   ['who',    ['кто напиш','копирайт','текст','напиш','контент']],
-  ['growth', ['рост','отлича','разниц','дороже','тариф']],
+  ['quota',  ['остаток','квот','лимит','осталось']],
+  ['compl',  ['комплаенс','152','закон','штраф','юрист','персональн']],
+  ['growth', ['рост','отлича','разниц','дороже','тариф','программ']],
   ['effect', ['эффект','как считаете','атрибуц','благодар','доказ']],
   ['cost',   ['сколько','цена','стоит','платить','деньги','₽','руб']],
   ['404',    ['404','продан','распродан','нет в наличии','ошибк']],
@@ -1701,16 +1708,15 @@ var CHAT_KEYS = [
 function chatMatch(text){
   var t = text.toLowerCase();
   for(var i=0;i<CHAT_KEYS.length;i++){
-    var k = CHAT_KEYS[i];
-    for(var j=0;j<k[1].length;j++){ if(t.indexOf(k[1][j]) >= 0) return k[0]; }
+    for(var j=0;j<CHAT_KEYS[i][1].length;j++){
+      if(t.indexOf(CHAT_KEYS[i][1][j]) >= 0) return CHAT_KEYS[i][0];
+    }
   }
   return 'fallback';
 }
-
 function chatToggle(open){
   chatOpen = open;
   $('#chat-panel').hidden = !open;
-  $('#chat').classList.toggle('is-open', open);
   $('#chat-fab').setAttribute('aria-expanded', open ? 'true' : 'false');
   if(open){
     $('#chat-dot').classList.add('is-off');
@@ -1720,24 +1726,21 @@ function chatToggle(open){
     }
     chatSugg();
     setTimeout(function(){ $('#chat-inp').focus(); }, 60);
-  } else {
-    $('#chat-fab').focus();
-  }
+  } else { $('#chat-fab').focus(); }
 }
-
 $('#chat-fab').addEventListener('click', function(){ chatToggle(!chatOpen); });
 $('#chat-close').addEventListener('click', function(){ chatToggle(false); });
-document.addEventListener('keydown', function(e){ if(e.key==='Escape' && chatOpen) chatToggle(false); });
-
-$('#chat-sugg').addEventListener('click', function(e){
-  var b = e.target.closest('[data-ask]');
-  if(!b) return;
-  var k = b.dataset.ask;
-  chatPush('u', esc(CHAT_A[k][0]));
-  $('#chat-sugg').innerHTML = '';
-  chatAnswer(k);
+document.addEventListener('keydown', function(e){
+  if(e.key!=='Escape') return;
+  if(!$('#compl-modal').hidden){ complOpen(false); return; }
+  if(chatOpen) chatToggle(false);
 });
-
+$('#chat-sugg').addEventListener('click', function(e){
+  var b = e.target.closest('[data-ask]'); if(!b) return;
+  chatPush('u', esc(CHAT_A[b.dataset.ask][0]));
+  $('#chat-sugg').innerHTML = '';
+  chatAnswer(b.dataset.ask);
+});
 $('#chat-form').addEventListener('submit', function(e){
   e.preventDefault();
   var v = $('#chat-inp').value.trim();
@@ -1747,20 +1750,11 @@ $('#chat-form').addEventListener('submit', function(e){
   $('#chat-sugg').innerHTML = '';
   chatAnswer(chatMatch(v));
 });
-
-/* ссылки внутри ответов помощника */
 $('#chat-log').addEventListener('click', function(e){
-  var el = e.target.closest('[data-goto]');
-  if(!el) return;
-  activateTab(el.dataset.goto);
-  window.scrollTo(0,0);
-  chatToggle(false);
+  var el = e.target.closest('[data-goto]'); if(!el) return;
+  activateTab(el.dataset.goto); chatToggle(false);
 });
 
-renderKpi();
-renderPos('all');
-renderPagePos();
-renderDefects();
 setTier('growth');
 
 })();
