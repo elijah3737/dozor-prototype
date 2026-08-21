@@ -42,23 +42,57 @@ FINISH: unreviewed and undocumented is unfinished.
     <symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="2.9"/><path d="M19.2 14.6a1.6 1.6 0 0 0 .32 1.76l.06.06a1.9 1.9 0 1 1-2.7 2.7l-.05-.06a1.6 1.6 0 0 0-1.77-.32 1.6 1.6 0 0 0-.97 1.46v.17a1.9 1.9 0 0 1-3.8 0v-.09a1.6 1.6 0 0 0-1.05-1.46 1.6 1.6 0 0 0-1.76.32l-.06.06a1.9 1.9 0 1 1-2.7-2.7l.06-.06a1.6 1.6 0 0 0 .32-1.76 1.6 1.6 0 0 0-1.46-.97H3.4a1.9 1.9 0 1 1 0-3.8h.09a1.6 1.6 0 0 0 1.46-1.05 1.6 1.6 0 0 0-.32-1.76l-.06-.06a1.9 1.9 0 1 1 2.7-2.7l.06.06a1.6 1.6 0 0 0 1.76.32h.08A1.6 1.6 0 0 0 10.13 3.5V3.4a1.9 1.9 0 0 1 3.8 0v.09a1.6 1.6 0 0 0 .97 1.46 1.6 1.6 0 0 0 1.76-.32l.06-.06a1.9 1.9 0 1 1 2.7 2.7l-.06.06a1.6 1.6 0 0 0-.32 1.76v.08a1.6 1.6 0 0 0 1.46.97h.17a1.9 1.9 0 0 1 0 3.8h-.09a1.6 1.6 0 0 0-1.46.97Z"/></symbol>
     <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
     <symbol id="i-panel" viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="15" rx="2.5"/><path d="M9.5 4.5v15"/></symbol>
+    <symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.2"/><path d="M9.7 9.4a2.4 2.4 0 1 1 3.4 2.3c-.75.34-1.1.86-1.1 1.7"/><path d="M12 16.3v.1"/></symbol>
   </defs>
 </svg>
 
 <!-- ═════ ВХОД ═════ -->
 <section class="view is-active" id="v-intake">
   <div class="gate">
-    <div class="gate-card">
-      <div class="brand brand-lg"><span class="mark">Д</span><span class="brand-txt">Дозор <b>сторож вашего сайта</b></span></div>
+    <header class="gate-top gate-wrap">
+      <div class="brand"><span class="mark">Д</span><span class="brand-txt">Дозор <b>сторож вашего сайта</b></span></div>
+      <button class="gate-link" id="gate-compl" type="button"><span class="gl-full">Проверка по комплаенсу</span><span class="gl-short">Комплаенс</span></button>
+    </header>
 
+    <div class="gate-hero gate-wrap">
       <h1 class="gate-title">Покажем, что мешает сайту, и починим это за вас</h1>
-      <p class="gate-lead">Введите адрес — через две-три минуты увидите, что сломано и во что это обходится. Без регистрации и без доступов.</p>
-
+      <p class="gate-lead">Введите адрес. Через две-три минуты увидите, что сломано и сколько трафика это стоит. Без регистрации.</p>
       <form class="gate-form" id="intake-form" autocomplete="off">
         <input class="inp inp-lg" id="site-input" type="text" value="prof-instrument.ru" spellcheck="false" aria-label="Адрес сайта">
         <button class="btn btn-blue btn-lg" type="submit">Проверить сайт<svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></button>
       </form>
+    </div>
 
+    <div class="gate-band">
+      <div class="gate-wrap">
+        <div class="gate-band-in">
+          <div class="gb-cell">
+            <div class="gb-t">Где вы стоите в поиске</div>
+            <p class="gb-s">Позиции по вашим запросам, как только подключите Вебмастер.</p>
+            <div class="gb-viz">
+              <span class="gb-pill b1">1–3</span><span class="gb-pill b2">4–10</span>
+              <span class="gb-pill b3">11–30</span><span class="gb-pill b4">30+</span>
+            </div>
+          </div>
+          <div class="gb-cell">
+            <div class="gb-t">Что сломано и чего это стоит</div>
+            <p class="gb-s">Каждая находка с ценой в запросах, а не в баллах аудита.</p>
+            <div class="gb-viz"><span class="gb-num">1 238</span><span class="gb-unit">карточек выпало</span></div>
+          </div>
+          <div class="gb-cell">
+            <div class="gb-t">Как быстро открывается на телефоне</div>
+            <p class="gb-s">Замер каталога и главной, сразу после обхода.</p>
+            <div class="gb-viz"><span class="gb-bar"><i></i></span><span class="gb-unit mut">3,1 с при норме 2,5</span></div>
+          </div>
+        </div>
+        <p class="gate-note">Яндекс отдаёт данные с задержкой в один-три дня. Мы показываем эту паузу честно, а не пустым экраном.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ниже первого экрана: как это устроено -->
+  <div class="below">
+    <div class="gate-wrap">
       <ol class="hiw">
         <li><b>1</b><div><span>Проверяем бесплатно</span>Что сломано и сколько трафика это стоит.</div></li>
         <li><b>2</b><div><span>Агент чинит</span>Каждый фикс — «было → станет», снимок и откат.</div></li>
@@ -83,7 +117,6 @@ FINISH: unreviewed and undocumented is unfinished.
           </ul>
         </div>
       </div>
-      <p class="gate-note">Яндекс отдаёт данные с задержкой в один-три дня. Мы показываем эту паузу честно, а не пустым экраном.</p>
     </div>
   </div>
 </section>
@@ -91,8 +124,11 @@ FINISH: unreviewed and undocumented is unfinished.
 <!-- ═════ СКАН ═════ -->
 <section class="view" id="v-scan">
   <div class="gate">
-    <div class="gate-card">
-      <div class="brand brand-lg"><span class="mark">Д</span><span class="brand-txt">Дозор <b>сторож вашего сайта</b></span></div>
+    <header class="gate-top gate-wrap">
+      <div class="brand"><span class="mark">Д</span><span class="brand-txt">Дозор <b>сторож вашего сайта</b></span></div>
+    </header>
+
+    <div class="gate-hero gate-wrap scan-hero">
       <h1 class="gate-title sm">Проверяем <span id="scan-host">prof-instrument.ru</span></h1>
       <p class="gate-lead">Обходим страницы и снимаем показатели. Можно закрыть вкладку — результат сохранится.</p>
 
@@ -155,6 +191,10 @@ FINISH: unreviewed and undocumented is unfinished.
         <svg class="ico" aria-hidden="true"><use href="#i-shield"/></svg>
         <span class="side-label">Проверка по комплаенсу</span>
       </button>
+      <button class="tour-open" id="tour-open" type="button" title="Как это работает">
+        <svg class="ico" aria-hidden="true"><use href="#i-help"/></svg>
+        <span class="side-label">Как это работает</span>
+      </button>
     </div>
   </aside>
 
@@ -185,7 +225,7 @@ FINISH: unreviewed and undocumented is unfinished.
         <div class="verdict card" id="verdict">
           <span class="pulse" id="v-pulse"></span>
           <div class="v-body">
-            <b id="v-title">Агент работает</b>
+            <span class="v-row"><b id="v-title">Агент работает</b><button class="info" type="button" data-tip="Сторож проверяет сайт каждый день. Здесь всегда видно: агент работает, сколько дел ждут вашего решения и что он сделал сам. Кнопка ведёт прямо к работам." aria-label="Пояснение">?</button></span>
             <span id="v-sub"></span>
           </div>
           <button class="btn btn-blue btn-sm" id="v-cta" type="button">К фиксам</button>
@@ -193,11 +233,11 @@ FINISH: unreviewed and undocumented is unfinished.
 
         <div class="kpis" id="kpi-grid"></div>
 
-        <section class="card">
+        <section class="card" id="fx-card">
           <div class="card-head col">
             <div class="ch-row">
               <div class="ch-left">
-                <h2 class="ch-title">Рабочая панель</h2>
+                <h2 class="ch-title">Рабочая панель<button class="info" type="button" data-tip="Очередь работ по сайту. Фикс — одна конкретная починка: что сделаем, сколько запросов это вернёт и кто нажимает кнопку. «Ждут вас» — нужно ваше решение. «Агент делает сам» — сделано автоматически, любое действие откатывается. «Страницы» — разбор одной страницы целиком." aria-label="Пояснение">?</button></h2>
                 <span class="ch-sub">каждая находка — фикс: что делаем, чего это стоит, кто нажимает</span>
               </div>
             </div>
@@ -214,7 +254,7 @@ FINISH: unreviewed and undocumented is unfinished.
         <section class="card watch" id="watch">
           <div class="card-head">
             <div class="ch-left">
-              <h2 class="ch-title">Под наблюдением</h2>
+              <h2 class="ch-title">Под наблюдением<button class="info" type="button" data-tip="Здесь то, что чинить пока не нужно или невозможно автоматически. Сторож проверяет эти места при каждом обходе и сам поднимет их в очередь работ, если показатели ухудшатся." aria-label="Пояснение">?</button></h2>
               <span class="ch-sub">чинить нечего, но сторож следит и поднимет в работу, если станет хуже</span>
             </div>
           </div>
@@ -232,7 +272,7 @@ FINISH: unreviewed and undocumented is unfinished.
         <section class="card">
           <div class="card-head col">
             <div class="ch-row">
-              <h2 class="ch-title">Запросы <span class="ch-n">890</span></h2>
+              <h2 class="ch-title">Запросы <span class="ch-n">890</span><button class="info" type="button" data-tip="890 — все запросы, по которым Яндекс показывает ваш сайт и раскрывает цифры. Это не лимит тарифа, а картина спроса. В прототипе для примера показаны первые 10 строк." aria-label="Пояснение">?</button></h2>
               <div class="scale-key">
                 <span><i class="sw sw-1"></i>1–3</span><span><i class="sw sw-2"></i>4–10</span>
                 <span><i class="sw sw-3"></i>11–30</span><span><i class="sw sw-4"></i>30+</span>
@@ -248,7 +288,7 @@ FINISH: unreviewed and undocumented is unfinished.
           </div>
           <div class="thead">
             <div class="th th-q">Запрос</div><div class="th th-p">Место</div>
-            <div class="th th-d">За 14 дней</div><div class="th th-u">Страница</div>
+            <div class="th th-d">За 14 дней<button class="info" type="button" data-tip="На сколько мест запрос сдвинулся: последние 14 дней против предыдущих 14. День к дню Яндекс отдаёт рваные данные, окно сглаживает случайные скачки." aria-label="Пояснение">?</button></div><div class="th th-u">Страница</div>
           </div>
           <div id="pos-body"></div>
           <div class="card-foot">Сравнение идёт за две недели целиком, а не день ко дню: по одному дню данные приходят рваными и дают ложные падения. Показано 10 запросов из 890. Яндекс раскрывает только запросы с достаточными показами — это потолок его выгрузки, а не пробел в нашем сборе.</div>
@@ -273,7 +313,7 @@ FINISH: unreviewed and undocumented is unfinished.
             <div class="hero-wash grn" aria-hidden="true"></div>
             <div class="hero-in">
               <div class="status-line grn"><span class="pulse grn"></span>период закрыт</div>
-              <h1 class="hero-title">Акт № 07 · июль — август</h1>
+              <h1 class="hero-title">Акт № 07 · июль — август<button class="info info-lg" type="button" data-tip="Акт — главный документ месяца: что агент сделал на сайте и что после этого изменилось, с датами и цифрами. Это ответ на вопрос «за что я плачу». Его можно переслать бухгалтеру или партнёру." aria-label="Пояснение">?</button></h1>
               <p class="hero-text">Что сделали и что после этого изменилось. Период 14 июля — 11 августа 2026, программа «<span id="act-prog">Рост</span>».</p>
               <div class="act-totals">
                 <div class="at"><span class="at-l">Запросов в ТОП-10</span><span class="at-v">65<svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg>96</span></div>
@@ -286,7 +326,7 @@ FINISH: unreviewed and undocumented is unfinished.
           <section class="card">
             <div class="card-head">
               <div class="ch-left">
-                <h2 class="ch-title">Что изменилось после наших правок</h2>
+                <h2 class="ch-title">Что изменилось после наших правок<button class="info" type="button" data-tip="Здесь намеренно написано «после», а не «благодаря»: позиции двигает ещё сезон, конкуренты и алгоритмы поиска. Мы показываем честную связь — что было до правки и что стало после." aria-label="Пояснение">?</button></h2>
                 <span class="ch-sub">результат по каждому фиксу, а не список работ</span>
               </div>
             </div>
@@ -300,7 +340,7 @@ FINISH: unreviewed and undocumented is unfinished.
           <section class="card">
             <div class="card-head">
               <div class="ch-left">
-                <h2 class="ch-title">Журнал работ</h2>
+                <h2 class="ch-title">Журнал работ<button class="info" type="button" data-tip="Полный список действий агента за период — включая ежедневную рутину вроде обхода каталога, которая не даёт отдельного измеримого эффекта, но держит сайт в порядке." aria-label="Пояснение">?</button></h2>
                 <span class="ch-sub">всё, что агент сделал за период, включая рутину без отдельного эффекта</span>
               </div>
               <span class="pill-count">142 операции</span>
@@ -315,7 +355,7 @@ FINISH: unreviewed and undocumented is unfinished.
 
         <section class="card">
           <div class="card-head">
-            <div class="ch-left"><h2 class="ch-title">Подключение к сайту</h2><span class="ch-sub">через плагин, без паролей от админки</span></div>
+            <div class="ch-left"><h2 class="ch-title">Подключение к сайту<button class="info" type="button" data-tip="Агент работает через плагин WordPress и пишет правки в обычные поля сайта. Паролей от админки мы не храним. Отключите плагин — доступ пропадёт, а все сделанные правки останутся вашими." aria-label="Пояснение">?</button></h2><span class="ch-sub">через плагин, без паролей от админки</span></div>
             <span class="st st-done"><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>подключён 14.07</span>
           </div>
           <div class="set-rows">
@@ -333,7 +373,7 @@ FINISH: unreviewed and undocumented is unfinished.
 
         <section class="card">
           <div class="card-head">
-            <div class="ch-left"><h2 class="ch-title">Что агент делает без вопросов</h2><span class="ch-sub">доверие включается по частям — снимите галочку, и фикс будет ждать вашего нажатия</span></div>
+            <div class="ch-left"><h2 class="ch-title">Что агент делает без вопросов<button class="info" type="button" data-tip="Автопилот включается по категориям работ: что отмечено — агент делает сам, что нет — ждёт вашего нажатия. Тексты никогда не публикуются автоматически, это правило, а не настройка." aria-label="Пояснение">?</button></h2><span class="ch-sub">доверие включается по частям — снимите галочку, и фикс будет ждать вашего нажатия</span></div>
           </div>
           <div id="auto-rows"></div>
           <div class="card-foot">Тексты никогда не публикуются автоматически — это правило, а не настройка. Перед любой правкой агент делает снимок «как было»; откат — одно нажатие.</div>
@@ -341,7 +381,7 @@ FINISH: unreviewed and undocumented is unfinished.
 
         <section class="card">
           <div class="card-head">
-            <div class="ch-left"><h2 class="ch-title">Программа</h2><span class="ch-sub">диагностика бесплатна и остаётся бесплатной; деньги — за исполнение</span></div>
+            <div class="ch-left"><h2 class="ch-title">Программа<button class="info" type="button" data-tip="Диагностика бесплатна навсегда: смотреть, что мешает сайту, можно без оплаты. Деньги — за исполнение: в «Подрядчике» агент чинит техническое, в «Росте» ещё пишет тексты с вашим подтверждением." aria-label="Пояснение">?</button></h2><span class="ch-sub">диагностика бесплатна и остаётся бесплатной; деньги — за исполнение</span></div>
           </div>
           <div class="plans" id="plans"></div>
           <div class="feat-head">
@@ -356,26 +396,6 @@ FINISH: unreviewed and undocumented is unfinished.
 
       <footer class="foot">Все данные на экране синтетические и служат только для показа интерфейса. Ни один показатель не измерен на реальном сайте.</footer>
     </main>
-  </div>
-</div>
-
-<!-- ── КОМПЛАЕНС: кросс-продажа ── -->
-<div class="modal" id="compl-modal" hidden>
-  <div class="modal-card" role="dialog" aria-label="Проверка по комплаенсу">
-    <button class="modal-x" id="compl-x" type="button" aria-label="Закрыть">×</button>
-    <span class="modal-ic"><svg class="ico" aria-hidden="true"><use href="#i-shield"/></svg></span>
-    <h2 class="modal-h">Проверка по комплаенсу</h2>
-    <p class="modal-p">Отдельная услуга: проверяем сайт по 152-ФЗ и смежным требованиям — политика обработки данных, формы согласия, cookie-баннер, права на изображения и тексты. На выходе отчёт с приоритетами и что именно исправить.</p>
-    <ul class="modal-list">
-      <li>52 параметра: персональные данные, авторские права, кибербезопасность</li>
-      <li>Отдельный отчёт, не смешивается с поисковыми фиксами</li>
-      <li>Штрафы по 152-ФЗ считаются отдельно от потерь трафика</li>
-    </ul>
-    <div class="modal-act">
-      <button class="btn btn-blue" type="button">Запросить проверку</button>
-      <button class="btn btn-line" id="compl-x2" type="button">Не сейчас</button>
-    </div>
-    <p class="modal-note">Это не входит в подписку «Дозора» — считается отдельно, потому что и работа другая.</p>
   </div>
 </div>
 
@@ -402,6 +422,26 @@ FINISH: unreviewed and undocumented is unfinished.
 </div>
 
 </section>
+
+<!-- ── КОМПЛАЕНС: кросс-продажа ── -->
+<div class="modal" id="compl-modal" hidden>
+  <div class="modal-card" role="dialog" aria-label="Проверка по комплаенсу">
+    <button class="modal-x" id="compl-x" type="button" aria-label="Закрыть">×</button>
+    <span class="modal-ic"><svg class="ico" aria-hidden="true"><use href="#i-shield"/></svg></span>
+    <h2 class="modal-h">Проверка по комплаенсу</h2>
+    <p class="modal-p">Отдельная услуга: проверяем сайт по 152-ФЗ и смежным требованиям — политика обработки данных, формы согласия, cookie-баннер, права на изображения и тексты. На выходе отчёт с приоритетами и что именно исправить.</p>
+    <ul class="modal-list">
+      <li>52 параметра: персональные данные, авторские права, кибербезопасность</li>
+      <li>Отдельный отчёт, не смешивается с поисковыми фиксами</li>
+      <li>Штрафы по 152-ФЗ считаются отдельно от потерь трафика</li>
+    </ul>
+    <div class="modal-act">
+      <button class="btn btn-blue" type="button">Запросить проверку</button>
+      <button class="btn btn-line" id="compl-x2" type="button">Не сейчас</button>
+    </div>
+    <p class="modal-note">Это не входит в подписку «Дозора» — считается отдельно, потому что и работа другая.</p>
+  </div>
+</div>
 
 <style>
 @font-face {
@@ -545,26 +585,57 @@ h1,h2,h3{font-weight:700;letter-spacing:-.02em;text-wrap:balance}
 .badge-amb{background:var(--amb-s2);border:1px solid var(--amb-line);color:var(--amb-2)}
 .avatar{width:30px;height:30px;border-radius:50%;flex:none;background:var(--blue-s2);color:var(--blue);display:grid;place-items:center;font-weight:700;font-size:14px}
 
-/* ── ворота ── */
-.gate{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:40px 20px;background:linear-gradient(150deg,#E4F1FB 0%,#EFF7FD 40%,#FFFFFF 75%)}
-.gate-card{width:100%;max-width:680px;background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:var(--sh-lg);padding:32px 36px 30px;animation:popIn .3s cubic-bezier(.2,.8,.2,1)}
-.gate-title{font-size:31px;line-height:1.12;margin-top:26px;max-width:17ch}
-.gate-title.sm{font-size:26px;max-width:none}
-.gate-lead{margin-top:12px;color:var(--ink-4);font-size:15.5px;max-width:56ch}
-.gate-form{display:flex;gap:10px;margin-top:24px;flex-wrap:wrap}
-.gate-form .inp{flex:1 1 260px}
-.hiw{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px;padding-top:22px;border-top:1px solid var(--line-3)}
-@media(max-width:640px){.hiw{grid-template-columns:1fr;gap:12px}}
-.hiw li{display:flex;gap:10px;align-items:flex-start}
-.hiw b{width:22px;height:22px;border-radius:50%;flex:none;display:grid;place-items:center;background:var(--blue-s);color:var(--blue);font-size:12px;font-weight:700}
-.hiw div{font-size:12.5px;color:var(--ink-4);line-height:1.5}
-.hiw span{display:block;font-weight:600;font-size:14px;color:var(--ink)}
-.gate-split{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:26px;padding-top:22px;border-top:1px solid var(--line-3)}
-@media(max-width:640px){.gate-split{grid-template-columns:1fr;gap:18px}}
-.gs-head{display:flex;align-items:center;gap:9px;font-weight:600;font-size:14px;margin-bottom:11px}
-.gs-list li{position:relative;padding-left:16px;font-size:14px;color:var(--ink-4);margin-bottom:7px;line-height:1.45}
-.gs-list li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:1.5px;border-radius:1px;background:var(--faint)}
-.gate-note{margin-top:22px;padding-top:16px;border-top:1px solid var(--line-3);font-size:13px;color:var(--mut-2);line-height:1.55}
+/* ── ворота: полноэкранная композиция, три горизонтальных слоя ── */
+.gate{
+  min-height:100dvh;display:flex;flex-direction:column;
+  background:
+    radial-gradient(1100px 620px at 88% -8%, #E4F1FB 0%, rgba(228,241,251,0) 62%),
+    linear-gradient(180deg,#FFFFFF 0%,#F7FBF9 100%);
+}
+.gate-wrap{width:100%;max-width:1240px;margin:0 auto;padding:0 56px}
+.gate-top{display:flex;align-items:center;justify-content:space-between;gap:16px;height:74px;flex:none}
+.gate-link{font-size:14.5px;font-weight:600;color:var(--ink-4);padding:8px 12px;border-radius:9px;white-space:nowrap;flex:none;transition:color .15s,background .15s}
+.gl-short{display:none}
+.gate-link:hover{color:var(--blue-d);background:rgba(255,255,255,.7)}
+.gate-link:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.gate-hero{flex:1;display:flex;flex-direction:column;justify-content:center;padding:26px 0 30px;animation:popIn .3s cubic-bezier(.2,.8,.2,1)}
+.gate-title{font-size:clamp(38px,5.3vw,76px);line-height:1.03;max-width:27ch}
+.gate-title.sm{font-size:clamp(28px,3.4vw,44px);max-width:none}
+.gate-lead{margin-top:20px;color:var(--ink-4);font-size:18px;line-height:1.6;max-width:52ch}
+.gate-form{display:flex;gap:10px;margin-top:34px;max-width:660px;flex-wrap:wrap}
+.gate-form .inp{flex:1 1 300px;box-shadow:0 1px 2px rgba(18,52,44,.04),0 18px 34px -26px rgba(18,52,44,.28)}
+
+/* нижняя полоса первого экрана */
+.gate-band{flex:none;border-top:1px solid var(--line);background:rgba(255,255,255,.72);backdrop-filter:saturate(180%) blur(6px)}
+.gate-band-in{display:grid;grid-template-columns:repeat(3,1fr)}
+.gb-cell{padding:26px 34px 28px 0}
+.gb-cell+.gb-cell{padding-left:34px;border-left:1px solid var(--line-3)}
+.gb-t{font-size:15.5px;font-weight:700}
+.gb-s{margin-top:6px;font-size:13.5px;line-height:1.55;color:var(--ink-4);max-width:34ch}
+.gb-viz{display:flex;align-items:center;gap:8px;margin-top:14px;flex-wrap:wrap}
+.gb-pill{padding:5px 11px;border-radius:8px;font-size:13px;font-weight:700}
+.gb-num{font-size:26px;font-weight:700;letter-spacing:-.03em;line-height:1}
+.gb-unit{font-size:13.5px;font-weight:600;color:var(--grn)}
+.gb-unit.mut{font-weight:500;color:var(--ink-4)}
+.gb-bar{height:9px;width:170px;border-radius:5px;background:#E7EFEB;overflow:hidden}
+.gb-bar i{display:block;height:100%;width:62%;border-radius:5px;background:linear-gradient(90deg,#3E9BD8,var(--blue))}
+.gate-note{padding:14px 0 18px;border-top:1px solid var(--line-3);font-size:12.5px;color:var(--ink-4);line-height:1.55}
+
+/* второй экран страницы входа */
+.below{background:#fff;border-top:1px solid var(--line);padding:46px 0 54px}
+.hiw{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+@media(max-width:640px){.hiw{grid-template-columns:1fr;gap:14px}}
+.hiw li{display:flex;gap:11px;align-items:flex-start}
+.hiw b{width:24px;height:24px;border-radius:50%;flex:none;display:grid;place-items:center;background:var(--blue-s);color:var(--blue);font-size:12.5px;font-weight:700}
+.hiw div{font-size:13.5px;color:var(--ink-4);line-height:1.55}
+.hiw span{display:block;font-weight:600;font-size:15px;color:var(--ink);margin-bottom:3px}
+.gate-split{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:34px;padding-top:28px;border-top:1px solid var(--line-3)}
+@media(max-width:640px){.gate-split{grid-template-columns:1fr;gap:20px}}
+.gs-head{display:flex;align-items:center;gap:9px;font-weight:600;font-size:14.5px;margin-bottom:12px}
+.gs-list li{position:relative;padding-left:16px;font-size:14px;color:var(--ink-4);margin-bottom:8px;line-height:1.5}
+.gs-list li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:1.5px;border-radius:1px;background:#B9C7C0}
+
+.scan-hero{max-width:820px}
 .scan-list{margin-top:26px}
 .scan-row{display:flex;align-items:center;gap:13px;padding:14px 2px;border-bottom:1px solid var(--line-4);opacity:0;transform:translateY(4px);transition:opacity .45s cubic-bezier(.16,1,.3,1),transform .45s cubic-bezier(.16,1,.3,1)}
 .scan-row.is-in{opacity:1;transform:none}
@@ -574,8 +645,26 @@ h1,h2,h3{font-weight:700;letter-spacing:-.02em;text-wrap:balance}
 .scan-name{flex:1;font-weight:500;font-size:15px}
 .scan-val{font-size:14px;font-weight:600;color:var(--grn)}
 .scan-val.is-bad{color:var(--red)} .scan-val.is-wait{color:var(--amb);font-weight:500}
-.scan-next{margin-top:18px;padding:13px 15px;border-radius:11px;background:var(--blue-s);border:1px solid var(--blue-line);font-size:13.5px;color:#1B5A93;line-height:1.55}
-#scan-skip{margin-top:20px}
+.scan-next{margin-top:18px;padding:13px 15px;border-radius:11px;background:var(--blue-s);border:1px solid var(--blue-line);font-size:13.5px;color:#1B5A93;line-height:1.55;max-width:70ch}
+#scan-skip{margin-top:20px;align-self:flex-start}
+
+@media(max-width:1080px){
+  .gate-wrap{padding:0 24px}
+  .gate-band-in{grid-template-columns:1fr}
+  .gb-cell{padding:20px 0}
+  .gb-cell+.gb-cell{padding-left:0;border-left:0;border-top:1px solid var(--line-3)}
+  .below{padding:36px 0 42px}
+}
+@media(max-width:640px){
+  .gate-top{height:64px}
+  .gate-link{font-size:13px;padding:6px 8px}
+  .gl-full{display:none} .gl-short{display:inline}
+  .gate-top .brand-txt b{display:none}
+  .gate-lead{font-size:16px;margin-top:16px}
+  .gate-form{margin-top:26px}
+  .gate-form .inp{flex:1 1 100%}
+  .gate-form .btn{width:100%}
+}
 
 /* ── КАРКАС: меню слева ── */
 .shell{display:flex;min-height:100vh}
@@ -629,6 +718,13 @@ h1,h2,h3{font-weight:700;letter-spacing:-.02em;text-wrap:balance}
 }
 .compl:hover{background:#E6DEF7}
 .compl:focus-visible{outline:2px solid var(--violet);outline-offset:2px}
+.tour-open{
+  display:flex;align-items:center;gap:10px;padding:10px 11px;border-radius:10px;
+  font-size:13.5px;font-weight:600;color:var(--ink-4);transition:background .15s,color .15s;
+}
+.tour-open:hover{background:var(--surf-3);color:var(--ink)}
+.tour-open:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.shell.is-min .tour-open{justify-content:center;padding-left:0;padding-right:0}
 .side-scrim{display:none}
 
 .work{flex:1;min-width:0;display:flex;flex-direction:column}
@@ -681,6 +777,7 @@ h1,h2,h3{font-weight:700;letter-spacing:-.02em;text-wrap:balance}
 /* ── вердикт ── */
 .verdict{display:flex;align-items:center;gap:14px;padding:15px 20px}
 .v-body{flex:1;min-width:0}
+.v-body .v-row{display:flex;align-items:center;font-size:inherit;color:inherit;margin-top:0}
 .v-body b{display:block;font-size:16.5px;font-weight:700;letter-spacing:-.015em}
 .v-body span{display:block;font-size:13.5px;color:var(--ink-4);margin-top:2px}
 .pulse{width:10px;height:10px;border-radius:50%;flex:none;background:var(--grn);box-shadow:0 0 0 4px var(--grn-s)}
@@ -995,6 +1092,52 @@ h1,h2,h3{font-weight:700;letter-spacing:-.02em;text-wrap:balance}
   .chat-fab{align-self:flex-end;width:52px;height:52px}
 }
 @media(prefers-reduced-motion:reduce){.chat-panel,.msg,.modal,.modal-card{animation:none}.msg-typing i{animation:none;opacity:.5}}
+
+/* ── «?»-подсказки ── */
+.info{
+  position:relative;width:19px;height:19px;border-radius:50%;flex:none;
+  border:1px solid var(--line-2);background:#fff;color:var(--ink-4);
+  font-size:11.5px;font-weight:700;line-height:1;cursor:help;
+  display:inline-grid;place-items:center;vertical-align:3px;margin-left:8px;padding:0;
+  transition:color .12s,border-color .12s;
+}
+.info::after{content:"";position:absolute;inset:-5px;border-radius:50%}
+.info:hover,.info:focus-visible{color:var(--blue-d);border-color:var(--blue)}
+.info:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.info-lg{width:22px;height:22px;font-size:13px;vertical-align:5px}
+.th .info{width:16px;height:16px;font-size:10px;margin-left:6px;vertical-align:-3px}
+.kpi-l .info{width:16px;height:16px;font-size:10px;margin-left:6px;vertical-align:-3px}
+.fx-term .info,.w-term .info{width:15px;height:15px;font-size:9.5px;margin-left:5px;vertical-align:-3px}
+#tip{
+  position:fixed;z-index:120;max-width:300px;background:var(--ink);color:#fff;
+  font-size:13.5px;line-height:1.55;padding:11px 13px;border-radius:12px;pointer-events:none;
+  opacity:0;transition:opacity .12s;box-shadow:0 10px 30px -8px rgba(18,52,44,.4);
+}
+#tip.show{opacity:1}
+
+/* ── онбординг-тур ── */
+.tour-hole{
+  position:fixed;z-index:100;border-radius:16px;pointer-events:none;
+  box-shadow:0 0 0 9999px rgba(22,33,29,.48);
+  transition:top .25s cubic-bezier(.2,.8,.2,1),left .25s cubic-bezier(.2,.8,.2,1),width .25s cubic-bezier(.2,.8,.2,1),height .25s cubic-bezier(.2,.8,.2,1);
+}
+.tour-pop{
+  position:fixed;z-index:110;width:min(340px,calc(100vw - 32px));
+  background:#fff;border:1px solid var(--line);border-radius:16px;
+  box-shadow:0 24px 60px -18px rgba(18,52,44,.45);padding:18px 20px 16px;
+  animation:popIn .22s cubic-bezier(.2,.8,.2,1);
+}
+.tour-step{font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--blue)}
+.tour-h{font-size:17px;font-weight:700;letter-spacing:-.015em;margin-top:7px}
+.tour-t{margin-top:8px;font-size:14px;color:var(--ink-4);line-height:1.55}
+.tour-act{display:flex;align-items:center;gap:9px;margin-top:15px}
+.tour-skip{margin-left:auto;font-size:13px;font-weight:500;color:var(--mut);padding:6px 8px;border-radius:8px}
+.tour-skip:hover{color:var(--ink);background:var(--surf-3)}
+.tour-skip:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+@media(max-width:620px){
+  .tour-pop{left:12px!important;right:12px;bottom:12px;top:auto!important;width:auto}
+}
+@media(prefers-reduced-motion:reduce){.tour-pop{animation:none}.tour-hole{transition:none}}
 </style>
 
 <script>
@@ -1006,12 +1149,18 @@ var NB = ' ';
 /* ═══ ДАННЫЕ (синтетические) ═══ */
 
 var KPI = [
-  {l:'Запросов на первой странице', v:'96',    d:'+31',            dir:'up',   s:'из 890 · норма 210–320'},
-  {l:'Видимость магазина',          v:'14%',   d:'+4 п.п.',        dir:'up',   s:'норма 35–50%'},
-  {l:'Карточек держится в поиске',  v:'1'+NB+'402', d:'выпало 1'+NB+'238', dir:'down', s:'из 2'+NB+'640 · норма от 2'+NB+'300'},
-  {l:'Каталог открывается',         v:'3,1 с', d:'было 4,6 с',     dir:'up',   s:'на телефоне · норма до 2,5 с'},
-  {l:'Открытых фиксов',             v:'3',     d:'было 8',         dir:'up',   s:'четыре закрыты за месяц'},
-  {l:'Запросов в первой тройке',    v:'22',    d:'+9',             dir:'up',   s:'норма 25–60'}
+  {l:'Запросов на первой странице', v:'96',    d:'+31',            dir:'up',   s:'из 890 · норма 210–320',
+   tip:'По скольким запросам ваш сайт стоит на первой странице Яндекса. Дальше первой страницы человек почти не смотрит, поэтому это число — главный источник посетителей. Норма — ориентир для магазина такого размера.'},
+  {l:'Видимость магазина',          v:'14%',   d:'+4 п.п.',        dir:'up',   s:'норма 35–50%',
+   tip:'Как часто вас вообще показывают людям, которые ищут ваши товары. 14% — вас видит примерно каждый седьмой. «П.п.» — процентных пункта: было 10%, стало 14%.'},
+  {l:'Карточек держится в поиске',  v:'1'+NB+'402', d:'выпало 1'+NB+'238', dir:'down', s:'из 2'+NB+'640 · норма от 2'+NB+'300',
+   tip:'Сколько страниц товаров Яндекс держит в поиске. Выпавшая карточка не приносит ни одного посетителя, даже если товар в наличии. Вернуть выпавшие — первый фикс в очереди.'},
+  {l:'Каталог открывается',         v:'3,1 с', d:'было 4,6 с',     dir:'up',   s:'на телефоне · норма до 2,5 с',
+   tip:'За сколько секунд каталог открывается на телефоне. Медленные страницы люди закрывают, не дождавшись, а Яндекс опускает их ниже в выдаче.'},
+  {l:'Открытых фиксов',             v:'3',     d:'было 8',         dir:'up',   s:'четыре закрыты за месяц',
+   tip:'Сколько починок осталось в очереди. Фикс — одна конкретная работа на сайте: у каждого написано, что сделаем и сколько запросов это вернёт.'},
+  {l:'Запросов в первой тройке',    v:'22',    d:'+9',             dir:'up',   s:'норма 25–60',
+   tip:'Самый верх выдачи — первые три строчки. Сюда уходит большинство кликов, поэтому за топ-3 идёт основная борьба.'}
 ];
 
 /* каждая находка — фикс: человеческое имя, цена потерь, кто нажимает */
@@ -1212,6 +1361,23 @@ var $$ = function(s,r){return Array.prototype.slice.call((r||document).querySele
 var esc = function(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){
   return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];})};
 var ico = function(id,cls){return '<svg class="ico'+(cls?' '+cls:'')+'" aria-hidden="true"><use href="#'+id+'"/></svg>'};
+var qi  = function(tip){return '<button class="info" type="button" data-tip="'+esc(tip)+'" aria-label="Пояснение">?</button>'};
+
+/* словарь терминов: подсказка подбирается по подстроке в f.term */
+var TERMS = [
+  ['LOW_QUALITY',   'Так Яндекс помечает страницы, которые считает пустыми: читать на них нечего, и в поиске он их не держит. Лечится только наполнением — переобход без содержания не поможет.'],
+  ['404',           'Код «страница не найдена». Для поиска это сигнал забыть страницу — вместе со всем трафиком, который она копила.'],
+  ['canonical',     'Канонический адрес — указание поиску, какая страница главная, когда у неё появились копии (например, от фильтров каталога). Без него копии соревнуются друг с другом.'],
+  ['title',         'Заголовок страницы — синяя ссылка в выдаче Яндекса. Когда заголовки одинаковые, поиск считает страницы взаимозаменяемыми и показывает одну вместо всех.'],
+  ['meta description','Описание — две серые строки под ссылкой в выдаче. Если его нет, поиск собирает подпись сам из случайных обрывков текста, и по ней реже кликают.'],
+  ['schema.org',    'Разметка — невидимые пометки в коде страницы, из которых поиск берёт цену и наличие и показывает их прямо в выдаче. С ней карточка заметнее соседей.'],
+  ['LCP',           'Замер скорости: за сколько секунд на телефоне появляется основная часть страницы. Норма Яндекса и Google — до 2,5 секунды.'],
+  ['/page/2/',      'Вторые и третьи страницы каталога — списки «показать ещё». Иногда они попадают в поиск наравне с самой категорией и оттягивают её показы.']
+];
+function termTip(term){
+  for(var i=0;i<TERMS.length;i++){ if(term.indexOf(TERMS[i][0])>=0) return TERMS[i][1]; }
+  return null;
+}
 
 function bandCls(p){ if(p==null||p>100) return 'b4'; if(p<=3) return 'b1'; if(p<=10) return 'b2'; if(p<=30) return 'b3'; return 'b4'; }
 
@@ -1245,7 +1411,7 @@ function renderKpi(){
     var d = TIER==='free'
       ? '<div class="kpi-d is-neu">история копится</div>'
       : '<div class="kpi-d '+cls+'">'+(arrow?ico(arrow):'')+esc(k.d)+'</div>';
-    return '<div class="kpi"><div class="kpi-l">'+esc(k.l)+'</div>'
+    return '<div class="kpi"><div class="kpi-l">'+esc(k.l)+(k.tip?qi(k.tip):'')+'</div>'
       + '<div class="kpi-v">'+esc(k.v)+'</div>'+d
       + '<div class="kpi-s">'+esc(k.s)+'</div></div>';
   }).join('');
@@ -1317,9 +1483,10 @@ function fxCard(f,i,st){
     body = '<p class="fx-lock">Не выполняется. <a data-undo="'+i+'">Вернуть в работу</a></p>';
   }
 
+  var tTip = termTip(f.term);
   return '<div class="fx">'
     + '<div class="fx-ic '+icoCls+'">'+ico(icoId)+'</div>'
-    + '<div><div class="fx-name">'+esc(f.name)+'<span class="fx-term">'+esc(f.term)+'</span></div>'
+    + '<div><div class="fx-name">'+esc(f.name)+'<span class="fx-term">'+esc(f.term)+(tTip?qi(tTip):'')+'</span></div>'
     +   '<p class="fx-why">'+esc(f.why)+'</p>'
     +   '<div class="fx-where">'+esc(f.where)+'</div>'+body+'</div>'
     + '<div class="fx-side">'+badge
@@ -1424,9 +1591,10 @@ function renderVerdict(c){
 
 function renderWatch(){
   $('#watch-body').innerHTML = WATCH.map(function(w){
+    var tTip = termTip(w.term);
     return '<div class="w-row"><span class="w-ic">'+ico('i-clock')+'</span>'
       + '<div><b>'+esc(w.name)+'</b><span>'+esc(w.text)+'</span>'
-      + '<span style="color:var(--mut-4);font-size:12px;margin-top:5px">'+esc(w.term)+'</span></div></div>';
+      + '<span class="w-term" style="color:var(--mut-4);font-size:12px;margin-top:5px">'+esc(w.term)+(tTip?qi(tTip):'')+'</span></div></div>';
   }).join('');
 }
 
@@ -1567,15 +1735,19 @@ $('#intake-form').addEventListener('submit', function(e){
   runScan();
 });
 
+function enterApp(){
+  show('v-app');
+  if(!TOUR_SEEN){ TOUR_SEEN = true; setTimeout(tourStart, 650); }
+}
 var timers = [];
 function runScan(){
   timers.forEach(clearTimeout); timers = [];
   var rows = $$('#scan-list .scan-row');
   rows.forEach(function(r){r.classList.remove('is-in')});
   rows.forEach(function(r){ timers.push(setTimeout(function(){r.classList.add('is-in')}, +r.dataset.ms)); });
-  timers.push(setTimeout(function(){show('v-app')}, 5600));
+  timers.push(setTimeout(enterApp, 5600));
 }
-$('#scan-skip').addEventListener('click', function(){ timers.forEach(clearTimeout); timers=[]; show('v-app'); });
+$('#scan-skip').addEventListener('click', function(){ timers.forEach(clearTimeout); timers=[]; enterApp(); });
 $('#restart').addEventListener('click', function(){ show('v-intake') });
 
 $$('.nav').forEach(function(n){ n.addEventListener('click', function(){ activateTab(n.dataset.tab) }); });
@@ -1622,6 +1794,7 @@ $$('.chip[data-filter]').forEach(function(c){
 /* комплаенс */
 function complOpen(v){ $('#compl-modal').hidden = !v; }
 $('#compl').addEventListener('click', function(){ complOpen(true); });
+$('#gate-compl').addEventListener('click', function(){ complOpen(true); });
 $('#compl-x').addEventListener('click', function(){ complOpen(false); });
 $('#compl-x2').addEventListener('click', function(){ complOpen(false); });
 $('#compl-modal').addEventListener('click', function(e){ if(e.target===this) complOpen(false); });
@@ -1733,6 +1906,8 @@ $('#chat-close').addEventListener('click', function(){ chatToggle(false); });
 document.addEventListener('keydown', function(e){
   if(e.key!=='Escape') return;
   if(!$('#compl-modal').hidden){ complOpen(false); return; }
+  if(tourI >= 0){ tourEnd(); return; }
+  if(tipFor){ hideTip(); return; }
   if(chatOpen) chatToggle(false);
 });
 $('#chat-sugg').addEventListener('click', function(e){
@@ -1753,6 +1928,137 @@ $('#chat-form').addEventListener('submit', function(e){
 $('#chat-log').addEventListener('click', function(e){
   var el = e.target.closest('[data-goto]'); if(!el) return;
   activateTab(el.dataset.goto); chatToggle(false);
+});
+
+/* ═══ «?»-ПОДСКАЗКИ (паттерн Радара идей) ═══ */
+var tip = document.createElement('div');
+tip.id = 'tip';
+document.body.appendChild(tip);
+var tipFor = null, tipAt = 0;
+
+function showTip(b){
+  tipFor = b; tipAt = Date.now();
+  tip.textContent = b.dataset.tip;
+  tip.classList.add('show');
+  tip.style.left = '0px'; tip.style.top = '0px';
+  var r = b.getBoundingClientRect(), tw = tip.offsetWidth, th = tip.offsetHeight;
+  var x = Math.min(Math.max(8, r.left + r.width/2 - tw/2), innerWidth - tw - 8);
+  var y = r.top - th - 10;
+  if(y < 8) y = r.bottom + 10;
+  y = Math.min(Math.max(8, y), innerHeight - th - 8);
+  tip.style.left = x + 'px'; tip.style.top = y + 'px';
+}
+function hideTip(){ tipFor = null; tip.classList.remove('show'); }
+
+document.addEventListener('mouseover', function(e){
+  var b = e.target.closest ? e.target.closest('.info') : null;
+  if(b) showTip(b); else if(tipFor) hideTip();
+});
+document.addEventListener('click', function(e){
+  var b = e.target.closest ? e.target.closest('.info') : null;
+  if(b){ e.preventDefault(); e.stopPropagation();
+    /* hover перед кликом уже показал подсказку — клик в первые 350 мс не должен её тут же спрятать */
+    (tipFor===b && tip.classList.contains('show') && Date.now()-tipAt>350) ? hideTip() : showTip(b); }
+  else if(tipFor) hideTip();
+}, true);
+addEventListener('scroll', hideTip, true);
+
+/* ═══ ОНБОРДИНГ-ТУР ═══ */
+var TOUR = [
+  {tab:'auto', sel:'#verdict', h:'Сторож всегда сверху',
+   t:'Первая строка отвечает на главный вопрос: агент работает, и вот сколько дел ждут вашего решения. Кнопка ведёт прямо к работам.'},
+  {tab:'auto', sel:'#kpi-grid', h:'Цифры магазина',
+   t:'Шесть главных показателей сайта. У каждого есть значок «?» — нажмите, и объясним человеческим языком, что это значит и почему важно.'},
+  {tab:'auto', sel:'#fx-card', h:'Рабочая панель',
+   t:'Каждая находка — фикс: что сделаем, сколько запросов вернётся и кто нажимает кнопку. «Ждут вас» — нужно ваше слово, остальное агент делает сам и отчитывается.'},
+  {tab:'positions', sel:'#t-positions .lead-card', h:'Позиции в поиске',
+   t:'Где ваш магазин стоит в Яндексе по каждому запросу и куда сдвинулся за две недели. Зелёное место — первая страница выдачи, туда идут посетители.'},
+  {tab:'act', sel:'#t-act .card:not([hidden])', h:'Акт раз в месяц',
+   t:'Главный документ подписки: что агент сделал и что после этого изменилось — цифрами. Это ответ на вопрос «за что я плачу».'},
+  {tab:'settings', sel:'#auto-rows', h:'Границы доверия',
+   t:'Вы решаете, что агент делает сам, а что ждёт вашего нажатия. Тексты никогда не публикуются без подтверждения — это правило, а не настройка.'},
+  {tab:'auto', sel:'#chat-fab', h:'Спросите своими словами',
+   t:'Помощник видит ваш сайт и отвечает без терминов. Непонятное слово или цифра — спросите здесь или нажмите любой «?» в интерфейсе.'}
+];
+var tourI = -1, tourHole = null, tourPop = null, TOUR_SEEN = false;
+
+function tourEnd(){
+  if(tourHole){ tourHole.remove(); tourHole = null; }
+  if(tourPop){ tourPop.remove(); tourPop = null; }
+  tourI = -1;
+}
+function tourPlace(el){
+  var r = el.getBoundingClientRect(), pad = 8;
+  tourHole.style.top    = (r.top - pad) + 'px';
+  tourHole.style.left   = (r.left - pad) + 'px';
+  tourHole.style.width  = (r.width + pad*2) + 'px';
+  tourHole.style.height = (r.height + pad*2) + 'px';
+  if(innerWidth <= 620) return; /* на мобильном поповер прибит к низу через CSS */
+  var pw = tourPop.offsetWidth, ph = tourPop.offsetHeight;
+  var x = Math.min(Math.max(12, r.left), innerWidth - pw - 12);
+  var y = r.bottom + pad + 12;
+  if(y + ph > innerHeight - 12) y = r.top - pad - ph - 12;
+  if(y < 12) y = Math.max(12, (innerHeight - ph)/2);
+  tourPop.style.left = x + 'px';
+  tourPop.style.top  = y + 'px';
+}
+function tourStep(n){
+  if(n < 0 || n >= TOUR.length){ tourEnd(); return; }
+  tourI = n;
+  var s = TOUR[n];
+  hideTip();
+  activateTab(s.tab);
+  if(!tourHole){
+    tourHole = document.createElement('div');
+    tourHole.className = 'tour-hole';
+    document.body.appendChild(tourHole);
+    tourPop = document.createElement('div');
+    tourPop.className = 'tour-pop';
+    tourPop.setAttribute('role','dialog');
+    tourPop.setAttribute('aria-label','Знакомство с интерфейсом');
+    document.body.appendChild(tourPop);
+  }
+  var el = $(s.sel);
+  if(!el || (!el.getBoundingClientRect().width && !el.getBoundingClientRect().height)){ tourStep(n+1); return; }
+  el.scrollIntoView({block:'center', behavior:'auto'});
+  tourPop.innerHTML = '<div class="tour-step">Шаг '+(n+1)+' из '+TOUR.length+'</div>'
+    + '<div class="tour-h">'+esc(s.h)+'</div>'
+    + '<p class="tour-t">'+esc(s.t)+'</p>'
+    + '<div class="tour-act">'
+    +   (n>0 ? '<button class="btn btn-line btn-sm" data-tour="back" type="button">Назад</button>' : '')
+    +   '<button class="btn btn-blue btn-sm" data-tour="next" type="button">'+(n===TOUR.length-1?'Готово':'Дальше')+'</button>'
+    +   (n<TOUR.length-1 ? '<button class="tour-skip" data-tour="skip" type="button">Пропустить</button>' : '')
+    + '</div>';
+  requestAnimationFrame(function(){
+    tourPlace(el);
+    var nb = tourPop.querySelector('[data-tour="next"]');
+    if(nb) nb.focus({preventScroll:true});
+    setTimeout(function(){ if(tourI===n){ var e2=$(s.sel); if(e2) tourPlace(e2); } }, 280);
+  });
+}
+function tourStart(){ tourEnd(); tourStep(0); }
+
+document.addEventListener('click', function(e){
+  var b = e.target.closest ? e.target.closest('[data-tour]') : null;
+  if(!b) return;
+  if(b.dataset.tour==='next') tourStep(tourI+1);
+  else if(b.dataset.tour==='back') tourStep(tourI-1);
+  else tourEnd();
+});
+addEventListener('resize', function(){
+  if(tourI < 0) return;
+  var el = $(TOUR[tourI].sel);
+  if(el) tourPlace(el);
+});
+addEventListener('scroll', function(){
+  if(tourI < 0) return;
+  var el = $(TOUR[tourI].sel);
+  if(el) tourPlace(el);
+}, true);
+
+$('#tour-open').addEventListener('click', function(){
+  $('#shell').classList.remove('is-open');
+  tourStart();
 });
 
 setTier('growth');
